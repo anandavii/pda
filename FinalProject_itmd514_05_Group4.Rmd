@@ -6,8 +6,8 @@ output: html_document
 ---
 
 ```{r}
-# We will require the tidyverse library, ISLR2 library and the dplyr library																									
-# The following loads the library for our use																									
+# We will require the tidyverse library, ISLR2 library and the dplyr library
+# The following loads the library for our use																								
 library(tidyverse)																									
 library(knitr)																									
 library(ggplot2)
@@ -1047,3 +1047,8 @@ ggplot(nlsy_df, aes(x = used_marijuana, y = total_income_2016, fill = gender)) +
   scale_fill_brewer(palette = "Set3", name = "Gender") +
   theme_minimal()
 ```																					
+
+
+```{r}
+# this is a new section by abhishek
+```
