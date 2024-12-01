@@ -890,6 +890,7 @@ ggplot(data = nlsy_df, aes(x = trustful_or_not, fill = trustful_or_not)) +
                                                   
 The trustful_or_not variable shows a high percentage of missing data (45.73%). Among the valid data, the "Trustful" group (values >= 4) has a higher count than the "Distrustful" group (values 1–3). The missing data should be carefully addressed to ensure reliable insights.
 
+---------------------------------------------------------------------------------------------------------------------
 
 #PART 2 Analysis
 
