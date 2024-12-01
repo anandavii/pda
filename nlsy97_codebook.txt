@@ -1,0 +1,3436 @@
+B00046.00    [PSTRAN_GPA.01]                                Survey Year: PSTR
+  PRIMARY VARIABLE
+
+ 
+             OVERALL GPA REPORTED FOR YOUTH-SCHOOL PAIR 01
+ 
+Variable reports student's institution-specific cumulative GPA as it appears in 
+the transcript. If not available, variable shows cumulative GPA including both 
+transcript-issuing institution and any institutions transferring credits to that
+institution. If neither of these measures were available in the transcript, this
+variable uses the cumulative GPA available for the last (most recent) term 
+reported in the transcript.  Variable has implied 2 implied decimal places. For 
+example, GPA 3.00 is displayed as 300. For disclosure reasons, values higher 
+than 400 are coded as invalid skips (-3).
+ 
+     428           0 TO 100: 
+     490         101 TO 200: 
+    1272         201 TO 300: 
+    1250         301 TO 400: 
+  -------
+    3440
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)     378
+TOTAL =========>    3818   VALID SKIP(-4)     891     NON-INTERVIEW(-5)    4275
+ 
+Min:              0        Max:            400        Mean:              247.86
+ 
+Hard Minimum: [0]
+Hard Maximum: [9999]
+ 
+Lead In: B00045.00[Default]
+Default Next Question: B00047.00
+--------------------------------------------------------------------------------
+E80431.00    [INCARC_TOTNUM]                                Survey Year: XRND
+  PRIMARY VARIABLE
+
+ 
+             TOTAL NUMBER OF INCARCERATIONS
+ 
+Total number of separate incarcerations reported by the respondent.
+ 
+    8054           0: No incarcerations
+     716           1 TO 2: incarcerations
+     146           3 TO 4: incarcerations
+      38           5 TO 6: incarcerations
+       7           7 TO 8: incarcerations
+       1           9 TO 10: incarcerations
+       1          11 TO 12: incarcerations
+       0          13 TO 14: incarcerations
+       0          15 TO 16: incarcerations
+       0          17 TO 18: incarcerations
+       0          19 TO 20: incarcerations
+  -------
+    8963
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      21
+TOTAL =========>    8984   VALID SKIP(-4)       0     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:             11        Mean:                 .19
+ 
+Hard Minimum: [0]
+Hard Maximum: [999999]
+ 
+Lead In: E80430.00[Default]
+Default Next Question: E80432.00
+--------------------------------------------------------------------------------
+E80432.00    [INCARC_AGE_FIRST]                             Survey Year: XRND
+  PRIMARY VARIABLE
+
+ 
+             AGE AT FIRST INCARCERATION
+ 
+Age of respondent when first incarcerated.
+ 
+       2           0 TO 12: years
+      19          13 TO 15: years
+     163          16 TO 18: years
+     225          19 TO 21: years
+     251          22 TO 25: years
+     200          26 TO 30: years
+      60          31 TO 99: years
+  -------
+     920
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      10
+TOTAL =========>     930   VALID SKIP(-4)    8054     NON-INTERVIEW(-5)       0
+ 
+Min:             12        Max:             37        Mean:               22.86
+ 
+Hard Minimum: [0]
+Hard Maximum: [999999]
+ 
+Lead In: E80431.00[Default]
+Default Next Question: E80433.00
+--------------------------------------------------------------------------------
+E80434.00    [INCARC_LENGTH_LONGEST]                        Survey Year: XRND
+  PRIMARY VARIABLE
+
+ 
+             LENGTH OF LONGEST INCARCERATION
+ 
+Number of months for the longest spell of incarceration.
+ 
+     316           0 TO 3: months
+      84           4 TO 6: months
+      60           7 TO 9: months
+      60          10 TO 12: months
+      87          13 TO 18: months
+      52          19 TO 24: months
+      80          25 TO 36: months
+      40          37 TO 48: months
+     125          49 TO 999: months
+  -------
+     904
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      26
+TOTAL =========>     930   VALID SKIP(-4)    8054     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:            207        Mean:               21.16
+ 
+Hard Minimum: [0]
+Hard Maximum: [999999]
+ 
+Lead In: E80433.00[Default]
+Default Next Question: E80435.00
+--------------------------------------------------------------------------------
+R00001.00    [PUBID]                                        Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             PUBID, YOUTH CASE IDENTIFICATION CODE
+ 
+COMMENT: YOUTH CASE IDENTIFICATION CODE
+ 
+       0           0
+     998           1 TO 999
+     999        1000 TO 1999
+     997        2000 TO 2999
+     996        3000 TO 3999
+     998        4000 TO 4999
+     996        5000 TO 5999
+     994        6000 TO 6999
+     994        7000 TO 7999
+     989        8000 TO 8999
+      23        9000 TO 9999
+  -------
+    8984
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    8984   VALID SKIP(-4)       0     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:           9022        Mean:              4504.3
+ 
+Hard Minimum: [0]
+Hard Maximum: [99999999]
+ 
+Lead In: R72976.00[Default]
+Default Next Question: R05363.00
+--------------------------------------------------------------------------------
+R00694.00    [YSCH-36400]                                   Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             TEACHERS GOOD (AGREE/DISAGREE)
+ 
+Thinking about your (last) school in general, how much do you agree with each of
+the following statements about your school and teachers?
+ 
+... The teachers are good. Do you strongly agree, agree, disagree, or strongly 
+disagree?
+ 
+UNIVERSE: R has been enrolled in regular school
+ 
+    1573       1 Strongly agree
+    6192       2 Agree
+     964       3 Disagree
+     236       4 Strongly Disagree
+  -------
+    8965
+ 
+Refusal(-1)            2
+Don't Know(-2)         3
+TOTAL =========>    8970   VALID SKIP(-4)      14     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:              4        Mean:                1.98
+ 
+Lead In: R00693.00[Default]  R00688.00[1:1]
+Default Next Question: R00695.00
+--------------------------------------------------------------------------------
+R00700.00    [YSCH-37000]                                   Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             FEEL SAFE AT SCHOOL AGREE/DISAGREE
+ 
+... I [feel /felt] safe at this school.
+ 
+UNIVERSE: R has been enrolled in regular school
+ 
+    2798       1 Strongly agree
+    4870       2 Agree
+    1018       3 Disagree
+     273       4 Strongly Disagree
+  -------
+    8959
+ 
+Refusal(-1)            2
+Don't Know(-2)         9
+TOTAL =========>    8970   VALID SKIP(-4)      14     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:              4        Mean:                1.86
+ 
+Lead In: R00699.00[Default]
+Default Next Question: R00701.00
+--------------------------------------------------------------------------------
+R03239.00    [YSAQ-010]                                     Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             # DAYS PER WEEK TYPICALLY FAMILY DOES SOMETHING RELIGIOUS
+ 
+In a typical week, how many days from 0 to 7 do you do something religious as a 
+family such as go to church, pray or read the scriptures together?
+ 
+UNIVERSE: R <= 14 at end of prev year; lives with parent/guardian
+ 
+    1814           0
+    1737           1
+     677           2
+     341           3
+     158           4
+     140           5
+      91           6
+     406           7
+  -------
+    5364
+ 
+Refusal(-1)            7
+Don't Know(-2)         7
+Invalid Skip(-3)       2
+TOTAL =========>    5380   VALID SKIP(-4)    3604     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:              7        Mean:                1.65
+ 
+Hard Minimum: [0]
+Hard Maximum: [7]
+Soft Minimum: [0]
+Soft Maximum: [7]
+ 
+Lead In: R03238.00[Default]
+Default Next Question: R03240.00
+--------------------------------------------------------------------------------
+R03589.00    [YSAQ-369]                                     Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             R EVER USE MARIJUANA?
+ 
+Have you ever used marijuana, for example: grass or pot, in your lifetime?
+ 
+UNIVERSE: All
+ 
+    1795       1 Yes   (Go To R03590.00)
+    7148       0 No
+  -------
+    8943
+ 
+Refusal(-1)           34
+Don't Know(-2)         5
+Invalid Skip(-3)       2
+TOTAL =========>    8984   VALID SKIP(-4)       0     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:              1        Mean:                  .2
+ 
+Lead In: R03583.00[Default] R03588.00[Default]  R03585.00[0:0]
+Default Next Question: R03593.00
+--------------------------------------------------------------------------------
+R05135.00    [YEXP-300]                                     Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             PERCENT CHANCE GET FLU NEXT YEAR
+ 
+What do you think is the percent chance that you will get the flu sometime in 
+the next year?
+ 
+UNIVERSE: R >= 15
+ 
+     251           0: 0%
+     495           1 TO 10: 1%-10%
+     233          11 TO 20: 11%-20%
+     314          21 TO 30: 21%-30%
+      79          31 TO 40: 31%-40%
+     875          41 TO 50: 41%-50%
+      68          51 TO 60: 51%-60%
+      53          61 TO 70: 61%-70%
+     311          71 TO 80: 71%-80%
+     162          81 TO 90: 81%-90%
+     662          91 TO 100: 91%-100%
+  -------
+    3503
+ 
+Refusal(-1)            1
+Don't Know(-2)        32
+Invalid Skip(-3)      28
+TOTAL =========>    3564   VALID SKIP(-4)    5420     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:            100        Mean:               49.65
+ 
+Hard Minimum: [0]
+Hard Maximum: [100]
+ 
+Lead In: R05134.00[Default]
+Default Next Question: R05136.00
+--------------------------------------------------------------------------------
+R05147.00    [YEXP-1500]                                    Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             PERCENT CHANCE R HAS HIGH SCHOOL DIPLOMA BY 20 YEARS OLD
+ 
+The next questions ask about your school and work situation at the time of your 
+20th birthday.
+ 
+What is the percent chance that you will have received a high school diploma by 
+the time you turn 20?
+ 
+UNIVERSE: R >= 15
+ 
+      50           0: 0%
+      27           1 TO 10: 1%-10%
+      13          11 TO 20: 11%-20%
+      17          21 TO 30: 21%-30%
+       7          31 TO 40: 31%-40%
+     124          41 TO 50: 41%-50%
+      16          51 TO 60: 51%-60%
+      14          61 TO 70: 61%-70%
+     138          71 TO 80: 71%-80%
+     169          81 TO 90: 81%-90%
+    2948          91 TO 100: 91%-100%
+  -------
+    3523
+ 
+Refusal(-1)            3
+Don't Know(-2)        10
+Invalid Skip(-3)      29
+TOTAL =========>    3565   VALID SKIP(-4)    5419     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:            100        Mean:               93.42
+ 
+Hard Minimum: [0]
+Hard Maximum: [100]
+ 
+Lead In: R05146.00[Default]
+Default Next Question: R05148.00
+--------------------------------------------------------------------------------
+R05148.00    [YEXP-1600]                                    Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             PERCENT CHANCE R IN JAIL BY 20 YEARS OLD
+ 
+What is the percent chance you will serve time in jail or prison between now and
+when you turn 20?
+ 
+UNIVERSE: R >= 15
+ 
+    2364           0: 0%
+     740           1 TO 10: 1%-10%
+     144          11 TO 20: 11%-20%
+     103          21 TO 30: 21%-30%
+      21          31 TO 40: 31%-40%
+     104          41 TO 50: 41%-50%
+      12          51 TO 60: 51%-60%
+       2          61 TO 70: 61%-70%
+      14          71 TO 80: 71%-80%
+       5          81 TO 90: 81%-90%
+      10          91 TO 100: 91%-100%
+  -------
+    3519
+ 
+Refusal(-1)            2
+Don't Know(-2)        15
+Invalid Skip(-3)      29
+TOTAL =========>    3565   VALID SKIP(-4)    5419     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:            100        Mean:                5.31
+ 
+Hard Minimum: [0]
+Hard Maximum: [100]
+ 
+Lead In: R05147.00[Default]
+Default Next Question: R05149.00
+--------------------------------------------------------------------------------
+R05149.00    [YEXP-1800]                                    Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             PERCENT CHANCE R A PARENT BY 20 YEARS OLD
+ 
+What is the percent chance that you will become the [mom/dad] of a baby sometime
+between now and when you turn 20?
+ 
+UNIVERSE: R >= 15
+ 
+    1567           0: 0%
+     670           1 TO 10: 1%-10%
+     258          11 TO 20: 11%-20%
+     225          21 TO 30: 21%-30%
+      60          31 TO 40: 31%-40%
+     425          41 TO 50: 41%-50%
+      31          51 TO 60: 51%-60%
+      30          61 TO 70: 61%-70%
+      88          71 TO 80: 71%-80%
+      29          81 TO 90: 81%-90%
+     106          91 TO 100: 91%-100%
+  -------
+    3489
+ 
+Refusal(-1)            4
+Don't Know(-2)        43
+Invalid Skip(-3)      29
+TOTAL =========>    3565   VALID SKIP(-4)    5419     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:            100        Mean:               17.76
+ 
+Hard Minimum: [0]
+Hard Maximum: [100]
+ 
+Lead In: R05148.00[Default]
+Default Next Question: R05150.00
+--------------------------------------------------------------------------------
+R05151.00    [YEXP-2000]                                    Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             PERCENT CHANCE R HAS COLLEGE DEGREE BY 30 YEARS OLD
+ 
+Now think ahead to when you turn 30 years old.
+ 
+What is the percent chance that you will have a four-year college degree by the 
+time you turn 30?
+ 
+UNIVERSE: R >= 15
+ 
+     185           0: 0%
+      98           1 TO 10: 1%-10%
+      84          11 TO 20: 11%-20%
+     146          21 TO 30: 21%-30%
+      51          31 TO 40: 31%-40%
+     538          41 TO 50: 41%-50%
+      69          51 TO 60: 51%-60%
+      79          61 TO 70: 61%-70%
+     457          71 TO 80: 71%-80%
+     324          81 TO 90: 81%-90%
+    1480          91 TO 100: 91%-100%
+  -------
+    3511
+ 
+Refusal(-1)            2
+Don't Know(-2)        23
+Invalid Skip(-3)      29
+TOTAL =========>    3565   VALID SKIP(-4)    5419     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:            100        Mean:               72.78
+ 
+Hard Minimum: [0]
+Hard Maximum: [100]
+ 
+Lead In: R05150.00[Default]
+Default Next Question: R05152.00
+--------------------------------------------------------------------------------
+R05363.00    [KEY!SEX]                                      Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             KEY!SEX, RS GENDER (SYMBOL)
+ 
+COMMENT: Gender of Youth
+ 
+    4599       1 Male
+    4385       2 Female
+       0       0 No Information
+  -------
+    8984
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    8984   VALID SKIP(-4)       0     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:              2        Mean:                1.49
+ 
+Lead In: R00001.00[Default]
+Default Next Question: R05364.00
+--------------------------------------------------------------------------------
+R05364.01    [KEY!BDATE_M]                                  Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             KEY!BDATE, RS BIRTHDATE MONTH/YEAR (SYMBOL)
+ 
+COMMENT: Birthdate of Youth
+ 
+     816           1: January
+     693           2: February
+     760           3: March
+     659           4: April
+     689           5: May
+     720           6: June
+     762           7: July
+     782           8: August
+     839           9: September
+     765          10: October
+     763          11: November
+     736          12: December
+  -------
+    8984
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    8984   VALID SKIP(-4)       0     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:             12        Mean:                6.56
+ 
+Earliest (NonMissing): JANUARY/1980
+Latest   (NonMissing): DECEMBER/1984
+ 
+Hard Minimum: [01/01/1880]
+Hard Maximum: [the current date]
+ 
+Lead In: None.
+Default Next Question: R05364.02
+--------------------------------------------------------------------------------
+R05364.02    [KEY!BDATE_Y]                                  Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             KEY!BDATE, RS BIRTHDATE MONTH/YEAR (SYMBOL)
+ 
+COMMENT: Birthdate of Youth
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    8984   VALID SKIP(-4)       0     NON-INTERVIEW(-5)       0
+ 
+Min:           1980        Max:           1984        Mean:             1982.01
+ 
+Earliest (NonMissing): JANUARY/1980
+Latest   (NonMissing): DECEMBER/1984
+ 
+Hard Minimum: [01/01/1880]
+Hard Maximum: [the current date]
+ 
+Lead In: R05364.01[Default]
+Default Next Question: R05366.00
+--------------------------------------------------------------------------------
+R06489.00    [PC8-090]                                      Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             R EVER LIVE THROUGH HARD TIMES?
+ 
+Sometimes children go through hard times. For example, they live in a place 
+without water or electricity, or in a homeless shelter. To the best of your 
+knowledge, has [this youth] ever experienced such hard times?
+ 
+     435       1 Yes   (Go To R06490.00)
+    7440       0 No
+  -------
+    7875
+ 
+Refusal(-1)            7
+Don't Know(-2)        18
+TOTAL =========>    7900   VALID SKIP(-4)    1084     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:              1        Mean:                 .06
+ 
+Lead In: R06476.00[Default] R06488.00[Default]  R06434.00[1:1]
+Default Next Question: R06491.00
+--------------------------------------------------------------------------------
+R06491.00    [PC8-092]                                      Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             R SPEND 20+ HOURS IN CHILD CARE 1ST YEAR
+ 
+Next, I'm going to ask you some questions about childcare and schooling.
+ 
+We'll start with childcare. We define childcare as any care given by someone 
+OTHER THAN A PARENT. Childcare includes care by relatives, babysitters, and 
+nannies. It also includes time when the child attends daycare centers or 
+preschools.
+ 
+During [this youth]'s FIRST year of life, did [he/she] ever spend twenty or more
+hours a week in childcare?
+ 
+    2264       1 Yes
+    5549       0 No
+  -------
+    7813
+ 
+Refusal(-1)           11
+Don't Know(-2)        76
+TOTAL =========>    7900   VALID SKIP(-4)    1084     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:              1        Mean:                 .29
+ 
+Lead In: R06489.00[Default] R06490.19[Default]
+Default Next Question: R06492.00
+--------------------------------------------------------------------------------
+R06813.00    [PC9-002]                                      Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             R HAVE PHYSICAL, EMOTIONAL CONDITION LIMITS SCHOOL/WORK?
+ 
+(Excluding pregnancy), does [this youth] have or has [he/she] ever had any 
+physical, emotional, or mental condition that limits or has limited [his/her] 
+ability to attend school regularly, do regular school work, or work at a job for
+pay?
+ 
+     570       1 Yes
+    7314       0 No
+  -------
+    7884
+ 
+Refusal(-1)            2
+Don't Know(-2)         6
+TOTAL =========>    7892   VALID SKIP(-4)    1092     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:              1        Mean:                 .07
+ 
+Lead In: R06812.00[Default]
+Default Next Question: R06814.00
+--------------------------------------------------------------------------------
+R06908.00    [PC12-024]                                     Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             R UNHAPPY, SAD, DEPRESSED (FEMALE)
+ 
+[this youth] is unhappy, sad or depressed.
+ 
+Copyright Items: TM Achenbach. Reproduced by Permission
+ 
+    1070       0 Not true
+     472       1 Sometimes true
+      42       2 Often true
+  -------
+    1584
+ 
+Refusal(-1)            2
+Don't Know(-2)         2
+TOTAL =========>    1588   VALID SKIP(-4)    7396     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:              2        Mean:                 .35
+ 
+Lead In: R06907.00[Default]
+Default Next Question: R06913.00
+--------------------------------------------------------------------------------
+R06912.00    [PC12-028]                                     Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             R UNHAPPY, SAD, DEPRESSED (MALE)
+ 
+[this youth] is unhappy, sad or depressed.
+ 
+Copyright Items: TM Achenbach. Reproduced by Permission
+ 
+    1179       0 Not true
+     486       1 Sometimes true
+      44       2 Often true
+  -------
+    1709
+ 
+Refusal(-1)            1
+Don't Know(-2)         3
+TOTAL =========>    1713   VALID SKIP(-4)    7271     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:              2        Mean:                 .34
+ 
+Lead In: R06911.00[Default]
+Default Next Question: R06913.00
+--------------------------------------------------------------------------------
+R11940.00    [CV_AGE_12/31/96]                              Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             RS AGE AS OF 12/31/96
+ 
+Age as of 12/31/96
+ 
+       0           0 TO 11: LESS THAN 12
+    1771          12
+    1807          13
+    1841          14
+    1874          15
+    1691          16
+       0          17
+       0          18
+       0          19 TO 999: GREATER THAN 18
+  -------
+    8984
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    8984   VALID SKIP(-4)       0     NON-INTERVIEW(-5)       0
+ 
+Min:             12        Max:             16        Mean:               13.99
+ 
+Hard Minimum: [0]
+Hard Maximum: [25]
+ 
+Lead In: R11939.00[Default]
+Default Next Question: R11941.00
+--------------------------------------------------------------------------------
+R12001.00    [CV_BIO_MOM_AGE_CHILD1]                        Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             AGE OF BIO MOTHER AT FIRST BIRTH
+ 
+Age of biological mother at first birth.
+/* EXTREME RESPONSES REFLECT UNEDITED INTERVIEW DATA THAT WERE REPORTED DURING 
+THE SURVEY; RESEARCHERS MAY WANT TO EVALUATE THESE DATA BEFORE DRAWING 
+CONCLUSIONS. */
+ 
+       0           0
+      10           1 TO 4
+      10           5 TO 8
+      87           9 TO 14
+    2179          15 TO 19
+    3309          20 TO 24
+    1890          25 TO 29
+     633          30 TO 34
+     132          35 TO 39
+      11          40 TO 44
+       3          45 TO 49
+       3          50 TO 99999999: 50+
+  -------
+    8267
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)     717
+TOTAL =========>    8984   VALID SKIP(-4)       0     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:             63        Mean:               22.74
+ 
+Hard Minimum: [0]
+Hard Maximum: [118]
+ 
+Lead In: R12000.00[Default]
+Default Next Question: R12002.00
+--------------------------------------------------------------------------------
+R12002.00    [CV_BIO_MOM_AGE_YOUTH]                         Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             AGE OF BIO MOTHER WHEN R BORN
+ 
+Age of biological mother when respondent born.
+/* EXTREME RESPONSES REFLECT UNEDITED INTERVIEW DATA THAT WERE REPORTED DURING 
+THE SURVEY; RESEARCHERS MAY WANT TO EVALUATE THESE DATA BEFORE DRAWING 
+CONCLUSIONS. */
+ 
+       0           0
+       0           1 TO 4
+       0           5 TO 8
+      34           9 TO 14
+    1089          15 TO 19
+    2725          20 TO 24
+    2633          25 TO 29
+    1387          30 TO 34
+     435          35 TO 39
+      57          40 TO 44
+       8          45 TO 49
+       8          50 TO 99999999: 50+
+  -------
+    8376
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)     608
+TOTAL =========>    8984   VALID SKIP(-4)       0     NON-INTERVIEW(-5)       0
+ 
+Min:             10        Max:            101        Mean:                25.5
+ 
+Hard Minimum: [0]
+Hard Maximum: [118]
+ 
+Lead In: R12001.00[Default]
+Default Next Question: R12003.00
+--------------------------------------------------------------------------------
+R12013.00    [CV_CITIZENSHIP]                               Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             CITIZENSHIP STATUS BASED ON BIRTH
+ 
+U.S. citizenship status based on place of birth.
+ 
+    6869       1 Citizen, born in the U.S.
+     279       2 Unknown, not born in U.S.
+     794       3 Unknown, can't determine birthplace
+  -------
+    7942
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    7942   VALID SKIP(-4)    1042     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:              3        Mean:                1.24
+ 
+Lead In: R12012.00[Default]
+Default Next Question: R12014.00
+--------------------------------------------------------------------------------
+R12014.00    [CV_ENROLLSTAT]                                Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             RS CURRENT ENROLLMENT STATUS
+ 
+Enrollment status as of the survey date.
+Note (1):  This variable refers to the type of college the R attended, not the 
+college degree that R reported working towards or that R attained.
+ 
+Note(2):  Rs who are working towards a GED are coded as an '8' regardless of 
+where that course of study took place.
+ 
+     226       1 Not enrolled, no high school degree, no GED
+       3       2 Not enrolled, GED
+       4       3 Not enrolled, high school degree
+       0       4 Not enrolled, some college
+       0       5 Not enrolled, 2-year college graduate
+       0       6 Not enrolled, 4-year college graduate
+       0       7 Not enrolled, graduate degree
+    8742       8 Enrolled in grades 1-12, not a high school graduate
+       5       9 Enrolled in a 2-year college
+       2      10 Enrolled in a 4-year college
+       0      11 Enrolled in a graduate program
+  -------
+    8982
+ 
+Refusal(-1)            0
+Don't Know(-2)         2
+TOTAL =========>    8984   VALID SKIP(-4)       0     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:             10        Mean:                7.82
+ 
+Lead In: R12013.00[Default]
+Default Next Question: R12015.00
+--------------------------------------------------------------------------------
+R12047.00    [CV_HH_NET_WORTH_P]                            Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             NET WORTH OF HOUSEHOLD ACCORDING TO PARENT
+ 
+Household net worth.
+ 
+COMMENT: from parent interview
+/*Topcoded at predetermined values.  Respondents with household net worth values
+above $600,000 were topcoded to a value of $600,000.  Negative values of -1, -2,
+-3, -4, or -5 do not reflect negative monetary amounts; these numbers represent 
+standard NLSY97 codes.*/
+ 
+     286     -999999 TO -3000: < -2999
+      37       -2999 TO -2000
+      56       -1999 TO -1000
+      47        -999 TO -6
+       3           0
+     313           1 TO 1000
+     273        1001 TO 2000
+     160        2001 TO 3000
+     426        3001 TO 5000
+     507        5001 TO 10000
+     602       10001 TO 20000
+     435       20001 TO 30000
+     334       30001 TO 40000
+     285       40001 TO 50000
+     393       50001 TO 65000
+     304       65001 TO 80000
+     321       80001 TO 100000
+     567      100001 TO 150000
+     350      150001 TO 200000
+     677      200001 TO 500000
+     243      500001 TO 1000000
+       0     1000001 TO 1500000
+       0     1500001 TO 2000000
+       0     2000001 TO 999999999: 2000001+
+  -------
+    6619
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)    1314
+TOTAL =========>    7933   VALID SKIP(-4)    1051     NON-INTERVIEW(-5)       0
+ 
+Min:        -935251        Max:         600000        Mean:            90180.98
+ 
+Hard Minimum: [0]
+Hard Maximum: [9999999]
+ 
+Lead In: R12046.00[Default]
+Default Next Question: R12048.00
+--------------------------------------------------------------------------------
+R12053.00    [CV_YTH_REL_HH_CURRENT]                        Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             RS RELATIONSHIP TO HOUSEHOLD PARENT FIGURE
+ 
+Relationship of the parent figure(s)/guardian(s) in household to the youth as of
+the survey date.
+Note:  This variable was renamed in round 2; the round 1 name was 
+CV_HH_REL_BIRTH.
+ 
+    4395       1 Both biological parents
+     991       2 Two parents, biological mother
+     214       3 Two parents, biological father
+    2531       4 Biological mother only
+     295       5 Biological father only
+     103       6 Adoptive parent(s)
+      44       7 Foster parent(s)
+     197       8 No parents, grandparents
+     114       9 No parents, other relatives
+      69      10 Anything else
+  -------
+    8953
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      31
+TOTAL =========>    8984   VALID SKIP(-4)       0     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:             10        Mean:                2.55
+ 
+Lead In: R12052.00[Default]
+Default Next Question: R12054.00
+--------------------------------------------------------------------------------
+R12105.00    [CV_MSA_AGE_12]                                Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             R RESIDE IN MSA AT AGE 12
+ 
+Residence in a MSA at the age of 12 as reported by parent-figure during the 
+round 1 interview. A similar variable, CV_MSA_AGE_12_YCHR, contains the report 
+by respondents in the childhood retrospective section (YCHR) during the round 6 
+to round 9 interviews.
+ 
+UNIVERSE: Respondents whose parent answered the set of questions in the 'PC8' 
+section of the parent questionnaire.
+ 
+    1072       1 not in MSA
+    3343       2 in MSA, not in central city
+    2349       3 in MSA, in central city
+      22       4 in MSA, not known
+      50       5 not in country
+  -------
+    6836
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)    1064
+TOTAL =========>    7900   VALID SKIP(-4)    1084     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:              5        Mean:                2.22
+ 
+Lead In: R12104.00[Default]
+Default Next Question: R12105.10
+--------------------------------------------------------------------------------
+R12176.00    [CV_URBAN-RURAL_AGE_12]                        Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             RS RESIDENCE URBAN OR RURAL AT AGE 12
+ 
+Residence in an urban or a rural area at age of 12 as reported by parent-figure 
+during the round 1 interview. A similar variable, CV_URBAN-RURAL_AGE_12_YCHR, 
+contains the report by respondents in the childhood retrospective section (YCHR)
+during the round 6 to round 9 interviews.
+ 
+UNIVERSE: Respondents whose parent answered the set of questions in the 'PC8' 
+section of the parent questionnaire.
+ 
+    1484       0 Rural
+    5227       1 Urban
+      75       2 Unknown
+  -------
+    6786
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)    1064
+TOTAL =========>    7850   VALID SKIP(-4)    1134     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:              2        Mean:                 .79
+ 
+Lead In: R12175.00[Default]
+Default Next Question: R12176.10
+--------------------------------------------------------------------------------
+R12358.00    [CV_SAMPLE_TYPE]                               Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             SAMPLE TYPE.  CROSS-SECTIONAL OR OVERSAMPLE
+ 
+Sample type: Is the respondent a member of the cross-sectional sample or the 
+oversample?
+ 
+    6748       1 Cross-sectional
+    2236       0 Oversample
+  -------
+    8984
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    8984   VALID SKIP(-4)       0     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:              1        Mean:                 .75
+ 
+Lead In: R12338.00[Default]
+Default Next Question: R12359.00
+--------------------------------------------------------------------------------
+R13024.00    [CV_HGC_BIO_DAD]                               Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             BIOLOGICAL FATHERS HIGHEST GRADE COMPLETED
+ 
+Highest grade completed by respondent's biological father (includes both 
+residential and non-residential fathers).
+ 
+       0       0 NONE
+       1       1 1ST GRADE
+      19       2 2ND GRADE
+      68       3 3RD GRADE
+      59       4 4TH GRADE
+      68       5 5TH GRADE
+     188       6 6TH GRADE
+      92       7 7TH GRADE
+     169       8 8TH GRADE
+     240       9 9TH GRADE
+     329      10 10TH GRADE
+     396      11 11TH GRADE
+    2728      12 12TH GRADE
+     381      13 1ST YEAR COLLEGE
+     736      14 2ND YEAR COLLEGE
+     176      15 3RD YEAR COLLEGE
+     840      16 4TH YEAR COLLEGE
+     113      17 5TH YEAR COLLEGE
+     270      18 6TH YEAR COLLEGE
+      85      19 7TH YEAR COLLEGE
+     162      20 8TH YEAR COLLEGE OR MORE
+       8      95 UNGRADED
+  -------
+    7128
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)    1188
+TOTAL =========>    8316   VALID SKIP(-4)     668     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:             95        Mean:               12.66
+ 
+Lead In: R12044.00[Default]
+Default Next Question: R13025.00
+--------------------------------------------------------------------------------
+R13025.00    [CV_HGC_BIO_MOM]                               Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             BIOLOGICAL MOTHERS HIGHEST GRADE COMPLETED
+ 
+Highest grade completed by respondent's biological mother (includes both 
+residential and non-residential mothers).
+ 
+       0       0 NONE
+       6       1 1ST GRADE
+      29       2 2ND GRADE
+      54       3 3RD GRADE
+      52       4 4TH GRADE
+      57       5 5TH GRADE
+     222       6 6TH GRADE
+      69       7 7TH GRADE
+     205       8 8TH GRADE
+     273       9 9TH GRADE
+     428      10 10TH GRADE
+     562      11 11TH GRADE
+    3038      12 12TH GRADE
+     642      13 1ST YEAR COLLEGE
+    1002      14 2ND YEAR COLLEGE
+     248      15 3RD YEAR COLLEGE
+     908      16 4TH YEAR COLLEGE
+     157      17 5TH YEAR COLLEGE
+     227      18 6TH YEAR COLLEGE
+      34      19 7TH YEAR COLLEGE
+      77      20 8TH YEAR COLLEGE OR MORE
+       6      95 UNGRADED
+  -------
+    8296
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)     523
+TOTAL =========>    8819   VALID SKIP(-4)     165     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:             95        Mean:                12.5
+ 
+Lead In: R13024.00[Default]
+Default Next Question: R13026.00
+--------------------------------------------------------------------------------
+R13026.00    [CV_HGC_RES_DAD]                               Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             RESIDENTIAL FATHERS HIGHEST GRADE COMPLETED
+ 
+Highest grade completed by respondent's residential father (includes both 
+biological and non-biological fathers).
+ 
+       0       0 NONE
+       1       1 1ST GRADE
+      12       2 2ND GRADE
+      51       3 3RD GRADE
+      56       4 4TH GRADE
+      51       5 5TH GRADE
+     150       6 6TH GRADE
+      69       7 7TH GRADE
+     117       8 8TH GRADE
+     186       9 9TH GRADE
+     195      10 10TH GRADE
+     277      11 11TH GRADE
+    1917      12 12TH GRADE
+     345      13 1ST YEAR COLLEGE
+     720      14 2ND YEAR COLLEGE
+     164      15 3RD YEAR COLLEGE
+     780      16 4TH YEAR COLLEGE
+     119      17 5TH YEAR COLLEGE
+     255      18 6TH YEAR COLLEGE
+      86      19 7TH YEAR COLLEGE
+     153      20 8TH YEAR COLLEGE OR MORE
+       3      95 UNGRADED
+  -------
+    5707
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)     367
+TOTAL =========>    6074   VALID SKIP(-4)    2910     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:             95        Mean:               12.92
+ 
+Lead In: R13025.00[Default]
+Default Next Question: R13027.00
+--------------------------------------------------------------------------------
+R13027.00    [CV_HGC_RES_MOM]                               Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             RESIDENTIAL MOTHERS HIGHEST GRADE COMPLETED
+ 
+Highest grade completed by respondent's residential mother (includes both 
+biological and non-biological mothers).
+ 
+       0       0 NONE
+       3       1 1ST GRADE
+      28       2 2ND GRADE
+      51       3 3RD GRADE
+      54       4 4TH GRADE
+      54       5 5TH GRADE
+     221       6 6TH GRADE
+      67       7 7TH GRADE
+     183       8 8TH GRADE
+     260       9 9TH GRADE
+     373      10 10TH GRADE
+     517      11 11TH GRADE
+    2870      12 12TH GRADE
+     639      13 1ST YEAR COLLEGE
+     996      14 2ND YEAR COLLEGE
+     251      15 3RD YEAR COLLEGE
+     902      16 4TH YEAR COLLEGE
+     163      17 5TH YEAR COLLEGE
+     246      18 6TH YEAR COLLEGE
+      38      19 7TH YEAR COLLEGE
+      89      20 8TH YEAR COLLEGE OR MORE
+       5      95 UNGRADED
+  -------
+    8010
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)     316
+TOTAL =========>    8326   VALID SKIP(-4)     658     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:             95        Mean:               12.58
+ 
+Lead In: R13026.00[Default]
+Default Next Question: R12045.00
+--------------------------------------------------------------------------------
+R14826.00    [KEY!RACE_ETHNICITY]                           Survey Year: 1997
+  PRIMARY VARIABLE
+
+ 
+             KEY!RACE_ETHNICITY, COMBINED RACE AND ETHNICITY (SYMBOL)
+ 
+COMMENT: Combined race - ethnicity variable
+ 
+    2335       1 Black
+    1901       2 Hispanic
+      83       3 Mixed Race (Non-Hispanic)
+    4665       4 Non-Black / Non-Hispanic
+  -------
+    8984
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    8984   VALID SKIP(-4)       0     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:              4        Mean:                2.79
+ 
+Lead In: R05387.00[Default]
+Default Next Question: R05389.00
+--------------------------------------------------------------------------------
+R17005.00    [YSCH-6800]                                    Survey Year: 1998
+  PRIMARY VARIABLE
+
+ 
+             GRADES R RECEIVED IN 8TH GRADE
+ 
+(HAND R SHOWCARD C)
+ 
+Overall, what grades did you receive in 8th grade?
+ 
+UNIVERSE: R with history of formal schooling; not asked about grades in 8th 
+grade at DLI; HGC is 8th grade or higher
+ 
+      52       1 1.   Mostly below Ds
+      99       2 2.   Mostly Ds
+     291       3 3.   About half Cs and half Ds
+     460       4 4.   Mostly Cs
+     783       5 5.   About half Bs and half Cs
+     450       6 6.   Mostly Bs
+     758       7 7.   About half As and Bs
+     484       8 8.   Mostly As
+       7       9 9.   Other (SPECIFY)
+       9      10 10.  A's to C's
+      11      11 11.  Mixed
+       4      12 12.  Ungraded
+       0      13 13.  Skipped 8th grade
+  -------
+    3408
+ 
+Refusal(-1)            2
+Don't Know(-2)         8
+TOTAL =========>    3418   VALID SKIP(-4)    4968     NON-INTERVIEW(-5)     598
+ 
+Min:              1        Max:             12        Mean:                 5.6
+ 
+Lead In: R17002.00[1:1] R17003.00[1:1] R17004.00[1:1]
+Default Next Question: R17006.00
+--------------------------------------------------------------------------------
+R17011.00    [YSCH-7300]                                    Survey Year: 1998
+  PRIMARY VARIABLE
+
+ 
+             GRADES R RECEIVED IN HIGH SCHOOL
+ 
+(HAND R SHOWCARD C)
+ 
+Overall, what grades did you receive in high school?
+ 
+UNIVERSE: R with history of formal schooling; attended 9th grade/higher; asked 
+about grades in 9th grade/higher at DLI; DLI HS grades not DK/RF; not asked 
+about HS grades at DLI; not currently attending high school
+ 
+      31       1 1.   Mostly below Ds
+      41       2 2.   Mostly Ds
+     123       3 3.   About half Cs and half Ds
+     170       4 4.   Mostly Cs
+     299       5 5.   About half Bs and half Cs
+     192       6 6.   Mostly Bs
+     202       7 7.   About half As and Bs
+     117       8 8.   Mostly As
+      10       9 9.   Other (SPECIFY)
+       0      10 10.  A's to C's
+       4      11 11.  Mixed
+       3      12 12.  Ungraded
+       0      13 13.  Skipped 8th grade
+  -------
+    1192
+ 
+Refusal(-1)            1
+Don't Know(-2)         4
+TOTAL =========>    1197   VALID SKIP(-4)    7189     NON-INTERVIEW(-5)     598
+ 
+Min:              1        Max:             12        Mean:                5.31
+ 
+Lead In: R17009.00[1:1] R17010.00[1:1]
+Default Next Question: R17012.00
+--------------------------------------------------------------------------------
+R21915.00    [YSAQ-372B]                                    Survey Year: 1998
+  PRIMARY VARIABLE
+
+ 
+             R EVER USE COCAINE/HARD DRUGS?
+ 
+Have you ever used any drugs like cocaine or crack or heroin, or any other 
+substance not prescribed by a doctor, in order to get high or to achieve an 
+altered state?
+ 
+UNIVERSE: All
+ 
+     521       1 Yes   (Go To R21916.00)
+    7831       0 No
+  -------
+    8352
+ 
+Refusal(-1)           28
+Don't Know(-2)         6
+TOTAL =========>    8386   VALID SKIP(-4)       0     NON-INTERVIEW(-5)     598
+ 
+Min:              0        Max:              1        Mean:                 .06
+ 
+Lead In: R21909.00[Default] R21912.00[Default] R21914.00[Default]  
+         R21913.00[0:0]
+Default Next Question: R21919.00
+--------------------------------------------------------------------------------
+R49085.00    [YSAQ-371]                                     Survey Year: 2000
+  PRIMARY VARIABLE
+
+ 
+             # DAYS USE MARIJUANA IN LAST 30 DAYS?
+ 
+On how many days have you used marijuana in the last 30 days?
+ 
+UNIVERSE: R answered question if had ever tried marijuana; has used marijuana 
+since DLI
+ 
+     559           0   (Go To R49087.00)
+     703           1 TO 4
+     153           5 TO 9
+     111          10 TO 14
+      78          15 TO 19
+      80          20 TO 24
+      90          25 TO 29
+     230          30
+  -------
+    2004
+ 
+Refusal(-1)            7
+Don't Know(-2)         4
+TOTAL =========>    2015   VALID SKIP(-4)    6065     NON-INTERVIEW(-5)     904
+ 
+Min:              0        Max:             30        Mean:                7.75
+ 
+Hard Minimum: [0]
+Hard Maximum: [30]
+ 
+Lead In: R49084.00[1:1]
+Default Next Question: R49086.00
+--------------------------------------------------------------------------------
+S09200.00    [YSAQ-282J]                                    Survey Year: 2002
+  PRIMARY VARIABLE
+
+ 
+             R IS DISORGANIZED OR ORGANIZED
+ 
+How much do you feel that disorganized describes you as a person? Where 1 means 
+organized and 5 means disorganized.
+ 
+NOTE: THE SLIDER BAR MUST BE MOVED TO ACTIVATE THE QUESTION EVEN IF YOU WISH TO 
+SELECT "3".
+ 
+UNIVERSE: R <= 14 at end of 1996
+ 
+       0           0
+     941           1
+    1848           2
+    1358           3
+     612           4
+     113           5
+  -------
+    4872
+ 
+Refusal(-1)           15
+Don't Know(-2)         4
+TOTAL =========>    4891   VALID SKIP(-4)    3005     NON-INTERVIEW(-5)    1088
+ 
+Min:              1        Max:              5        Mean:                2.41
+ 
+Hard Minimum: [1]
+Hard Maximum: [5]
+Soft Minimum: [1]
+Soft Maximum: [1]
+ 
+Lead In: S09199.00[1:1]
+Default Next Question: S09201.00
+--------------------------------------------------------------------------------
+S09207.00    [YSAQ-282Q]                                    Survey Year: 2002
+  PRIMARY VARIABLE
+
+ 
+             R IS TRUSTFUL OR DISTRUSTFUL
+ 
+How much do you feel that trustful describes you as a person? Where 1 means 
+distrustful and 5 means trustful.
+ 
+NOTE: THE SLIDER BAR MUST BE MOVED TO ACTIVATE THE QUESTION EVEN IF YOU WISH TO 
+SELECT "3".
+ 
+UNIVERSE: R <= 14 at end of 1996
+ 
+       0           0
+     128           1
+     189           2
+     271           3
+    1344           4
+    2943           5
+  -------
+    4875
+ 
+Refusal(-1)           13
+Don't Know(-2)         3
+TOTAL =========>    4891   VALID SKIP(-4)    3005     NON-INTERVIEW(-5)    1088
+ 
+Min:              1        Max:              5        Mean:                4.39
+ 
+Hard Minimum: [1]
+Hard Maximum: [5]
+Soft Minimum: [1]
+Soft Maximum: [1]
+ 
+Lead In: S09206.00[Default]
+Default Next Question: S09208.00
+--------------------------------------------------------------------------------
+S20116.00    [CV_HH_NET_WORTH_Y]                            Survey Year: 2003
+  PRIMARY VARIABLE
+
+ 
+             NET WORTH OF HOUSEHOLD ACCORDING TO R
+ 
+Household net worth.
+ 
+COMMENT: from youth interview
+/*Topcoded at predetermined values.  Respondents with household net worth values
+above $600,000 were topcoded to a value of $600,000.  Negative values of -1, -2,
+-3, -4, or -5 do not reflect negative monetary amounts; these numbers represent 
+standard NLSY97 codes.*/
+ 
+     119     -999999 TO -3000: < -2999
+      19       -2999 TO -2000
+      26       -1999 TO -1000
+      26        -999 TO -1
+       7           0
+      44           1 TO 1000
+      63        1001 TO 2000
+     555        2001 TO 3000
+     258        3001 TO 5000
+     431        5001 TO 10000
+     248       10001 TO 20000
+      70       20001 TO 30000
+      47       30001 TO 40000
+      16       40001 TO 50000
+      10       50001 TO 65000
+      17       65001 TO 80000
+       6       80001 TO 100000
+       7      100001 TO 150000
+       6      150001 TO 200000
+      19      200001 TO 999999999: 200001+
+  -------
+    1994
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)     205
+TOTAL =========>    2199   VALID SKIP(-4)    5555     NON-INTERVIEW(-5)    1230
+ 
+Min:         -47500        Max:         500002        Mean:            10659.65
+ 
+Hard Minimum: [0]
+Hard Maximum: [9999999]
+ 
+Lead In: S20115.00[Default]
+Default Next Question: S20117.00
+--------------------------------------------------------------------------------
+S38052.00    [CV_BA_CREDITS.01]                             Survey Year: 2004
+  PRIMARY VARIABLE
+
+ 
+             CREDITS EARNED TOWARD BACHELORS DEGREE AT SCHOOL 01
+ 
+Fraction of credits earned toward a bachelor's degree as of the survey date.
+NOTE:  2 IMPLIED DECIMAL PLACES
+ 
+      34           0
+      12           1 TO 9
+      39          10 TO 19
+      75          20 TO 29
+     102          30 TO 39
+     124          40 TO 49
+     154          50 TO 59
+     181          60 TO 69
+     170          70 TO 79
+     182          80 TO 89
+     194          90 TO 99
+     231         100 TO 99999999: 100+
+  -------
+    1498
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)     345
+TOTAL =========>    1843   VALID SKIP(-4)    5659     NON-INTERVIEW(-5)    1482
+ 
+Min:              0        Max:            100        Mean:               67.48
+ 
+Hard Minimum: [0]
+Hard Maximum: [100]
+ 
+Lead In: S38050.00[Default]
+Default Next Question: S38053.00
+--------------------------------------------------------------------------------
+S46772.00    [YSAQ-000B]                                    Survey Year: 2004
+  PRIMARY VARIABLE
+
+ 
+             R'S WEIGHT - POUNDS
+ 
+Approximately what is your weight?
+ 
+UNIVERSE: All
+ 
+       0           0
+       2           1 TO 24
+       1          25 TO 49
+       7          50 TO 74
+      33          75 TO 99
+     791         100 TO 124
+    1809         125 TO 149
+    1762         150 TO 174
+    1350         175 TO 199
+     769         200 TO 224
+     384         225 TO 249
+     395         250 TO 99999999: 250+
+  -------
+    7303
+ 
+Refusal(-1)           81
+Don't Know(-2)       118
+TOTAL =========>    7502   VALID SKIP(-4)       0     NON-INTERVIEW(-5)    1482
+ 
+Min:              5        Max:            450        Mean:              168.64
+ 
+Hard Minimum: [1]
+Hard Maximum: [999]
+Soft Minimum: [50]
+Soft Maximum: [300]
+ 
+Lead In: S46771.00[Default]
+Default Next Question: S46773.00
+--------------------------------------------------------------------------------
+S46858.00    [YSAQ-373]                                     Survey Year: 2004
+  PRIMARY VARIABLE
+
+ 
+             R DESCRIBE WEIGHT
+ 
+How do you describe your weight?
+ 
+UNIVERSE: All except prisoners in an insecure environment
+ 
+      57       1 VERY UNDERWEIGHT
+     717       2 SLIGHTLY UNDERWEIGHT
+    3694       3 ABOUT THE RIGHT WEIGHT
+    2397       4 SLIGHTLY OVERWEIGHT
+     539       5 VERY OVERWEIGHT
+  -------
+    7404
+ 
+Refusal(-1)           36
+Don't Know(-2)        31
+TOTAL =========>    7471   VALID SKIP(-4)      31     NON-INTERVIEW(-5)    1482
+ 
+Min:              1        Max:              5        Mean:                3.36
+ 
+Lead In: S46852.00[Default] S46855.00[Default] S46857.00[Default]  
+         S46856.00[0:0]
+Default Next Question: S46859.00
+--------------------------------------------------------------------------------
+S63200.00    [YSAQ-369]                                     Survey Year: 2005
+  PRIMARY VARIABLE
+
+ 
+             R EVER USE MARIJUANA?
+ 
+Have you ever used marijuana, for example: grass or pot, in your lifetime?
+ 
+UNIVERSE: All except prisoners in an insecure environment; did not answer 
+question if had ever used marijuana as of DLI
+ 
+       1       1 YES   (Go To S63202.00)
+       1       0 NO
+  -------
+       2
+ 
+Refusal(-1)            3
+Don't Know(-2)         0
+TOTAL =========>       5   VALID SKIP(-4)    7333     NON-INTERVIEW(-5)    1646
+ 
+Min:              0        Max:              1        Mean:                  .5
+ 
+Lead In: S63198.00[1:1]
+Default Next Question: S63206.00
+--------------------------------------------------------------------------------
+T00260.00    [CV_BIO_CHILD_HH]                              Survey Year: 2007
+  PRIMARY VARIABLE
+
+ 
+             # BIO CHILDREN R HAS IN HOUSEHOLD
+ 
+Number of biological children born and residing in the household as of the 
+survey date.
+Note: Rs without any biological children are assigned a valid skip (-4).
+ 
+     562           0
+    1318           1
+     831           2
+     306           3
+      83           4
+       8           5
+       2           6
+       1           7
+       1           8
+       0           9
+       0          10 TO 999: 10+
+  -------
+    3112
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)       3
+TOTAL =========>    3115   VALID SKIP(-4)    4303     NON-INTERVIEW(-5)    1566
+ 
+Min:              0        Max:              8        Mean:                1.38
+ 
+Hard Minimum: [0]
+Hard Maximum: [10]
+ 
+Lead In: T00259.00[Default]
+Default Next Question: T00261.00
+--------------------------------------------------------------------------------
+T10691.00    [YTEL-52~000001]                               Survey Year: 2007
+  PRIMARY VARIABLE
+
+ 
+             PERSONAL RESPONSIBILITY QUESTIONS - PEOPLE SHOULD HELP LESS 
+             FORTUNATE
+ 
+Please tell me whether you strongly agree, agree, neither agree nor disagree, 
+disagree, or strongly disagree with the following statements:
+ 
+UNIVERSE: R is in sample group 4
+ 
+RESPONSE CHOICE: "People should be willing to help others who are less 
+                      fortunate."
+ 
+     814       4 Strongly Agree
+     940       3 Agree
+      65       2 Neither Agree nor Disagree
+      17       1 Disagree
+       4       0 Strongly Disagree
+  -------
+    1840
+ 
+Refusal(-1)            1
+Don't Know(-2)         7
+TOTAL =========>    1848   VALID SKIP(-4)    5570     NON-INTERVIEW(-5)    1566
+ 
+Min:              0        Max:              4        Mean:                3.38
+ 
+Lead In: T10690.04[Default]
+Default Next Question: T10691.01
+--------------------------------------------------------------------------------
+T10691.01    [YTEL-52~000002]                               Survey Year: 2007
+  PRIMARY VARIABLE
+
+ 
+             PERSONAL RESPONSIBILITY QUESTIONS - PEOPLE SHOULD TAKE CARE OF 
+             THEMSELVES
+ 
+Please tell me whether you strongly agree, agree, neither agree nor disagree, 
+disagree, or strongly disagree with the following statements:
+ 
+UNIVERSE: R is in sample group 4
+ 
+RESPONSE CHOICE: "Those in need have to learn to take care of themselves and not
+                      depend on others."
+ 
+     281       4 Strongly Agree
+     860       3 Agree
+     308       2 Neither Agree nor Disagree
+     323       1 Disagree
+      57       0 Strongly Disagree
+  -------
+    1829
+ 
+Refusal(-1)            3
+Don't Know(-2)        16
+TOTAL =========>    1848   VALID SKIP(-4)    5570     NON-INTERVIEW(-5)    1566
+ 
+Min:              0        Max:              4        Mean:                2.54
+ 
+Lead In: T10691.00[Default]
+Default Next Question: T10691.02
+--------------------------------------------------------------------------------
+T10691.02    [YTEL-52~000003]                               Survey Year: 2007
+  PRIMARY VARIABLE
+
+ 
+             PERSONAL RESPONSIBILITY QUESTIONS - HELPING PEOPLE IS IMPORTANT TO 
+             R
+ 
+Please tell me whether you strongly agree, agree, neither agree nor disagree, 
+disagree, or strongly disagree with the following statements:
+ 
+UNIVERSE: R is in sample group 4
+ 
+RESPONSE CHOICE: "Personally assisting people in trouble is very important to 
+                      me."
+ 
+     414       4 Strongly Agree
+    1045       3 Agree
+     256       2 Neither Agree nor Disagree
+     103       1 Disagree
+      18       0 Strongly Disagree
+  -------
+    1836
+ 
+Refusal(-1)            1
+Don't Know(-2)        11
+TOTAL =========>    1848   VALID SKIP(-4)    5570     NON-INTERVIEW(-5)    1566
+ 
+Min:              0        Max:              4        Mean:                2.94
+ 
+Lead In: T10691.01[Default]
+Default Next Question: T10691.03
+--------------------------------------------------------------------------------
+T10691.03    [YTEL-52~000004]                               Survey Year: 2007
+  PRIMARY VARIABLE
+
+ 
+             PERSONAL RESPONSIBILITY QUESTIONS -  PEOPLE NEED TO LOOK AFTER 
+             THEMSELVES
+ 
+Please tell me whether you strongly agree, agree, neither agree nor disagree, 
+disagree, or strongly disagree with the following statements:
+ 
+UNIVERSE: R is in sample group 4
+ 
+RESPONSE CHOICE: "These days people need to look after themselves and not overly
+                      worry about others."
+ 
+     145       4 Strongly Agree
+     619       3 Agree
+     290       2 Neither Agree nor Disagree
+     593       1 Disagree
+     174       0 Strongly Disagree
+  -------
+    1821
+ 
+Refusal(-1)            6
+Don't Know(-2)        21
+TOTAL =========>    1848   VALID SKIP(-4)    5570     NON-INTERVIEW(-5)    1566
+ 
+Min:              0        Max:              4        Mean:                1.98
+ 
+Lead In: T10691.02[Default]
+Default Next Question: T10692.00
+--------------------------------------------------------------------------------
+T36116.00    [CV_BIO_CHILD_HH]                              Survey Year: 2009
+  PRIMARY VARIABLE
+
+ 
+             # BIO CHILDREN R HAS IN HOUSEHOLD
+ 
+Number of biological children born and residing in the household as of the 
+survey date.
+Note: Rs without any biological children are assigned a valid skip (-4).
+ 
+     638           0
+    1444           1
+    1067           2
+     441           3
+     130           4
+      29           5
+       7           6
+       1           7
+       1           8
+       0           9
+       0          10 TO 999: 10+
+  -------
+    3758
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      11
+TOTAL =========>    3769   VALID SKIP(-4)    3790     NON-INTERVIEW(-5)    1425
+ 
+Min:              0        Max:              8        Mean:                 1.5
+ 
+Hard Minimum: [0]
+Hard Maximum: [10]
+ 
+Lead In: T36115.00[Default]
+Default Next Question: T36117.00
+--------------------------------------------------------------------------------
+T66501.00    [CV_COLLEGE_TYPE.01]                           Survey Year: 2011
+  PRIMARY VARIABLE
+
+ 
+             COLLEGE 01 PUBLIC OR PRIVATE
+ 
+This variable indicates whether the college is public, private not-for-profit, 
+or private for-profit; the information is from the IPEDS database (Nation Center
+for Education Statistics).
+ 
+     960       1 Public institution
+     213       2 Private not-for-profit institution
+     261       3 Private for-profit institution
+  -------
+    1434
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      52
+TOTAL =========>    1486   VALID SKIP(-4)    5937     NON-INTERVIEW(-5)    1561
+ 
+Min:              1        Max:              3        Mean:                1.51
+ 
+Lead In: T66500.00[Default]
+Default Next Question: T66502.00
+--------------------------------------------------------------------------------
+T66567.00    [CV_INCOME_FAMILY]                             Survey Year: 2011
+  PRIMARY VARIABLE
+
+ 
+             GROSS FAMILY INCOME
+ 
+Gross family income in the previous year.
+/*Topcoded at the 2% level.  Truncated values are applied to the top 2 percent 
+of respondents with valid non-missing responses.  The average value of the top 2
+percent of cases is used as the value.  Negative values of -1, -2, -3, -4, or -5
+do not reflect negative monetary amounts; these numbers represent standard 
+NLSY97 codes.*/
+ 
+       0     -999999 TO -3000: < -2999
+       0       -2999 TO -2000
+       0       -1999 TO -1000
+       0        -999 TO -1
+     177           0
+      81           1 TO 1000
+      39        1001 TO 2000
+      41        2001 TO 3000
+      70        3001 TO 5000
+     246        5001 TO 10000
+     594       10001 TO 20000
+     692       20001 TO 30000
+     735       30001 TO 40000
+     637       40001 TO 50000
+     813       50001 TO 65000
+     697       65001 TO 80000
+     647       80001 TO 100000
+     697      100001 TO 150000
+     155      150001 TO 200000
+     207      200001 TO 999999: 200001+
+  -------
+    6528
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)     895
+TOTAL =========>    7423   VALID SKIP(-4)       0     NON-INTERVIEW(-5)    1561
+ 
+Min:              0        Max:         316618        Mean:            63160.07
+ 
+Hard Minimum: [0]
+Hard Maximum: [9999999]
+ 
+Lead In: T66566.00[Default]
+Default Next Question: T66568.00
+--------------------------------------------------------------------------------
+T66569.00    [CV_HH_SIZE]                                   Survey Year: 2011
+  PRIMARY VARIABLE
+
+ 
+             HOUSEHOLD SIZE
+ 
+Household size as of the survey date.
+ 
+       0           0
+     938           1
+    1845           2
+    1684           3
+    1455           4
+     841           5
+     359           6
+     172           7
+      68           8
+      36           9
+      12          10
+       7          11
+       3          12
+       1          13
+       0          14
+       2          15
+       0          16
+       0          17
+       0          18
+       0          19
+       0          20 TO 99: 20+
+  -------
+    7423
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    7423   VALID SKIP(-4)       0     NON-INTERVIEW(-5)    1561
+ 
+Min:              1        Max:             15        Mean:                3.26
+ 
+Hard Minimum: [0]
+Hard Maximum: [20]
+ 
+Lead In: T66568.00[Default]
+Default Next Question: T66570.00
+--------------------------------------------------------------------------------
+T66570.00    [CV_HH_UNDER_18]                               Survey Year: 2011
+  PRIMARY VARIABLE
+
+ 
+             NUMBER OF HOUSEHOLD MEMBERS UNDER AGE 18
+ 
+Number of household members under the age of 18 as of the survey date.
+ 
+    3510           0
+    1449           1
+    1341           2
+     701           3
+     270           4
+      86           5
+      27           6
+       9           7
+       2           8
+       1           9
+       0          10
+       0          11
+       0          12
+       0          13
+       0          14
+       0          15
+       0          16
+       0          17
+       0          18
+       0          19
+       0          20 TO 99: 20+
+  -------
+    7396
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      27
+TOTAL =========>    7423   VALID SKIP(-4)       0     NON-INTERVIEW(-5)    1561
+ 
+Min:              0        Max:              9        Mean:                1.08
+ 
+Hard Minimum: [0]
+Hard Maximum: [20]
+ 
+Lead In: T66569.00[Default]
+Default Next Question: T66571.00
+--------------------------------------------------------------------------------
+T66571.00    [CV_HH_UNDER_6]                                Survey Year: 2011
+  PRIMARY VARIABLE
+
+ 
+             NUMBER OF HOUSEHOLD MEMBERS UNDER AGE 6
+ 
+Number of household members under the age of 6 as of the survey date.
+ 
+    4560           0
+    1860           1
+     819           2
+     141           3
+      15           4
+       1           5
+       0           6
+       0           7
+       0           8
+       0           9
+       0          10
+       0          11
+       0          12
+       0          13
+       0          14
+       0          15
+       0          16
+       0          17
+       0          18
+       0          19
+       0          20 TO 99: 20+
+  -------
+    7396
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      27
+TOTAL =========>    7423   VALID SKIP(-4)       0     NON-INTERVIEW(-5)    1561
+ 
+Min:              0        Max:              5        Mean:                 .54
+ 
+Hard Minimum: [0]
+Hard Maximum: [20]
+ 
+Lead In: T66570.00[Default]
+Default Next Question: T66572.00
+--------------------------------------------------------------------------------
+T66573.00    [CV_HIGHEST_DEGREE_1112]                       Survey Year: 2011
+  PRIMARY VARIABLE
+
+ 
+             HIGHEST DEGREE RECEIVED PRIOR TO THE 11/12 ACAD YEAR
+ 
+The highest degree received prior to the start of the 2011/2012 academic school 
+year.
+ 
+     748       0 None
+     917       1 GED
+    3276       2 High school diploma (Regular 12 year program)
+     532       3 Associate/Junior college (AA)
+    1463       4 Bachelor's degree (BA, BS)
+     341       5 Master's degree (MA, MS)
+      13       6 PhD
+      73       7 Professional degree (DDS, JD, MD)
+  -------
+    7363
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      60
+TOTAL =========>    7423   VALID SKIP(-4)       0     NON-INTERVIEW(-5)    1561
+ 
+Min:              0        Max:              7        Mean:                2.34
+ 
+Lead In: T66572.00[Default]
+Default Next Question: T66574.00
+--------------------------------------------------------------------------------
+T66631.00    [CV_BIO_CHILD_HH]                              Survey Year: 2011
+  PRIMARY VARIABLE
+
+ 
+             # BIO CHILDREN R HAS IN HOUSEHOLD
+ 
+Number of biological children born and residing in the household as of the 
+survey date.
+Note: Rs without any biological children are assigned a valid skip (-4).
+ 
+     711           0
+    1455           1
+    1246           2
+     562           3
+     175           4
+      47           5
+      12           6
+       4           7
+       1           8
+       0           9
+       0          10 TO 999: 10+
+  -------
+    4213
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)       7
+TOTAL =========>    4220   VALID SKIP(-4)    3203     NON-INTERVIEW(-5)    1561
+ 
+Min:              0        Max:              8        Mean:                1.58
+ 
+Hard Minimum: [0]
+Hard Maximum: [10]
+ 
+Lead In: T66630.00[Default]
+Default Next Question: T66632.00
+--------------------------------------------------------------------------------
+T67670.00    [YSCH-3112]                                    Survey Year: 2011
+  PRIMARY VARIABLE
+
+ 
+             WHAT IS CURRENT HIGHEST GRADE EVER COMPLETED?
+ 
+What is the highest grade you have ever completed as of today?
+ 
+UNIVERSE: R enrolled since DLI
+ 
+       2       0 NONE
+       3       1 1ST GRADE
+      10       2 2ND GRADE
+       4       3 3RD GRADE
+       4       4 4TH GRADE
+       4       5 5TH GRADE
+      11       6 6TH GRADE
+       3       7 7TH GRADE
+       9       8 8TH GRADE
+      12       9 9TH GRADE
+      20      10 10TH GRADE
+      37      11 11TH GRADE
+     190      12 12TH GRADE
+     213      13 1ST YEAR COLLEGE
+     277      14 2ND YEAR COLLEGE
+     170      15 3RD YEAR COLLEGE
+     188      16 4TH YEAR COLLEGE
+     103      17 5TH YEAR COLLEGE
+     120      18 6TH YEAR COLLEGE
+      66      19 7TH YEAR COLLEGE
+      99      20 8TH YEAR COLLEGE OR MORE
+       3      95 UNGRADED
+  -------
+    1548
+ 
+Refusal(-1)            3
+Don't Know(-2)         2
+TOTAL =========>    1553   VALID SKIP(-4)    5870     NON-INTERVIEW(-5)    1561
+ 
+Min:              0        Max:             95        Mean:               14.77
+ 
+Lead In: T67669.00[Default]  T67668.00[1:1]
+Default Next Question: T67671.00
+--------------------------------------------------------------------------------
+T76356.00    [YSAQ-000A000001]                              Survey Year: 2011
+  PRIMARY VARIABLE
+
+ 
+             R'S HEIGHT - FEET
+ 
+Approximately what is your height?
+ 
+UNIVERSE: All
+ 
+ 
+        Feet:
+ 
+       0           0
+       1           1
+       6           2
+       3           3
+      98           4
+    5727           5
+    1414           6
+       6           7
+  -------
+    7255
+ 
+Refusal(-1)           55
+Don't Know(-2)       109
+TOTAL =========>    7419   VALID SKIP(-4)       4     NON-INTERVIEW(-5)    1561
+ 
+Min:              1        Max:              7        Mean:                5.18
+ 
+Hard Minimum: [2]
+Hard Maximum: [7]
+ 
+Lead In: T76351.00[Default] T76355.00[Default]
+Default Next Question: T76357.00
+--------------------------------------------------------------------------------
+T76357.00    [YSAQ-000A000002]                              Survey Year: 2011
+  PRIMARY VARIABLE
+
+ 
+             R'S HEIGHT - INCHES
+ 
+Approximately what is your height?
+ 
+UNIVERSE: All
+ 
+ 
+        Inches:
+ 
+     671           0
+     550           1
+     680           2
+     644           3
+     646           4
+     567           5
+     638           6
+     702           7
+     504           8
+     565           9
+     529          10
+     554          11
+       7          12
+  -------
+    7257
+ 
+Refusal(-1)           55
+Don't Know(-2)       111
+TOTAL =========>    7423   VALID SKIP(-4)       0     NON-INTERVIEW(-5)    1561
+ 
+Min:              0        Max:             12        Mean:                5.32
+ 
+Hard Minimum: [0]
+Hard Maximum: [12]
+ 
+Lead In: T76356.00[Default]
+Default Next Question: T76358.00
+--------------------------------------------------------------------------------
+T76358.00    [YSAQ-000B]                                    Survey Year: 2011
+  PRIMARY VARIABLE
+
+ 
+             R'S WEIGHT - POUNDS
+ 
+Approximately what is your weight?
+ 
+UNIVERSE: All
+ 
+       0           0
+       2           1 TO 24
+       0          25 TO 49
+       2          50 TO 74
+      18          75 TO 99
+     481         100 TO 124
+    1249         125 TO 149
+    1646         150 TO 174
+    1444         175 TO 199
+    1053         200 TO 224
+     551         225 TO 249
+     740         250 TO 99999999: 250+
+  -------
+    7186
+ 
+Refusal(-1)          107
+Don't Know(-2)       130
+TOTAL =========>    7423   VALID SKIP(-4)       0     NON-INTERVIEW(-5)    1561
+ 
+Min:              1        Max:            472        Mean:              183.24
+ 
+Hard Minimum: [1]
+Hard Maximum: [999]
+Soft Minimum: [50]
+Soft Maximum: [400]
+ 
+Lead In: T76357.00[Default]
+Default Next Question: T76359.00
+--------------------------------------------------------------------------------
+T76388.00    [YSAQ-360C]                                    Survey Year: 2011
+  PRIMARY VARIABLE
+
+ 
+             HAS R SMOKED SINCE DLI?
+ 
+Have you smoked a cigarette since the last interview on [date of last 
+interview]?
+ 
+UNIVERSE: All
+ 
+    2752       1 YES   (Go To T76389.00)
+    4588       0 NO
+  -------
+    7340
+ 
+Refusal(-1)           60
+Don't Know(-2)        23
+TOTAL =========>    7423   VALID SKIP(-4)       0     NON-INTERVIEW(-5)    1561
+ 
+Min:              0        Max:              1        Mean:                 .37
+ 
+Lead In: T76386.00[Default] T76387.00[Default]
+Default Next Question: T76391.00
+--------------------------------------------------------------------------------
+T76392.00    [YSAQ-364D]                                    Survey Year: 2011
+  PRIMARY VARIABLE
+
+ 
+             HAS R DRANK SINCE DLI?
+ 
+Have you had a drink of an alcoholic beverage since the last interview on [date 
+of last interview]? (By a drink we mean a can or bottle of beer, a glass of 
+wine, a mixed drink, or a shot of liquor.)
+ 
+UNIVERSE: All except prisoners in an insecure environment
+ 
+    5350       1 YES   (Go To T76393.00)
+    1867       0 NO
+  -------
+    7217
+ 
+Refusal(-1)           92
+Don't Know(-2)        29
+TOTAL =========>    7338   VALID SKIP(-4)      85     NON-INTERVIEW(-5)    1561
+ 
+Min:              0        Max:              1        Mean:                 .74
+ 
+Lead In: T76391.00[Default]
+Default Next Question: T76397.00
+--------------------------------------------------------------------------------
+T76398.00    [YSAQ-371]                                     Survey Year: 2011
+  PRIMARY VARIABLE
+
+ 
+             # DAYS USE MARIJUANA IN LAST 30 DAYS?
+ 
+On how many days have you used marijuana in the last 30 days?
+ 
+UNIVERSE: All except prisoners in an insecure environment; has used marijuana 
+since DLI
+ 
+     236           0   (Go To T76400.00)
+     294           1 TO 4
+      81           5 TO 9
+      61          10 TO 14
+      63          15 TO 19
+      58          20 TO 24
+      92          25 TO 29
+     268          30
+  -------
+    1153
+ 
+Refusal(-1)            7
+Don't Know(-2)        18
+TOTAL =========>    1178   VALID SKIP(-4)    6245     NON-INTERVIEW(-5)    1561
+ 
+Min:              0        Max:             30        Mean:               12.38
+ 
+Hard Minimum: [0]
+Hard Maximum: [30]
+ 
+Lead In: T76397.00[1:1]
+Default Next Question: T76399.00
+--------------------------------------------------------------------------------
+T76400.00    [YSAQ-372CC]                                   Survey Year: 2011
+  PRIMARY VARIABLE
+
+ 
+             HAS R USED COCAINE/HARD DRUGS SINCE DLI?
+ 
+Excluding marijuana and alcohol, since the date of last interview, have you used
+any drugs like cocaine, crack, heroin, or crystal meth, or any other substance 
+not prescribed by a doctor, in order to get high or to achieve an altered state?
+ 
+UNIVERSE: All except prisoners in an insecure environment
+ 
+     215       1 YES   (Go To T76401.00)
+    7023       0 NO
+  -------
+    7238
+ 
+Refusal(-1)           74
+Don't Know(-2)        26
+TOTAL =========>    7338   VALID SKIP(-4)      85     NON-INTERVIEW(-5)    1561
+ 
+Min:              0        Max:              1        Mean:                 .03
+ 
+Lead In: T76397.00[Default] T76399.00[Default]  T76398.00[0:0]
+Default Next Question: T76403.00
+--------------------------------------------------------------------------------
+T76403.00    [YSAQ-373]                                     Survey Year: 2011
+  PRIMARY VARIABLE
+
+ 
+             R DESCRIBE WEIGHT
+ 
+How do you describe your weight?
+ 
+UNIVERSE: All except prisoners in an insecure environment
+ 
+      70       1 VERY UNDERWEIGHT
+     522       2 SLIGHTLY UNDERWEIGHT
+    2894       3 ABOUT THE RIGHT WEIGHT
+    2921       4 SLIGHTLY OVERWEIGHT
+     812       5 VERY OVERWEIGHT
+  -------
+    7219
+ 
+Refusal(-1)           66
+Don't Know(-2)        53
+TOTAL =========>    7338   VALID SKIP(-4)      85     NON-INTERVIEW(-5)    1561
+ 
+Min:              1        Max:              5        Mean:                3.54
+ 
+Lead In: T76400.00[Default] T76402.00[Default]  T76401.00[0:0]
+Default Next Question: T76404.00
+--------------------------------------------------------------------------------
+T76404.00    [YSAQ-374]                                     Survey Year: 2011
+  PRIMARY VARIABLE
+
+ 
+             WHAT R DO ABOUT WEIGHT
+ 
+Which of the following are you trying to do now about your weight?
+ 
+UNIVERSE: All except prisoners in an insecure environment
+ 
+    3547       1 LOSE WEIGHT
+     648       2 GAIN WEIGHT
+    1609       3 STAY THE SAME WEIGHT
+    1431       4 NOT TRYING TO DO ANYTHING ABOUT MY WEIGHT
+  -------
+    7235
+ 
+Refusal(-1)           57
+Don't Know(-2)        46
+TOTAL =========>    7338   VALID SKIP(-4)      85     NON-INTERVIEW(-5)    1561
+ 
+Min:              1        Max:              4        Mean:                2.13
+ 
+Lead In: T76403.00[Default]
+Default Next Question: T76405.00
+--------------------------------------------------------------------------------
+T77311.00    [YEMP_INDCODE-2002.01]                         Survey Year: 2011
+  PRIMARY VARIABLE
+
+ 
+             YEMP, TYPE OF BUS OR INDUSTRY CODE (2002 CENSUS 4-DIGIT) 01 (ROS 
+             ITEM)
+ 
+UNIVERSE: R >= 14 has valid employer
+These are 2002 Census Industry Codes
+ 
+      45         170 TO 290: AGRICULTURE, FORESTRY AND FISHERIES
+      45         370 TO 490: MINING
+      38         570 TO 690: UTILITIES
+     430         770: CONSTRUCTION
+     451        1070 TO 3990: MANUFACTURING
+     176        4070 TO 4590: WHOLESALE TRADE
+     692        4670 TO 5790: RETAIL TRADE
+       0        5890: ARTS, ENTERTAINMENT AND RECREATION SERVICES
+     202        6070 TO 6390: TRANSPORTATION AND WAREHOUSING
+     149        6470 TO 6780: INFORMATION AND COMMUNICATION
+     415        6870 TO 7190: FINANCE, INSURANCE, AND REAL ESTATE
+     813        7270 TO 7790: PROFESSIONAL AND RELATED SERVICES
+    1378        7860 TO 8470: EDUCATIONAL, HEALTH, AND SOCIAL SERVICES
+     718        8560 TO 8690: ENTERTAINMENT, ACCOMODATIONS, AND FOOD SERVICES
+     333        8770 TO 9290: OTHER SERVICES
+     249        9370 TO 9590: PUBLIC ADMINISTRATION
+      22        9670 TO 9890: ACTIVE DUTY MILITARY
+      10        9950 TO 9990: ACS SPECIAL CODES
+  -------
+    6166
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)     129
+TOTAL =========>    6295   VALID SKIP(-4)    1128     NON-INTERVIEW(-5)    1561
+ 
+Min:            170        Max:           9990        Mean:             6517.75
+ 
+Hard Minimum: [0]
+Hard Maximum: [9999]
+ 
+Lead In: T77310.00[Default]
+Default Next Question: T77312.00
+--------------------------------------------------------------------------------
+U00148.00    [CV_BIO_CHILD_HH]                              Survey Year: 2015
+  PRIMARY VARIABLE
+
+ 
+             # BIO CHILDREN R HAS IN HOUSEHOLD
+ 
+Number of biological children born and residing in the household as of the 
+survey date.
+Note: Rs without any biological children are assigned a valid skip (-4).
+ 
+     710           0
+    1375           1
+    1494           2
+     809           3
+     270           4
+      83           5
+      26           6
+       4           7
+       1           8
+       0           9
+       1          10 TO 999: 10+
+  -------
+    4773
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      25
+TOTAL =========>    4798   VALID SKIP(-4)    2305     NON-INTERVIEW(-5)    1881
+ 
+Min:              0        Max:             12        Mean:                1.78
+ 
+Hard Minimum: [0]
+Hard Maximum: [20]
+ 
+Lead In: U00147.00[Default]
+Default Next Question: U00149.00
+--------------------------------------------------------------------------------
+U17180.00    [YEMP_INDCODE-2002.01]                         Survey Year: 2017
+  PRIMARY VARIABLE
+
+ 
+             YEMP, TYPE OF BUS OR INDUSTRY CODE (2002 CENSUS 4-DIGIT) 01 (ROS 
+             ITEM)
+ 
+UNIVERSE: R >= 14 has valid employer
+These are 2002 Census Industry Codes
+ 
+      43         170 TO 290: AGRICULTURE, FORESTRY AND FISHERIES
+      29         370 TO 490: MINING
+      32         570 TO 690: UTILITIES
+     391         770: CONSTRUCTION
+     493        1070 TO 3990: MANUFACTURING
+     127        4070 TO 4590: WHOLESALE TRADE
+     560        4670 TO 5790: RETAIL TRADE
+       0        5890: ARTS, ENTERTAINMENT AND RECREATION SERVICES
+     262        6070 TO 6390: TRANSPORTATION AND WAREHOUSING
+     107        6470 TO 6780: INFORMATION AND COMMUNICATION
+     392        6870 TO 7190: FINANCE, INSURANCE, AND REAL ESTATE
+     757        7270 TO 7790: PROFESSIONAL AND RELATED SERVICES
+    1355        7860 TO 8470: EDUCATIONAL, HEALTH, AND SOCIAL SERVICES
+     529        8560 TO 8690: ENTERTAINMENT, ACCOMODATIONS, AND FOOD SERVICES
+     237        8770 TO 9290: OTHER SERVICES
+     262        9370 TO 9590: PUBLIC ADMINISTRATION
+      13        9670 TO 9890: ACTIVE DUTY MILITARY
+     225        9950 TO 9990: ACS SPECIAL CODES
+  -------
+    5814
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      65
+TOTAL =========>    5879   VALID SKIP(-4)     855     NON-INTERVIEW(-5)    2250
+ 
+Min:            170        Max:           9990        Mean:              6609.4
+ 
+Hard Minimum: [0]
+Hard Maximum: [9999]
+ 
+Lead In: None.
+Default Next Question: U17181.00
+--------------------------------------------------------------------------------
+U17194.00    [YEMP_OCCODE-2002.01]                          Survey Year: 2017
+  PRIMARY VARIABLE
+
+ 
+             YEMP, OCCUPATION/JOB CODE (2002 CENSUS 4-DIGIT) 01 (ROS ITEM)
+ 
+UNIVERSE: R >= 14 has valid employer
+These are 2002 Census Occupation Codes
+ 
+     601          10 TO 430: EXECUTIVE, ADMINISTRATIVE AND MANAGERIAL
+     293         500 TO 950: MANAGEMENT RELATED
+     161        1000 TO 1240: MATHEMATICAL AND COMPUTER SCIENTISTS
+      50        1300 TO 1530: ENGINEERS, ARCHITECTS, AND SURVEYORS
+      21        1540 TO 1560: ENGINEERING AND RELATED TECHNICIANS
+      22        1600 TO 1760: PHYSICAL SCIENTISTS
+      24        1800 TO 1860: SOCIAL SCIENTISTS AND RELATED WORKERS
+       5        1900 TO 1960: LIFE, PHYSICAL, AND SOCIAL SCIENCE TECHNICIANS
+     126        2000 TO 2060: COUNSELORS, SOCIAL, AND RELIGIOUS WORKERS
+      63        2100 TO 2150: LAWYERS, JUDGES, AND LEGAL SUPPORT WORKERS
+     286        2200 TO 2340: TEACHERS
+      47        2400 TO 2550: EDUCATION, TRAINING, AND LIBRARY WORKERS
+      75        2600 TO 2760: ENTERTAINERS AND PERFORMERS, SPORTS AND RELATED 
+                          WORKERS
+      66        2800 TO 2960: MEDIA AND COMMUNICATION WORKERS
+     213        3000 TO 3260: HEALTH DIAGNOSIS AND TREATING PRACTITIONERS
+     285        3300 TO 3650: HEALTH CARE TECHNICAL AND SUPPORT
+     155        3700 TO 3950: PROTECTIVE SERVICE
+     323        4000 TO 4160: FOOD PREPARATIONS AND SERVING RELATED
+     198        4200 TO 4250: CLEANING AND BUILDING SERVICE
+      31        4300 TO 4430: ENTERTAINMENT ATTENDANTS AND RELATED WORKERS
+       0        4460: FUNERAL RELATED OCCUPATIONS
+     207        4500 TO 4650: PERSONAL CARE AND SERVICE WORKERS
+     502        4700 TO 4960: SALES AND RELATED WORKERS
+     803        5000 TO 5930: OFFICE AND ADMINISTRATIVE SUPPORT WORKERS
+      23        6000 TO 6130: FARMING, FISHING, AND FORESTRY
+     313        6200 TO 6940: CONSTRUCTION TRADES AND EXTRACTION WORKERS
+     204        7000 TO 7620: INSTALLATION, MAINTENANCE, AND REPAIR WORKERS
+      78        7700 TO 7750: PRODUCTION AND OPERATING WORKERS
+      19        7800 TO 7850: FOOD PREPARATION
+     222        7900 TO 8960: SETTER, OPERATORS, AND TENDERS
+     405        9000 TO 9750: TRANSPORTATION AND MATERIAL MOVING WORKERS
+      13        9800 TO 9840: MILITARY SPECIFIC OCCUPATIONS
+      18        9950 TO 9990: ACS SPECIAL CODES
+  -------
+    5852
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      65
+TOTAL =========>    5917   VALID SKIP(-4)     817     NON-INTERVIEW(-5)    2250
+ 
+Min:             10        Max:           9990        Mean:             4257.92
+ 
+Hard Minimum: [0]
+Hard Maximum: [9999]
+ 
+Lead In: U17193.00[Default]
+Default Next Question: U17195.00
+--------------------------------------------------------------------------------
+U18524.00    [CV_MARSTAT_COLLAPSED]                         Survey Year: 2017
+  PRIMARY VARIABLE
+
+ 
+             RS COLLAPSED MARITAL STATUS
+ 
+Collapsed marital status as of the survey date.
+ 
+    2766       0 Never-married
+    3066       1 Married
+     154       2 Separated
+     663       3 Divorced
+      23       4 Widowed
+  -------
+    6672
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      62
+TOTAL =========>    6734   VALID SKIP(-4)       0     NON-INTERVIEW(-5)    2250
+ 
+Min:              0        Max:              4        Mean:                 .82
+ 
+Lead In: U18523.00[Default]
+Default Next Question: U18525.00
+--------------------------------------------------------------------------------
+U28570.00    [YINC-1400]                                    Survey Year: 2017
+  PRIMARY VARIABLE
+
+ 
+             R RECEIVE INCOME FROM JOB IN PAST YEAR?
+ 
+During 2016, did you receive any income from a job such as wages, salary, 
+commissions, or tips? Please include any income you received from doing odd 
+jobs, temporary or seasonal work, and service in the military, the military 
+reserves, or the National Guard. Also, please be sure to include any 2016 income
+from the jobs you discussed with me earlier.
+ 
+UNIVERSE: All
+ 
+    5510       1 YES
+    1173       0 NO   (Go To U28574.00)
+  -------
+    6683
+ 
+Refusal(-1)           39   (Go To U28571.00)
+Don't Know(-2)         9   (Go To U28571.00)
+Invalid Skip(-3)       3
+TOTAL =========>    6734   VALID SKIP(-4)       0     NON-INTERVIEW(-5)    2250
+ 
+Min:              0        Max:              1        Mean:                 .82
+ 
+Lead In: U28569.00[Default]
+Default Next Question: U28572.00
+--------------------------------------------------------------------------------
+U28572.00    [YINC-1700]                                    Survey Year: 2017
+  PRIMARY VARIABLE
+
+ 
+             TOTAL INCOME FROM WAGES AND SALARY IN PAST YEAR
+ 
+During 2016, how much income did you receive from wages, salary, commissions, or
+tips from all jobs, before deductions for taxes or for anything else?
+ 
+UNIVERSE: R received income from job
+ 
+Truncated values are applied to the top 2 percent of respondents with valid 
+non-missing responses.  The lowest value for the top 2 percent of cases is used 
+as the truncation level ($ 149,000 for this variable).  Values for all cases at 
+or over that level are averaged. That average is then assigned to each of the 
+top 2 percent of the cases.
+ 
+      31           0
+      35           1 TO 999
+      34        1000 TO 1999
+      25        2000 TO 2999
+      36        3000 TO 3999
+      29        4000 TO 4999
+      65        5000 TO 5999
+      21        6000 TO 6999
+      22        7000 TO 7999
+      36        8000 TO 8999
+      30        9000 TO 9999
+     239       10000 TO 14999
+     256       15000 TO 19999
+     329       20000 TO 24999
+    1920       25000 TO 49999
+    1983       50000 TO 99999999: 50000+
+  -------
+    5091
+ 
+Refusal(-1)           68   (Go To U28573.00)
+Don't Know(-2)       362   (Go To U28573.00)
+Invalid Skip(-3)       2
+TOTAL =========>    5523   VALID SKIP(-4)    1211     NON-INTERVIEW(-5)    2250
+ 
+Min:              0        Max:         235884        Mean:            49477.02
+ 
+Hard Minimum: [0]
+Hard Maximum: [5000000]
+Soft Minimum: [0]
+Soft Maximum: [200000]
+ 
+Lead In: U28570.00[Default] U28571.00[Default]
+Default Next Question: U28574.00
+--------------------------------------------------------------------------------
+U28573.00    [YINC-1800]                                    Survey Year: 2017
+  PRIMARY VARIABLE
+
+ 
+             ESTIMATED INCOME FROM WAGES AND SALARY IN PAST YEAR
+ 
+(REFER TO SHOWCARD FF)  [Please look at this card]  What is your best estimate 
+of the amount you received in 2016 in wages, salary, commissions and tips?  (IF 
+SHOWCARDS ARE NOT BEING USED, ADD: I will read the categories in order. Please 
+stop me when I reach the correct one.)
+ 
+UNIVERSE: R DK/RF to answer how much income received from all jobs
+ 
+      51       1 A. $1 - $5,000
+      50       2 B. $5,001 - $10,000
+     113       3 C. $10,001 - $25,000
+      97       4 D. $25,001 - $50,000
+      45       5 E. $50,001 - $100,000
+      10       6 F. $100,001 - $250,000
+       4       7 G. More than $250,000
+  -------
+     370
+ 
+Refusal(-1)           47
+Don't Know(-2)        14
+Invalid Skip(-3)       1
+TOTAL =========>     432   VALID SKIP(-4)    6302     NON-INTERVIEW(-5)    2250
+ 
+Min:              1        Max:              7        Mean:                3.22
+ 
+Lead In: U28572.00[-2:-1]
+Default Next Question: U28574.00
+--------------------------------------------------------------------------------
+U28581.00    [YINC-2400]                                    Survey Year: 2017
+  PRIMARY VARIABLE
+
+ 
+             SPOUSE RECEIVE ANY INCOME FROM A JOB IN PAST YEAR?
+ 
+Now I would like to ask about the earnings and business income of your 
+[spouse/partner]. During 2016, did your [spouse/partner] receive any income from
+a job such as wages, salary, commissions, or tips? Please include any income 
+your [spouse/partner] received from doing odd jobs, temporary or seasonal work, 
+and service in the military, the military reserves or the National Guard.
+ 
+UNIVERSE: R is married/living with partner
+ 
+    3430       1 YES
+     685       0 NO   (Go To U28587.00)
+  -------
+    4115
+ 
+Refusal(-1)           43   (Go To U28582.00)
+Don't Know(-2)        30   (Go To U28587.00)
+TOTAL =========>    4188   VALID SKIP(-4)    2546     NON-INTERVIEW(-5)    2250
+ 
+Min:              0        Max:              1        Mean:                 .83
+ 
+Lead In: U28580.00[1:1]
+Default Next Question: U28583.00
+--------------------------------------------------------------------------------
+U28585.00    [YINC-2600]                                    Survey Year: 2017
+  PRIMARY VARIABLE
+
+ 
+             SPOUSES TOTAL INCOME FROM WAGES AND SALARY PAST YEAR
+ 
+During 2016, how much did your [spouse/partner] receive from wages, salary, 
+commissions, or tips from all jobs, before deductions for taxes or anything 
+else?
+ 
+UNIVERSE: R is married/living with partner; S/P received income from a job such 
+as wages/salary/commissions/tips
+Truncated values are applied to the top 2 percent of respondents with valid 
+non-missing responses.  The lowest value for the top 2 percent of cases is used 
+as the truncation level ($ 173,000 for this variable).  Values for all cases at 
+or over that level are averaged. That average is then assigned to each of the 
+top 2 percent of the cases.
+ 
+      18           0
+      13           1 TO 999
+       9        1000 TO 1999
+      11        2000 TO 2999
+       6        3000 TO 3999
+      10        4000 TO 4999
+      24        5000 TO 5999
+       7        6000 TO 6999
+      11        7000 TO 7999
+      22        8000 TO 8999
+      10        9000 TO 9999
+     101       10000 TO 14999
+     137       15000 TO 19999
+     213       20000 TO 24999
+    1122       25000 TO 49999
+    1342       50000 TO 99999999: 50000+
+  -------
+    3056
+ 
+Refusal(-1)           81   (Go To U28586.00)
+Don't Know(-2)       332   (Go To U28586.00)
+TOTAL =========>    3469   VALID SKIP(-4)    3265     NON-INTERVIEW(-5)    2250
+ 
+Min:              0        Max:         283919        Mean:            53567.05
+ 
+Hard Minimum: [0]
+Hard Maximum: [5000000]
+Soft Minimum: [0]
+Soft Maximum: [200000]
+ 
+Lead In: U28584.00[Default]  U28583.00[0:0]
+Default Next Question: U28587.00
+--------------------------------------------------------------------------------
+U28586.00    [YINC-2700]                                    Survey Year: 2017
+  PRIMARY VARIABLE
+
+ 
+             ESTIMATED SPOUSES TOTAL INCOME FROM WAGES AND SALARY PAST YEAR
+ 
+(REFER TO SHOWCARD FF)  [Please look at this card]  Can you tell me the letter 
+of the category that is your best estimate of the amount your [spouse/partner] 
+received in 2016 in wages, salary, commissions and tips?  (IF SHOWCARDS ARE NOT 
+BEING USED, ADD: I will read the categories in order. Please stop me when I 
+reach the correct one.)
+ 
+UNIVERSE: R is married/living with partner; S/P received income from a job such 
+as wages/salary/commissions/tips; DK/RF to answer about income S/P received
+ 
+      21       1 A. $1 - $5,000
+      26       2 B. $5,001 - $10,000
+      63       3 C. $10,001 - $25,000
+     111       4 D. $25,001 - $50,000
+      60       5 E. $50,001 - $100,000
+      19       6 F. $100,001 - $250,000
+       5       7 G. More than $250,000
+  -------
+     305
+ 
+Refusal(-1)           62
+Don't Know(-2)        46
+TOTAL =========>     413   VALID SKIP(-4)    6321     NON-INTERVIEW(-5)    2250
+ 
+Min:              1        Max:              7        Mean:                3.79
+ 
+Lead In: U28585.00[-2:-1]
+Default Next Question: U28587.00
+--------------------------------------------------------------------------------
+Z90315.00    [CVC_YTH_REL_HH_AGE6_YCHR]                     Survey Year: XRND
+  PRIMARY VARIABLE
+
+ 
+             CVC_YTH_REL_HH_AGE6_ YCHR
+ 
+CUMULATIVE VARIABLE: Relationship of the parent figure(s)/guardian(s) in the 
+household to the respondent at age 6. These variables are derived from the 
+respondent's answers to the childhood retrospective section (YCHR) found in 
+rounds 7 through 9.
+ 
+    1001       1 Both biological parents
+      85       2 Biological mother, other parent present
+       0       3 Biological father, other parent present
+     518       4 Biological mother, marital status unknown
+      61       5 Biological dad, marital status unknown
+      76       6 Adoptive parent(s)
+      15       7 Foster parent(s)
+     146       8 Other adults, biologial parent status unknown, not group 
+                      quarters
+       0       9 Group quarters
+       2      10 Anything else
+  -------
+    1904
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      52
+TOTAL =========>    1956   VALID SKIP(-4)    7028     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:             10        Mean:                2.78
+ 
+Lead In: Z90314.00[Default]
+Default Next Question: Z90316.00
+--------------------------------------------------------------------------------
+Z90337.00    [CVC_SAT_MATH_SCORE_2007]                      Survey Year: XRND
+  PRIMARY VARIABLE
+
+ 
+             HIGHEST SAT MATH SCORE 2007
+ 
+CUMULATIVE VARIABLE: Highest SAT MATH score. This variable is created for all 
+respondents regardless of interview status in the latest round the variable was 
+created (round 11); CVC_SAT_MATH_RND_2007 provides the latest round from which 
+the respondent's highest score is determined.that information was used to create
+this variable.
+ 
+      97       1 200 - 300
+     229       2 301 - 400
+     666       3 401 - 500
+     806       4 501 - 600
+     464       5 601 - 700
+     204       6 701 - 800
+       0       0 Have not yet received the scores
+  -------
+    2466
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)     954
+TOTAL =========>    3420   VALID SKIP(-4)    5564     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:              6        Mean:                3.78
+ 
+Lead In: Z90323.00[Default]
+Default Next Question: Z90338.00
+--------------------------------------------------------------------------------
+Z90339.00    [CVC_SAT_VERBAL_SCORE_2007]                    Survey Year: XRND
+  PRIMARY VARIABLE
+
+ 
+             HIGHEST SAT VERBAL SCORE 2007
+ 
+CUMULATIVE VARIABLE: Highest SAT VERBAL score. This variable is created for all 
+respondents regardless of interview status in the latest round the variable was 
+created (round 11); CVC_SAT_VERBAL_RND_2007 provides the latest round from which
+the respondent's highest score is determined.that information was used to create
+this variable.
+ 
+      69       1 200 - 300
+     226       2 301 - 400
+     660       3 401 - 500
+     832       4 501 - 600
+     483       5 601 - 700
+     158       6 701 - 800
+       0       0 Have not yet received the scores
+  -------
+    2428
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)     992
+TOTAL =========>    3420   VALID SKIP(-4)    5564     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:              6        Mean:                3.79
+ 
+Lead In: Z90338.00[Default]
+Default Next Question: Z90340.00
+--------------------------------------------------------------------------------
+Z90341.00    [CVC_ACT_SCORE_2007]                           Survey Year: XRND
+  PRIMARY VARIABLE
+
+ 
+             HIGHEST ACT SCORE 2007
+ 
+CUMULATIVE VARIABLE: Highest ACT score. This variable is created for all 
+respondents regardless of interview status in the latest round the variable was 
+created (round 11); CVC_ACT_SCORE_2007 provides the latest round that 
+information was used to create this variable.
+ 
+       4       1 0 - 6
+      23       2 7 - 12
+     458       3 13 - 18
+     944       4 19 - 24
+     474       5 25 - 30
+     102       6 31 - 36
+       0       0 Have not yet received the scores
+  -------
+    2005
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)     420
+TOTAL =========>    2425   VALID SKIP(-4)    6559     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:              6        Mean:                4.08
+ 
+Lead In: Z90340.00[Default]
+Default Next Question: Z90342.00
+--------------------------------------------------------------------------------
+Z90489.00    [CVC_HH_NET_WORTH_20]                          Survey Year: XRND
+  PRIMARY VARIABLE
+
+ 
+             NET WORTH OF HOUSEHOLD AT AGE 20
+ 
+CUMULATIVE VARIABLE: Household net worth at age 20. This variable is created for
+all respondents regardless of interview status in the current round; 
+CVC_ASSETS_RND_20 provides the round of the respondent's age 20 assets 
+interview.
+/*Topcoded at predetermined values.  Respondents with household net worth values
+above $600,000 were topcoded to a value of $600,000.  Negative values of -1, -2,
+-3, -4, or -5 do not reflect negative monetary amounts; these numbers represent 
+standard NLSY97 codes.*/
+ 
+     357    -9999999 TO -3000: < -2999
+      68       -2999 TO -2000
+      90       -1999 TO -1000
+      97        -999 TO -1
+      83           0
+     141           1 TO 1000
+     250        1001 TO 2000
+    1923        2001 TO 3000
+     927        3001 TO 5000
+    1559        5001 TO 10000
+    1158       10001 TO 20000
+     360       20001 TO 30000
+     236       30001 TO 40000
+     118       40001 TO 50000
+      55       50001 TO 65000
+     119       65001 TO 80000
+      42       80001 TO 100000
+      31      100001 TO 150000
+      65      150001 TO 200000
+      87      200001 TO 999999999: 200001+
+  -------
+    7766
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)     776
+TOTAL =========>    8542   VALID SKIP(-4)     442     NON-INTERVIEW(-5)       0
+ 
+Min:        -197500        Max:         600000        Mean:             14692.9
+ 
+Hard Minimum: [0]
+Hard Maximum: [9999999]
+ 
+Lead In: Z91226.00[Default]
+Default Next Question: Z90490.00
+--------------------------------------------------------------------------------
+Z90490.00    [CVC_HH_NET_WORTH_25]                          Survey Year: XRND
+  PRIMARY VARIABLE
+
+ 
+             NET WORTH OF HOUSEHOLD AT AGE 25
+ 
+CUMULATIVE VARIABLE: Household net worth at age 25. This variable is created for
+all respondents regardless of interview status in the current round; 
+CVC_ASSETS_RND_25 provides the round of the respondent's age 25 assets 
+interview.
+/*Topcoded at predetermined values.  Respondents with household net worth values
+above $600,000 were topcoded to a value of $600,000.  Negative values of -1, -2,
+-3, -4, or -5 do not reflect negative monetary amounts; these numbers represent 
+standard NLSY97 codes.*/
+ 
+    1037    -9999999 TO -3000: < -2999
+      89       -2999 TO -2000
+      79       -1999 TO -1000
+      99        -999 TO -1
+     173           0
+     134           1 TO 1000
+     166        1001 TO 2000
+     791        2001 TO 3000
+     446        3001 TO 5000
+     921        5001 TO 10000
+     852       10001 TO 20000
+     470       20001 TO 30000
+     310       30001 TO 40000
+     195       40001 TO 50000
+     178       50001 TO 65000
+     140       65001 TO 80000
+     132       80001 TO 100000
+     189      100001 TO 150000
+     103      150001 TO 200000
+     208      200001 TO 999999999: 200001+
+  -------
+    6712
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)    1438
+TOTAL =========>    8150   VALID SKIP(-4)     834     NON-INTERVIEW(-5)       0
+ 
+Min:        -997500        Max:         600000        Mean:             25702.7
+ 
+Hard Minimum: [0]
+Hard Maximum: [9999999]
+ 
+Lead In: Z90489.00[Default]
+Default Next Question: Z90491.00
+--------------------------------------------------------------------------------
+Z90498.00    [CVC_ASSETS_FINANCIAL_25]                      Survey Year: XRND
+  PRIMARY VARIABLE
+
+ 
+             FINANCIAL ASSETS AT AGE 25
+ 
+CUMULATIVE VARIABLE: Value of financial assets at age 25. This variable is 
+created for all respondents regardless of interview status in the current round;
+CVC_ASSETS_RND_25 provides the round of the respondent's age 25 assets 
+interview.
+/*Topcoded to predetermined values.  Respondents with finacial asset values 
+above $300,000 were topcoded to a value of $300,000.  Negative values of -1, -2,
+-3, -4, or -5 do not reflect negative monetary amounts; these numbers represent 
+standard NLSY97 codes.*/
+ 
+       0    -9999999 TO -3000: < -2999
+       0       -2999 TO -2000
+       0       -1999 TO -1000
+       0        -999 TO -1
+    2317           0
+    1619           1 TO 1000
+     540        1001 TO 2000
+     364        2001 TO 3000
+     426        3001 TO 5000
+     554        5001 TO 10000
+     469       10001 TO 20000
+     195       20001 TO 30000
+     135       30001 TO 40000
+      77       40001 TO 50000
+      68       50001 TO 65000
+      51       65001 TO 80000
+      48       80001 TO 100000
+      67      100001 TO 150000
+      34      150001 TO 200000
+      75      200001 TO 999999999: 200001+
+  -------
+    7039
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)    1111
+TOTAL =========>    8150   VALID SKIP(-4)     834     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:         300000        Mean:             10556.3
+ 
+Hard Minimum: [0]
+Hard Maximum: [9999999]
+ 
+Lead In: Z90497.00[Default]
+Default Next Question: Z90499.00
+--------------------------------------------------------------------------------
+Z90501.00    [CVC_ASSETS_DEBTS_20]                          Survey Year: XRND
+  PRIMARY VARIABLE
+
+ 
+             DEBT AT AGE 20
+ 
+CUMULATIVE VARIABLE: Amount of financial debt owed at age 20. This variable is 
+created for all respondents regardless of interview status in the current round;
+CVC_ASSETS_RND_20 provides the round of the respondent's age 20 assets 
+interview.
+/*Topcoded to predetermined values.  Respondents with non-housing debt values 
+above $370,000 were topcoded to a value of $370,000.  Negative values of -1, -2,
+-3, -4, or -5 do not reflect negative monetary amounts; these numbers represent 
+standard NLSY97 codes.*/
+ 
+       0    -9999999 TO -3000: < -2999
+       0       -2999 TO -2000
+       0       -1999 TO -1000
+       0        -999 TO -1
+    4613           0
+     972           1 TO 1000
+     394        1001 TO 2000
+     281        2001 TO 3000
+     444        3001 TO 5000
+     731        5001 TO 10000
+     656       10001 TO 20000
+     184       20001 TO 30000
+      59       30001 TO 40000
+      20       40001 TO 50000
+      10       50001 TO 65000
+       3       65001 TO 80000
+       6       80001 TO 100000
+       1      100001 TO 150000
+       1      150001 TO 200000
+       0      200001 TO 999999999: 200001+
+  -------
+    8375
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)     167
+TOTAL =========>    8542   VALID SKIP(-4)     442     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:         200000        Mean:             3394.51
+ 
+Hard Minimum: [0]
+Hard Maximum: [9999999]
+ 
+Lead In: Z90500.00[Default]
+Default Next Question: Z90502.00
+--------------------------------------------------------------------------------
+Z91219.00    [CVC_HH_NET_WORTH_30]                          Survey Year: XRND
+  PRIMARY VARIABLE
+
+ 
+             NET WORTH OF HOUSEHOLD AT AGE 30
+ 
+CUMULATIVE VARIABLE: Household net worth at age 30. This variable is created for
+all respondents regardless of interview status in the current round; 
+CVC_ASSETS_RND_30 provides the round of the respondent's age 30 assets 
+interview.
+/*Topcoded at predetermined values.  Respondents with household net worth values
+above $600,000 were topcoded to a value of $600,000.  Negative values of -1, -2,
+-3, -4, or -5 do not reflect negative monetary amounts; these numbers represent 
+standard NLSY97 codes.*/
+ 
+    1021    -9999999 TO -3000: < -2999
+      56       -2999 TO -2000
+      41       -1999 TO -1000
+      62        -999 TO -1
+     200           0
+     101           1 TO 1000
+      89        1001 TO 2000
+     514        2001 TO 3000
+     267        3001 TO 5000
+     639        5001 TO 10000
+     762       10001 TO 20000
+     462       20001 TO 30000
+     310       30001 TO 40000
+     296       40001 TO 50000
+     269       50001 TO 65000
+     231       65001 TO 80000
+     267       80001 TO 100000
+     366      100001 TO 150000
+     235      150001 TO 200000
+     514      200001 TO 999999999: 200001+
+  -------
+    6702
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)    1008
+TOTAL =========>    7710   VALID SKIP(-4)    1274     NON-INTERVIEW(-5)       0
+ 
+Min:       -5014150        Max:         600000        Mean:             50841.6
+ 
+Hard Minimum: [0]
+Hard Maximum: [9999999]
+ 
+Lead In: None.
+Default Next Question: Z91220.00
+--------------------------------------------------------------------------------
+Z91220.00    [CVC_HOUSE_VALUE_30]                           Survey Year: XRND
+  PRIMARY VARIABLE
+
+ 
+             HOUSE VALUE AT AGE 30
+ 
+CUMULATIVE VARIABLE: Value of Rs primary housing at age 30. This variable is 
+created for all respondents regardless of interview status in the current round;
+CVC_ASSETS_RND_30 provides the round of the respondent's age 30 assets 
+interview.
+/*Topcoded at predetermined values.  Respondents with house values above $425,
+000 were topcoded to a value of $425,000.  Negative values of -1, -2, -3, -4, or
+-5 do not reflect negative monetary amounts; these numbers represent standard 
+NLSY97 codes.*/
+ 
+       0    -9999999 TO -3000: < -2999
+       0       -2999 TO -2000
+       0       -1999 TO -1000
+       0        -999 TO -1
+    5350           0
+       5           1 TO 1000
+       5        1001 TO 2000
+       6        2001 TO 3000
+      16        3001 TO 5000
+      28        5001 TO 10000
+      54       10001 TO 20000
+      25       20001 TO 30000
+      56       30001 TO 40000
+      39       40001 TO 50000
+      70       50001 TO 65000
+     136       65001 TO 80000
+     166       80001 TO 100000
+     498      100001 TO 150000
+     466      150001 TO 200000
+     722      200001 TO 999999999: 200001+
+  -------
+    7642
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      68
+TOTAL =========>    7710   VALID SKIP(-4)    1274     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:         425000        Mean:            52910.55
+ 
+Hard Minimum: [0]
+Hard Maximum: [9999999]
+ 
+Lead In: Z91219.00[Default]
+Default Next Question: Z91221.00
+--------------------------------------------------------------------------------
+Z91222.00    [CVC_HOUSE_TYPE_30]                            Survey Year: XRND
+  PRIMARY VARIABLE
+
+ 
+             HOUSE TYPE AT AGE 30
+ 
+CUMULATIVE VARIABLE: Primary type of owned housing at age 30. This variable is 
+created for all respondents regardless of interview status in the current round;
+CVC_ASSETS_RND_30 provides the round of the respondent's age 30 assets 
+interview.
+ 
+COMMENT: Users should note that due to a change in the questionnaire, the 
+categories describing the type of residence owned by the respondent at age 30 
+are different than the type of residence categories in prior rounds (e.g., 
+assets at age 25).
+ 
+    1936       1 House
+       2       2 Ranch/Farm
+     156       3 Mobile Home
+    5352       6 R does not own
+     247       9 Owns other residence type
+  -------
+    7693
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)      17
+TOTAL =========>    7710   VALID SKIP(-4)    1274     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:              9        Mean:                4.78
+ 
+Lead In: Z91221.00[Default]
+Default Next Question: Z91223.00
+--------------------------------------------------------------------------------
+Z91223.00    [CVC_ASSETS_FINANCIAL_30]                      Survey Year: XRND
+  PRIMARY VARIABLE
+
+ 
+             FINANCIAL ASSETS AT AGE 30
+ 
+CUMULATIVE VARIABLE: Value of financial assets at age 30. This variable is 
+created for all respondents regardless of interview status in the current round;
+CVC_ASSETS_RND_30 provides the round of the respondent's age 30 assets 
+interview.
+/*Topcoded to predetermined values.  Respondents with finacial asset values 
+above $300,000 were topcoded to a value of $300,000.  Negative values of -1, -2,
+-3, -4, or -5 do not reflect negative monetary amounts; these numbers represent 
+standard NLSY97 codes.*/
+ 
+       0    -9999999 TO -3000: < -2999
+       0       -2999 TO -2000
+       0       -1999 TO -1000
+       0        -999 TO -1
+    1820           0
+    1183           1 TO 1000
+     403        1001 TO 2000
+     309        2001 TO 3000
+     419        3001 TO 5000
+     575        5001 TO 10000
+     595       10001 TO 20000
+     355       20001 TO 30000
+     275       30001 TO 40000
+     180       40001 TO 50000
+     205       50001 TO 65000
+     163       65001 TO 80000
+     118       80001 TO 100000
+     163      100001 TO 150000
+     100      150001 TO 200000
+     153      200001 TO 999999999: 200001+
+  -------
+    7016
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)     694
+TOTAL =========>    7710   VALID SKIP(-4)    1274     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:         300000        Mean:            22316.29
+ 
+Hard Minimum: [0]
+Hard Maximum: [9999999]
+ 
+Lead In: Z91222.00[Default]
+Default Next Question: Z91224.00
+--------------------------------------------------------------------------------
+Z91225.00    [CVC_ASSETS_DEBTS_30]                          Survey Year: XRND
+  PRIMARY VARIABLE
+
+ 
+             DEBT AT AGE 30
+ 
+CUMULATIVE VARIABLE: Amount of financial debt owed at age 30. This variable is 
+created for all respondents regardless of interview status in the current round;
+CVC_ASSETS_RND_30 provides the round of the respondent's age 30 assets 
+interview.
+/*Topcoded to predetermined values.  Respondents with non-housing debt values 
+above $370,000 were topcoded to a value of $370,000.  Negative values of -1, -2,
+-3, -4, or -5 do not reflect negative monetary amounts; these numbers represent 
+standard NLSY97 codes.*/
+ 
+       0    -9999999 TO -3000: < -2999
+       0       -2999 TO -2000
+       0       -1999 TO -1000
+       0        -999 TO -1
+    2526           0
+     340           1 TO 1000
+     290        1001 TO 2000
+     218        2001 TO 3000
+     370        3001 TO 5000
+     724        5001 TO 10000
+    1000       10001 TO 20000
+     672       20001 TO 30000
+     427       30001 TO 40000
+     286       40001 TO 50000
+     241       50001 TO 65000
+     135       65001 TO 80000
+     109       80001 TO 100000
+      62      100001 TO 150000
+      26      150001 TO 200000
+      31      200001 TO 999999999: 200001+
+  -------
+    7457
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+Invalid Skip(-3)     253
+TOTAL =========>    7710   VALID SKIP(-4)    1274     NON-INTERVIEW(-5)       0
+ 
+Min:              0        Max:         370000        Mean:            16597.07
+ 
+Hard Minimum: [0]
+Hard Maximum: [9999999]
+ 
+Lead In: Z91224.00[Default]
+Default Next Question: Z91226.00
