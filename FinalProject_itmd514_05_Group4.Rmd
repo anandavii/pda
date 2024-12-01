@@ -1072,3 +1072,7 @@ ggplot(nlsy_df, aes(x = used_marijuana, y = total_income_2016, fill = gender)) +
   scale_fill_brewer(palette = "Set3", name = "Gender") +
   theme_minimal()
 ```																					
+
+```{r}
+#This is a new chunk by abhishek
+```
