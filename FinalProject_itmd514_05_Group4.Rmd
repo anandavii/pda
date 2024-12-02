@@ -1169,9 +1169,11 @@ ggplot(sad_income_df, aes(x = is_sad_depressed_unhappy_f, y = total_income_2016,
 ## Industry Code vs Income
 
 ```{r}
+# Filtering NA from Industry Code
 industry_code_nlsy_df <- nlsy_df %>%
   filter(!is.na(industry_code))
 
+# Summarizing the Industry Code
 industry_code_income_summary <- industry_code_nlsy_df %>%																									
 group_by(industry_code) %>%																									
 summarize(																									
@@ -1187,7 +1189,7 @@ print(industry_code_income_summary)
 The table above shows the count of respondents for different category of industry code, mean_income, median_income, and standard deviation. Here we can see that the mean income for different industry codes. The mean income for Mining is the highest and lowest for Entertainment, Accommodations, and Food Services. However, the median income for Utilities is the highest. Also, standard deviation for Active Duty Military is lowest compared to Finance, Insurance, and Real Estate respondents. The NA consists of valid skip which means the question was not applicable to those respondants and hence we have omitted it. Therefore, the data we see for industry codes in table or the graph will be for the 6166 responses as out of 8984 we omitted 2818 rows.
 
 ```{r}
-# Graph with topcoded income values
+# Create the bar plot for mean income by industry code and gender
 ggplot(industry_code_nlsy_df, aes(x = industry_code, y = total_income_2016, fill = gender)) +	
   geom_boxplot(na.rm=TRUE)+
   scale_fill_manual(values = c("Male" = "#1f77b4", "Female" = "#ff7f0e")) +
@@ -1203,9 +1205,11 @@ The above graph illustrates a plot for topcoded income vs industry code by gende
 ## Marital Status vs Income
 
 ```{r}
+# Filtering NA from marital status
 marital_status_nlsy_df <- nlsy_df %>%
   filter(!is.na(marital_status))
 
+# Summarizing the marital status
 marital_status_income_summary <- marital_status_nlsy_df %>%																									
 group_by(marital_status,gender) %>%																									
 summarize(																									
@@ -1245,10 +1249,12 @@ The above graph illustrates a plot for topcoded income vs marital status by gend
 ## Incarcerations vs Income
 
 ```{r}
+# Filtering NA from total number of Incarcerations
 total_num_incarcerations_nlsy_df <- nlsy_df %>%
   filter(!is.na(total_num_incarcerations))
  #filter(!is.na(total_income_2016))
 
+# Summarizing total number of Incarcerations
 total_num_incarcerations_income_summary <- total_num_incarcerations_nlsy_df %>%																									
 group_by(total_num_incarcerations) %>%																									
 summarize(																									
@@ -1265,12 +1271,12 @@ The table above shows the count of respondents with total number of incarceratio
 
 
 ```{r}
-# Filter data to exclude missing income values and focus on marital status
+# Filter data to exclude missing income values and focus on incacerations
 nlsy_incarcerations <- nlsy_df %>%
   filter(!is.na(total_income_2016)) %>%  
   filter(!is.na(total_num_incarcerations))
 
-# Create the bar plot for mean income by marital status and gender
+# Create the bar plot for mean income by  incacerations and gender
 ggplot(nlsy_incarcerations, aes(x = total_num_incarcerations, y = total_income_2016, fill = gender)) +
   geom_bar(stat = "summary", fun = "mean", position = "dodge") +
   geom_text(aes(label = round(..y..)), stat = "summary", fun = "mean", position = position_dodge(width = 0.9), vjust = 0.1, size= 3.5 ) +
@@ -1289,10 +1295,12 @@ The above graph illustrates a plot for topcoded income vs incarcerations by gend
 ## College Type vs Income 
 
 ```{r}
+# Filtering NA from college types
 college_type_nlsy_df <- nlsy_df %>%
   filter(!is.na(college_type))
   #filter(!is.na(total_income_2016))
 
+# Summarizing college types
 college_type_income_summary <- college_type_nlsy_df %>%																									
 group_by(college_type) %>%																									
 summarize(																									
@@ -1307,12 +1315,12 @@ print(college_type_income_summary)
 The table above shows the count of respondents for different category of colleges, mean_income, median_income, and standard deviation. Here we can see that the mean income, median income and sd income for Private not-for-profit institution is the highest and lowest for Private for-profit institution. The NA consists of valid skip which means the question was not applicable to those respondants and hence we have omitted it. Therefore, the data we see for marital status in table or the graph will be for the 1434 responses as out of 8984 we omitted 7550 rows.
 
 ```{r}
-# Filter data to exclude missing income values and focus on marital status
+# Filter data to exclude missing income values and focus on college types
 nlsy_college <- nlsy_df %>%
   filter(!is.na(total_income_2016)) %>%  
   filter(!is.na(college_type))
 
-# Create the bar plot for mean income by marital status and gender
+# Create the bar plot for mean income by college types and gender
 ggplot(nlsy_college, aes(x = college_type, y = total_income_2016, fill = gender)) +
   geom_bar(stat = "summary", fun = "mean", position = "dodge") +
   geom_text(aes(label = round(..y..)), stat = "summary", fun = "mean", position = position_dodge(width = 0.9), vjust = 6, size= 5 ) +
@@ -1330,10 +1338,12 @@ The above graph illustrates a plot for topcoded income vs industry code by gende
 ## Trustful/Distrustful vs Income 
 
 ```{r}
+# Filtering NA from trustful/distrustful
 trustful_distrustful_nlsy_df <- nlsy_df %>%
   filter(!is.na(trustful_or_not))
   #filter(!is.na(total_income_2016))
 
+# Summarizing trustful/distrustful
 trustful_distrustful_income_summary <- trustful_distrustful_nlsy_df %>%																									
 group_by(trustful_or_not) %>%																									
 summarize(																									
@@ -1348,13 +1358,13 @@ print(trustful_distrustful_income_summary)
 The table above shows the count of respondents for Distrustful and Trustful, mean_income, median_income, and standard deviation. The mean income, median income and sd income for Trustful is the higher and lower for Distrustful. The NA consists of valid skip which means the question was not applicable to those respondants and hence we have omitted it. Therefore, the data we see for marital status in table or the graph will be for the 4875 responses as out of 8984 we omitted 4109 rows.
 
 ```{r}
-# Filter data to exclude missing income values and focus on marital status
+# Filter data to exclude missing income values and focus on trustful/distrustful
 trustful_distrustful_nlsy_df <- nlsy_df %>%
   filter(!is.na(trustful_or_not))%>%
   filter(!is.na(total_income_2016))
 
 # Bar plot for trustful_or_not
-# Create the bar plot for mean income by marital status and gender
+# Create the bar plot for mean income by trustful/distrustful and gender
 ggplot(trustful_distrustful_nlsy_df, aes(x = trustful_or_not, y = total_income_2016, fill = gender)) +
   geom_bar(stat = "summary", position = "dodge") +
   geom_text(aes(label = round(..y..)), stat = "summary", position = position_dodge(width = 0.9), vjust = 6, size= 5 ) +
