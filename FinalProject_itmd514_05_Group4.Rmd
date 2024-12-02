@@ -894,6 +894,8 @@ The trustful_or_not variable shows a high percentage of missing data (45.73%). A
 
 #PART 2 Analysis
 
+---------------------------------------------------------------------------------------------------------------------
+
 ## INCOME vs GENDER
 ```{r}
 # Summarize income by gender including topcoded variable, excluding NA
