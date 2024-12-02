@@ -1135,7 +1135,8 @@ ggplot(marital_status_nlsy_df, aes(x = marital_status, fill = gender)) +
 
 ```{r}
 total_num_incarcerations_nlsy_df <- nlsy_df %>%
-  filter(!is.na(total_num_incarcerations))
+  filter(!is.na(total_num_incarcerations))%>%
+filter(!is.na(total_income_2016))
 
 total_num_incarcerations_income_summary <- total_num_incarcerations_nlsy_df %>%																									
 group_by(total_num_incarcerations) %>%																									
@@ -1146,7 +1147,8 @@ median_income = median(total_income_2016, na.rm = TRUE),
 sd_income = sd(total_income_2016, na.rm = TRUE)																									
 )																									
 print(total_num_incarcerations_income_summary)																									
-```	
+```
+	
 
 ```{r}
 
