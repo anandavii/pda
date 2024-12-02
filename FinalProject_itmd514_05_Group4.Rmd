@@ -1129,6 +1129,11 @@ ggplot(no_topcoded_nlsy_df, aes(x = used_marijuana, y = total_income_2016, fill 
 # If we analyze the graph we can say that the trend of income shows some variation when compared to graph with topcoded values. After removing extreme values, the income differences become more moderate. Gender disparities persist but are less dramatic when compared to graph with topcoded values. Here, the male in refusal category shows lower income as compared to female, for No category males earn slightly more than female and the highest income can be near approx 150K for males and 140K for females, for Yes category we see that both have similar income range. 
 ```	
 
+## IS SAD DEPRESSED UNHAPPY VS INCOME BASED ON GENDER 
+```{r}
+
+```
+
 ## Industry Code vs Income
 
 ```{r}
