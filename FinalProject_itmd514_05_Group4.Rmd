@@ -1369,6 +1369,45 @@ ggplot(trustful_distrustful_nlsy_df, aes(x = trustful_or_not, y = total_income_2
 ```
 The above graph illustrates a plot for topcoded income vs respondents who are trustful/distrustful by gender. The red boxes are for male and the blue ones are for females. The graphs shows that the income for male is consistently higher than that for females for both who are trustful as well as distrustful.
 
+## Mean Income by Current Enrollment Status and Gender
+
+```{r}
+# Calculate mean income for each enrollment status and gender, excluding missing values
+nlsy_current_enr_df <- nlsy_df %>%
+  filter(!is.na(total_income_2016), !is.na(current_enrollment_status)) %>%
+  group_by(current_enrollment_status, gender) %>%
+  summarize(
+    `Mean Income` = mean(total_income_2016, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  rename(`Enrollment Status` = current_enrollment_status)
+
+# Print the results
+print(tabular_data)
+```
+From the above we can infer that the respondents who are currently enrolled in a 2-year college tend to earn highest average income(this includes the topcoded values). However there is a significant difference in the average income of Male and Female although they attended the same level of college and the Male population are earning more than Female.
+
+```{r}
+# Calculate mean income for each enrollment status and gender
+nlsy_heatmap <- nlsy_df %>%
+  filter(!is.na(total_income_2016), !is.na(current_enrollment_status)) %>%
+  group_by(current_enrollment_status, gender) %>%
+  summarize(mean_income = mean(total_income_2016, na.rm = TRUE), .groups = "drop")
+
+# Create heatmap for mean income by the current enrollment status
+ggplot(nlsy_heatmap, aes(x = gender, y = current_enrollment_status, fill = mean_income)) +
+  geom_tile() +
+  scale_fill_gradient(low = "blue", high = "brown", name = "Mean Income") +
+  labs(
+    title = "Mean Income Heatmap by Enrollment Status",
+    subtitle = "Including Topcoded Values",
+    x = "Gender",
+    y = "Current Enrollment Status"
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+From the Heatmap we can observe that Male and Female respondents who are attending same 2 year college degree but the male population is earning more average income compared to female respondents.
+
 ```{r}
 
 ```
