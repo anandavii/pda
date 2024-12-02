@@ -222,6 +222,15 @@ nlsy_df %>%
 ```																									
 From the table above we observe that 8742 of the respondants said that their current enrollment status is "Enrolled in grades 1-12, not a high school graduate" and this is followed by the ones who responsded "Not enrolled, no high school degree, no GED	" which is 226.
 
+```{r}
+# Create the plot with proper count calculation
+ggplot(nlsy_df, aes(x = reorder(current_enrollment_status, -table(current_enrollment_status)[current_enrollment_status]), fill = current_enrollment_status)) +
+  geom_bar(stat = "count", show.legend = FALSE) +
+  geom_text(stat = "count", aes(label = ..count..), vjust = -0.5, size = 1.2) +
+  labs(title = "Distribution of current enrollment status", x = "Current Enrollment Status", y = "Count") +
+  theme(axis.text.x = element_text(angle = 80, vjust = 1, hjust = 1))
+```
+From the bar plot above we observe that 8742 of the respondents confirmed their current enrollment status is "Enrolled in grades 1-12, not a high school graduate" and this is followed by the ones who responded "Not enrolled, no high school degree, no GED	" which is 226.
 
 ## TOTAL INCOME 2016
 ```{r} 
@@ -362,20 +371,20 @@ ggplot(nlsy_df, aes(x = reorder(race, -table(race)[race]), fill = race)) +
 ## HIGHEST GRADE COMPLETED																							
 ```{r}
 # Check for unique values and if any missing values are present
-unique(nlsy$highest_grade_completed)
-table(nlsy$highest_grade_completed, useNA = "ifany")
+unique(nlsy_df$highest_grade_completed)
+table(nlsy_df$highest_grade_completed, useNA = "ifany")
 ```
 From the above we can see there are four types of negative values present which are -5, -4, -2 and -1 denoting non-interview, skipped, don't know and refusal. Further we have to encode the values with appropiriate labels.
 
 ```{r}
 # Replace negative values with NA
-nlsy <- nlsy %>%
+nlsy_df <- nlsy_df %>%
   mutate(highest_grade_completed = ifelse(highest_grade_completed < 0, NA, highest_grade_completed))
 ```
 
 ```{r}
 # Recode highest grade completed into descriptive labels
-nlsy <- nlsy %>%
+nlsy_df <- nlsy_df %>%
   mutate(highest_grade_completed = case_when(
     highest_grade_completed == 0 ~ "None",
     highest_grade_completed == 1 ~ "1st Grade",
@@ -405,7 +414,7 @@ nlsy <- nlsy %>%
 
 ```{r}
 # Verify the count of different grades
-nlsy %>%
+nlsy_df %>%
   count(highest_grade_completed, sort = TRUE) %>%
   rename(count = n)
 ```
@@ -413,7 +422,7 @@ From above we see that majority of the population did not answer about their gra
 
 ```{r}
 # Create the plot with proper count calculation
-ggplot(nlsy, aes(x = reorder(highest_grade_completed, table(highest_grade_completed)[highest_grade_completed]), fill = highest_grade_completed)) +
+ggplot(nlsy_df, aes(x = reorder(highest_grade_completed, table(highest_grade_completed)[highest_grade_completed]), fill = highest_grade_completed)) +
   geom_bar(stat = "count", show.legend = FALSE) +
   geom_text(stat = "count", aes(label = ..count..), vjust = -0.5, size = 3) +
   labs(title = "Distribution of Highest Grade Completed", x = "Highest Grade Completed", y = "Count") +
