@@ -8,10 +8,14 @@ output: html_document
 ```{r}
 # We will require the tidyverse library, ISLR2 library and the dplyr library
 # The following loads the library for our use
+install.packages("moments")
+
 library(tidyverse)
 library(knitr)
 library(ggplot2)
 library(gridExtra)
+library(moments)
+
 ```
 
 ```{r}																									
@@ -65,7 +69,8 @@ nlsy_df <- nlsy[, c(
 )]
 ```
 
-## GENDER																									
+## GENDER	
+
 ```{r}																									
 # Check the unique values and if any missing values are present
 unique(nlsy_df$gender)
@@ -100,6 +105,7 @@ labs(title = "Gender Distribution Plot", x = "Gender", y = "Count")
 From the plot above we can see the population distribution contains more number of Male(4599) and less Females(4385).														
 	
 ## BIRTH YEAR
+
 ```{r}
 # Checking if birth_year column requires cleaning | unique values: 1983 1984 1980 1981 1982
 # This variable birth_year does not contain any negative values and hence no cleaning is required for it. We have summarized the variable which tells minimum value expected is 1980, 1st quartile is 1981, median is 1982, 3rd quartile is 1983 and max is 1984.
@@ -129,6 +135,7 @@ ggplot(data = nlsy_df, aes(x = birth_year, fill = birth_year)) +
 ```
 
 ## IS SAD DEPRESSED UNHAPPY F
+
 ```{r}
 # Replace -3, -4, and -5 with NA in the is_sad_depressed_unhappy_f column
 # is_sad_depressed_unhappy_f is a primary variable captured in survey year 1997 to see how respondents respond to the question if they are sad, unhappy, or depressed. This variable has 1070 responses for 0 which signifies 'Not true', 472 responses for 1 which signifies 'Sometimes true', and 42 responses for which signifies 'Often true'. Out of total 8984, there are 1584 valid responses and some have negative values like -1(2),-2(2),-4 (7396),-5 which signify refusal, don't know, valid skip, non-interview, respectively. Here we are replacing -3,-4,-5 with NA and then filtering nlsy_df with all NA for this variable. This means that 7400/8984 data is NA which constitutes a huge portion of data and may introduce biases.
@@ -148,8 +155,6 @@ sort(unique(nlsy_df$is_sad_depressed_unhappy_f))
 
 glimpse(nlsy_df)
 ```
-
-
 
 ```{r}
 # This question 'Is the respondant sad, unhappy, or depressed?' shows a tibble 4x2 where we have marked 0 as Not true, 1 as Sometimes true, 2 as Often true, and for all negative values we have used NA. The table below shows the count of each kind of responses.
@@ -186,7 +191,8 @@ ggplot(data = Is_Sad_plot_df, aes(x = is_sad_depressed_unhappy_f, fill = is_sad_
   theme_minimal()
 ```
 
-## ENROLLMENT STATUS																									
+## ENROLLMENT STATUS	
+
 ```{r}																									
 # Check for unique values and if any missing values are present
 unique(nlsy_df$current_enrollment_status)
@@ -233,6 +239,7 @@ ggplot(nlsy_df, aes(x = reorder(current_enrollment_status, -table(current_enroll
 From the bar plot above we observe that 8742 of the respondents confirmed their current enrollment status is "Enrolled in grades 1-12, not a high school graduate" and this is followed by the ones who responded "Not enrolled, no high school degree, no GED	" which is 226.
 
 ## TOTAL INCOME 2016
+
 ```{r} 
 # Check the data
 unique(nlsy_df$total_income_2016)
@@ -330,7 +337,8 @@ In Fig 2.when the topcoded values are removed, the histogram shows a more accura
 
 Similarly in Fig2.1 the boxplot, now excluding the topcoded values, shows a median income of $35,000 and a more concentrated IQR of $25,000 to $50,000. By removing the topcoded value, the outlier is eliminated, and the distribution is more representative of the actual income spread. This boxplot highlights the more typical income range for most individuals, without the distortion introduced by the topcoded values.
 	
-## RACE																								
+## RACE			
+
 ```{r}																									
 # Check for unique values and if any missing values are present
 unique(nlsy_df$race)
@@ -368,7 +376,8 @@ ggplot(nlsy_df, aes(x = reorder(race, -table(race)[race]), fill = race)) +
   )
 ```																									
 
-## HIGHEST GRADE COMPLETED																							
+## HIGHEST GRADE COMPLETED
+
 ```{r}
 # Check for unique values and if any missing values are present
 unique(nlsy_df$highest_grade_completed)
@@ -430,7 +439,8 @@ ggplot(nlsy_df, aes(x = reorder(highest_grade_completed, table(highest_grade_com
 ```
 From the above we see that theere are missing values for the majority of responses which is 7436. From the remaining we can see that the majority of population completed 2nd year college(277) followed by 1st year college(213).
 
-## AGE as of 1996 December 31st
+## AGE AS OF 1996 DECEMBER 31ST
+
 ```{r}
 # Checking if Age as of 1996 december 31st needs cleaning | unique values: 13 12 16 15 14
 # The variable Age shows the minimum expected value in survey response is 12, 1st quartile is 13, median is 14, mean is 13.99, 3rd quartile is 15, and max is 16. This variable does not have any missing values and hence no cleaning is required.
@@ -459,6 +469,7 @@ ggplot(data = nlsy_df, aes(x = age_1996, fill = age_1996)) +
 ```
 	
 ## CITIZENSHIP
+
 ```{r}
 # Checking if Citizenship requires cleaning | unique values:  1 3 2 -4
 # Citizenship is a variable have 1,2,3 as response in the survey and -4, a negative value indicating Valid Skip. We will be cleaning this variable to replace -4 in the data with NA. Furthermore, summarizing this variable we get min value as -4 ( which will be treated later), 1st quartile is 1, median is 1, mean is 0.6279, 3rd quartile is 1, and max is 3.
@@ -518,6 +529,7 @@ ggplot(data = nlsy_df, aes(x = citizenship, fill = citizenship)) +
 ```
 
 ## EVER USE MARIJUANA
+
 ```{r}
 # This variable Citizenship has different values like Non-Citizen, Birthplace Unknown, Citizen , and NA. Possible responses are 0,1,-1,-2,-3 where 0 indicates No, 1 indicates Yes, -1 indicates Refusal, -2 indicates Don't know, and -3 indicates Invalid Skip. To clean this we will be taking -1 and -2 into consideration as it can tell us if respondents might be hiding the truth. However, we can replace -3 with NA to get the accurate analysis done for this variable.
 unique(nlsy_df$used_marijuana)
@@ -563,7 +575,8 @@ ggplot(data = nlsy_df, aes(x = reorder(used_marijuana, -table(used_marijuana)[us
 # The graph below illustrates that 79.56% (7148) of respondents do not use marijuana, 19.97% (1795) use marijuana, 0.05% (5) don't know if the used it, 0.37% (34) refused to answer the question, and the question was a invalid skip for 2 people. By this plot, we can say that 0.43% (39) people might be hiding some information on use of marijuana. There is a significant number of respondents who use marijuana.
 ```
 
-## INDUSTRY CODE                                                
+## INDUSTRY CODE  
+
 ```{r}                                                  
 # Checking unique values in industry_code
 unique(nlsy_df$industry_code)
@@ -643,6 +656,7 @@ ggplot(data = nlsy_df, aes(x = industry_code)) +
 The industry_code variable shows that 2818 rows are missing, accounting for 31.38% of the dataset. The largest group belongs to Educational, Health, and Social Services (1378 respondents), followed by Professional and Related Services (813) and Entertainment, Accommodations, and Food Services (718). Smaller industries, like Utilities (38) and Active Duty Military (22), are least represented. The missing data introduces potential bias and should be accounted for in analysis.                                                  
                                                   
 ## MARITAL STATUS
+
 ```{r}                                                  
 # Checking unique values
 unique(nlsy_df$marital_status)
@@ -699,12 +713,12 @@ ggplot(data = nlsy_df, aes(x = marital_status, fill = marital_status)) +
   ) +
   theme_minimal()
 ```                                                 
-
   
 The marital_status distribution shows that the majority of respondents are Never-married (2766) or Married (3066). Smaller numbers are classified as "Other" (e.g., Separated, Divorced, Widowed). About 25.75% of the data is missing, which may introduce bias.                                                 
 In the bar plot above, we can see that a significant portion of the dataset is missing marital status information, with about 25.75% of respondents not providing data due to non-interviews (-5) and invalid skips (-3). This missing data introduces potential bias in any analysis of marital status and should be carefully addressed. The largest groups in the marital status distribution are "Never-married" (2766 respondents) and "Married" (3066 respondents), with smaller numbers for "Divorced" (663), "Separated" (154), and "Widowed" (23). The distribution is relatively skewed towards those who are "Never-married" or "Married," while the other categories are underrepresented. The presence of missing data in a large proportion of respondents calls for caution, as it may affect the generalizability of any findings related to marital status in this sample.                                                 
 
 ## TOTAL NUM INCARCERATION
+
 ```{r}                                                  
 # Checking unique values in total_num_incarcerations
 unique(nlsy_df$total_num_incarcerations)
@@ -774,6 +788,7 @@ ggplot(data = nlsy_df, aes(x = total_num_incarcerations)) +
 The distribution of total_num_incarcerations reveals that the majority of respondents (8054) reported "No incarcerations", indicating no contact with the criminal justice system. Smaller groups reported 1 to 2 incarcerations (716 respondents) and 3 to 4 incarcerations (146 respondents). Only 38 respondents reported 5 to 6 incarcerations, and even fewer experienced higher levels of incarceration: 7 respondents for 7 to 8 incarcerations, 1 respondent for 9 to 10 incarcerations, and 1 respondent for 11 to 12 incarcerations. With only 21 missing values (0.23%), the data is relatively complete for this variable.                                                  
 
 ## COLLEGE TYPE
+
 ```{r}                                                  
 # Checking unique values in college_type
 unique(nlsy_df$college_type)
@@ -906,6 +921,7 @@ The trustful_or_not variable shows a high percentage of missing data (45.73%). A
 ---------------------------------------------------------------------------------------------------------------------
 
 ## INCOME vs GENDER
+
 ```{r}
 # Summarize income by gender including topcoded variable, excluding NA
 
@@ -937,8 +953,6 @@ gender_income_summary <- nlsy_no_topcoded %>%
   )
 print(gender_income_summary)
 ```
-
-
 
 The above tabular summary for income by gender shows that males have a higher average income ($57,203) compared to females ($41,279), with a median income of $47,000 for males and $35,000 for females. The standard deviation is also higher for males ($44,712) than for females ($34,047), indicating greater income variability among males. Overall, males consistently earn more on average and have more variation in income compared to females.
 
@@ -1006,6 +1020,7 @@ ggplot(nlsy_df, aes(x = race, y = total_income_2016, fill = gender)) +
 The bar plot shows the average income by race and gender, with distinct bars for males and females within each racial group. The "Other" group has the highest average income for both males ($64,519) and females ($46,240), followed by "Hispanic" and "Black" groups. Males consistently earn more than females across all groups, with the gender gap largest in the "Other" group ($18,279) and smallest in the "Black" group ($6,873). The plot highlights significant income disparities both between races and genders.
 
 ## CITIZENSHIP vs INCOME
+
 ```{r}																									
 # Summarize income by citizenship status by gender distribution
 # The table below shows the count of respondents for different category of citizenship, mean_income, median_income, and standard deviation. Here we can see that the mean income for citizen is less than the non-citizen and people who don't know their birthplace have the highest mean income. However, the median income for non-citizen is the highest.Also, standard deviation for citizens is lowest compared to non-citizen and unknown birthplace category respondents. The NA consists of valid skip which means the question was not applicable to those respondants and hence we have omitted it. Therefore, the data we see for citizenship status in table or the graph will be for the 7942 responses as out of 8984 we omitted 1042 rows. Also, the male and female distribution is shown for income based on citizenship.
@@ -1040,7 +1055,8 @@ ggplot(citizen_nlsy_df, aes(x = citizenship, y = total_income_2016, fill = gende
   )
 ```
 
-## AGE vs Income
+## AGE vs INCOME
+
 ```{r}
 # This will give us a tabular representation of age, mean, median, and sd. The possible age values are 12 to 16 where there are reasonable number of respondents for each age category. We can see that mean income is the highest for respondents of age 15 and lowest for age 12. The lowest median income is again for 12 years respondants and is 40000 for respondents of age 13, 14, and 16. We have filtered the rows where income is NA to get accurate number of male and female having respective mean, median, and sd. The table shows that there are 523 males and 499 females with mean income of 47192.36, median 39500, and sd 39106.02. Similarly we have data for different age across our respondents for a total of 2621 males and 2470 females.
 age_income_summary <- nlsy_df %>%
@@ -1093,6 +1109,7 @@ ggplot(no_topcoded_nlsy_df, aes(x = age_1996, y = total_income_2016, color = gen
 ```
 
 ## USED MARIJUANA vs INCOME
+
 ```{r}
 # This tabular below shows a tibble of 4x7 where we can see number of male and female having mean income based on usage of marijuana. There is a huge number of people 4078 who do not use marijuana and have a mean income of 49843.55. People who use marijuana constitutes to 994 out of which 534 are male and 460 are female who together have a mean income of 47958 which is lower when compared to people who don't use marijuana. However, category using marijuana and not using marijuana have same median of 40000. There are 3 males who say don't know have lowest mean income of 22266.67 and 11 male and 5 female refused to answer this question have the highest mean income of 55524.
 mari_income_summary <- nlsy_df %>%
@@ -1138,7 +1155,8 @@ ggplot(no_topcoded_nlsy_df, aes(x = used_marijuana, y = total_income_2016, fill 
 # If we analyze the graph we can say that the trend of income shows some variation when compared to graph with topcoded values. After removing extreme values, the income differences become more moderate. Gender disparities persist but are less dramatic when compared to graph with topcoded values. Here, the male in refusal category shows lower income as compared to female, for No category males earn slightly more than female and the highest income can be near approx 150K for males and 140K for females, for Yes category we see that both have similar income range. 
 ```	
 
-## IS SAD DEPRESSED UNHAPPY VS INCOME BASED ON GENDER 
+## IS SAD DEPRESSED UNHAPPY vs INCOME BASED ON GENDER 
+
 ```{r}
 # This table analyzes the relationship between income and reported feelings of sadness/depression, broken down by gender. The data shows 631 responses for 'Not true', 259 reponses for 'Sometimes true', and 24 responses for 'Often true'. This question shows sample is heavily skewed towards females, with only 4 male respondents. Mean income level is highest for people who don't feel depressed and lowest income is for respondents who often feel depressed or unhappy. Overall we get the idea that people who reported frequently feeling sadness or depression show lower income level among females. There is huge mean income gap of $13,383 between 'Not true' and 'Often true' category respondents.
 sad_income_summary <- nlsy_df %>%
@@ -1175,7 +1193,7 @@ ggplot(sad_income_df, aes(x = is_sad_depressed_unhappy_f, y = total_income_2016,
   scale_color_brewer(palette = "Set1", name = "Gender")
 ```
 
-## Industry Code vs Income
+## INDUSTRY CODE vs INCOME
 
 ```{r}
 # Filtering NA from Industry Code
@@ -1214,7 +1232,7 @@ ggplot(industry_code_nlsy_df, aes(x = industry_code, y = total_income_2016, fill
 
 The above graph illustrates a plot for topcoded income vs industry code by gender. The blue boxes are for male and the orange ones are for females. The graphs shows that the income for male is consistently higher than that for females across different industry codes apart from ACS Special codes where it can be seen that females earn more than males.
 
-## Marital Status vs Income
+## MARTIAL STATUS vs INCOME
 
 ```{r}
 # Filtering NA from marital status
@@ -1261,7 +1279,7 @@ ggplot(nlsy_married, aes(x = marital_status, y = total_income_2016, fill = gende
 
 The above graph illustrates a plot for topcoded income vs marital status by gender. The red boxes are for male and the blue ones are for females. The graphs shows that the mean income for male is consistently higher than that for females across all marital statuses.
 
-## Incarcerations vs Income
+## INCARCERATIONS vs INCOME
 
 ```{r}
 # Filtering NA from total number of Incarcerations
@@ -1309,7 +1327,7 @@ ggplot(nlsy_incarcerations, aes(x = total_num_incarcerations, y = total_income_2
 
 The above graph illustrates a plot for topcoded income vs incarcerations by gender. The red boxes are for male and the blue ones are for females. The graphs shows that the mean income for male is consistently higher than that for females even with different incarcerations they have had. However we do not see any mean income for females in the 7 to 8 and 11 to 12 incarcerations since we only have one respondent and we can assume that it was a male.
 
-## College Type vs Income 
+## COLLEGE TYPE vs INCOME
 
 ```{r}
 # Filtering NA from college types
@@ -1354,7 +1372,7 @@ ggplot(nlsy_college, aes(x = college_type, y = total_income_2016, fill = gender)
 ```
 The above graph illustrates a plot for topcoded income vs industry code by gender. The red boxes are for male and the blue ones are for females. The graphs shows that the income for male is consistently higher than that for females for all the three types of institutions.
 
-## Trustful/Distrustful vs Income 
+## TRUSTFUL/DISTRUSTFUL vs INCOME
 
 ```{r}
 # Filtering NA from trustful/distrustful
@@ -1399,7 +1417,7 @@ ggplot(trustful_distrustful_nlsy_df, aes(x = trustful_or_not, y = total_income_2
 ```
 The above graph illustrates a plot for topcoded income vs respondents who are trustful/distrustful by gender. The red boxes are for male and the blue ones are for females. The graphs shows that the income for male is consistently higher than that for females for both who are trustful as well as distrustful.
 
-## Mean Income by Current Enrollment Status and Gender
+## MEAN INCOME BY CURRENT ENROLLMENT STATUS AND GENDER
 
 ```{r}
 # Calculate mean income for each enrollment status and gender, excluding missing values
@@ -1437,6 +1455,36 @@ ggplot(nlsy_heatmap, aes(x = gender, y = current_enrollment_status, fill = mean_
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 From the Heatmap we can observe that Male and Female respondents who are attending same 2 year college degree but the male population is earning more average income compared to female respondents.
+
+---------------------------------------------------------------------------------------------------------------------
+
+# PART 3 Analysis
+
+---------------------------------------------------------------------------------------------------------------------
+
+## NORMALITY CHECK
+
+```{r}
+# To check for normality of total_income_2016 we have performed the Skewness and Kurtosis tests to check for normality.
+
+# Skewness:
+# Close to 0: Symmetric distribution (normal-like).
+# Positive: Right-skewed (tail extends to the right).
+# Negative: Left-skewed (tail extends to the left).
+
+skewness(nlsy_df$total_income_2016, na.rm = TRUE)
+
+#Skewness = 2.435323: This indicates that the distribution of total_income_2016 is positively skewed, meaning it has a long right tail. The majority of the income values are concentrated toward the lower end, with fewer values extending toward the higher end. Hence it can be determined that the data deviates from normality.
+
+# Kurtosis:
+# Normal distribution has a kurtosis of 3.
+# >3: Heavy-tailed distribution (leptokurtic).
+# <3: Light-tailed distribution (platykurtic).
+
+kurtosis(nlsy_df$total_income_2016, na.rm = TRUE)
+
+# Kurtosis = 11.26869: This is significantly greater than 3, suggesting a leptokurtic distribution. This means the data has heavier tails and a sharper peak compared to a normal distribution. Hence it can be determined that the data deviates from normality.
+```
 
 ```{r}
 
