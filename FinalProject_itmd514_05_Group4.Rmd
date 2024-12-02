@@ -1073,11 +1073,6 @@ ggplot(nlsy_df, aes(x = used_marijuana, y = total_income_2016, fill = gender)) +
   scale_fill_brewer(palette = "Set3", name = "Gender") +
   theme_minimal()
 ```																					
-
-```{r}
-#This is a new chunk by abhishek!Learn Git with Me and surajit
-```
-
 ##Industry Code vs Income
 
 ```{r}
@@ -1162,13 +1157,13 @@ print(total_num_incarcerations_income_summary)
 ```
 
 ```{r}
-#this is my code apurva
+
 ```
 
 ```{r}
-#code by surajit
+
 ```
 
 ```{r}
-#Testing code by abhishek and Apurva
+
 ```
