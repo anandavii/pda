@@ -1207,12 +1207,12 @@ marital_status_nlsy_df <- nlsy_df %>%
   filter(!is.na(marital_status))
 
 marital_status_income_summary <- marital_status_nlsy_df %>%																									
-group_by(marital_status) %>%																									
+group_by(marital_status,gender) %>%																									
 summarize(																									
 count = n(),																									
-mean_income = mean(total_income_2016, na.rm = TRUE),																									
-median_income = median(total_income_2016, na.rm = TRUE),																									
-sd_income = sd(total_income_2016, na.rm = TRUE)																									
+mean_income = round(mean(total_income_2016, na.rm = TRUE)),																									
+median_income = round(median(total_income_2016, na.rm = TRUE)),																									
+sd_income = round(sd(total_income_2016, na.rm = TRUE))																								
 )%>%
   arrange(desc(count))																									
 print(marital_status_income_summary)																									
