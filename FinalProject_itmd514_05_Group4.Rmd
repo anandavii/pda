@@ -1212,7 +1212,7 @@ summarize(
 count = n(),																									
 mean_income = round(mean(total_income_2016, na.rm = TRUE)),																									
 median_income = round(median(total_income_2016, na.rm = TRUE)),																									
-sd_income = round(sd(total_income_2016, na.rm = TRUE))																								
+sd_income = round(sd(total_income_2016, na.rm = TRUE)), .groups = "drop"																								
 )%>%
   arrange(desc(count))																									
 print(marital_status_income_summary)																									
