@@ -1242,7 +1242,7 @@ ggplot(nlsy_married, aes(x = marital_status, y = total_income_2016, fill = gende
 
 The above graph illustrates a plot for topcoded income vs marital status by gender. The red boxes are for male and the blue ones are for females. The graphs shows that the mean income for male is consistently higher than that for females across all marital statuses.
 
-##Incarcerations vs Income
+## Incarcerations vs Income
 
 ```{r}
 total_num_incarcerations_nlsy_df <- nlsy_df %>%
