@@ -1165,7 +1165,8 @@ ggplot(sad_income_df, aes(x = is_sad_depressed_unhappy_f, y = total_income_2016,
   theme_minimal() +
   scale_color_brewer(palette = "Set1", name = "Gender")
 ```
-##Industry Code vs Income
+
+## Industry Code vs Income
 
 ```{r}
 industry_code_nlsy_df <- nlsy_df %>%
@@ -1199,7 +1200,7 @@ ggplot(industry_code_nlsy_df, aes(x = industry_code, y = total_income_2016, fill
 
 The above graph illustrates a plot for topcoded income vs industry code by gender. The blue boxes are for male and the orange ones are for females. The graphs shows that the income for male is consistently higher than that for females across different industry codes apart from ACS Special codes where it can be seen that females earn more than males.
 
-##Marital Status vs Income
+## Marital Status vs Income
 
 ```{r}
 marital_status_nlsy_df <- nlsy_df %>%
