@@ -1165,8 +1165,7 @@ ggplot(sad_income_df, aes(x = is_sad_depressed_unhappy_f, y = total_income_2016,
   theme_minimal() +
   scale_color_brewer(palette = "Set1", name = "Gender")
 ```
-
-## Industry Code vs Income
+##Industry Code vs Income
 
 ```{r}
 industry_code_nlsy_df <- nlsy_df %>%
@@ -1179,10 +1178,12 @@ count = n(),
 mean_income = mean(total_income_2016, na.rm = TRUE),																									
 median_income = median(total_income_2016, na.rm = TRUE),																									
 sd_income = sd(total_income_2016, na.rm = TRUE)																									
-)																									
+)%>%
+  arrange(desc(count))																									
 print(industry_code_income_summary)																									
 ```	
-The summarized data indicates diverse income statistics across different industry codes. Among the industries, Mining reports the highest mean income of $72,777.78 with a median of $65,000 and relatively high variability (SD = $33,619.29), while Entertainment, Accommodations, and Food Services has the lowest mean income of $36,019 and a median of $30,000. Finance, Insurance, and Real Estate and Active Duty Military also exhibit high mean incomes of $66,745.78 and $67,055.56, respectively. Educational, Health, and Social Services has the largest count of individuals (1,378), showing a moderate mean income of $48,458.78 with notable income spread (SD = $38,455.60). Variability is highest in Finance, Insurance, and Real Estate (SD = $55,332.58), reflecting a broad income range within this sector. Overall, income levels vary significantly across industries, with sectors like Mining and Finance showing higher averages compared to sectors like Entertainment.
+
+The table above shows the count of respondents for different category of industry code, mean_income, median_income, and standard deviation. Here we can see that the mean income for different industry codes. The mean income for Mining is the highest and lowest for Entertainment, Accommodations, and Food Services. However, the median income for Utilities is the highest. Also, standard deviation for Active Duty Military is lowest compared to Finance, Insurance, and Real Estate respondents. The NA consists of valid skip which means the question was not applicable to those respondants and hence we have omitted it. Therefore, the data we see for industry codes in table or the graph will be for the 6166 responses as out of 8984 we omitted 2818 rows.
 
 ```{r}
 # Graph with topcoded income values
@@ -1196,7 +1197,9 @@ ggplot(industry_code_nlsy_df, aes(x = industry_code, y = total_income_2016, fill
     y = "Total Income")	
 ```	
 
-## Marital Status vs Income
+The above graph illustrates a plot for topcoded income vs industry code by gender. The blue boxes are for male and the orange ones are for females. The graphs shows that the income for male is consistently higher than that for females across different industry codes apart from ACS Special codes where it can be seen that females earn more than males.
+
+##Marital Status vs Income
 
 ```{r}
 marital_status_nlsy_df <- nlsy_df %>%
@@ -1209,27 +1212,41 @@ count = n(),
 mean_income = mean(total_income_2016, na.rm = TRUE),																									
 median_income = median(total_income_2016, na.rm = TRUE),																									
 sd_income = sd(total_income_2016, na.rm = TRUE)																									
-)																									
+)%>%
+  arrange(desc(count))																									
 print(marital_status_income_summary)																									
 ```	
 
+The table above shows the count of respondents for different category of marital status, mean_income, median_income, and standard deviation. Here we can see that the mean income for different Marital statuses. The mean income for Married is the highest and lowest for Never-Married. However, the median income for Married is the highest but same for Never-Married and Others (combined: Separated, Divorced, Widowed ). Also, standard deviation for Never-married is lowest and for Married is highest. The NA consists of valid skip which means the question was not applicable to those respondants and hence we have omitted it. Therefore, the data we see for marital status in table or the graph will be for the 6672 responses as out of 8984 we omitted 2312 rows.
+
 ```{r}
-ggplot(marital_status_nlsy_df, aes(x = marital_status, fill = gender)) +
-  geom_bar(position = "dodge") +  # Dodged bars for gender comparison
-  scale_fill_manual(values = c("Male" = "#1f77b4", "Female" = "#ff7f0e")) +
-  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) +  # Rotate x-axis labels vertically
-  labs(title = "Marital Status by Gender",
-       subtitle = "Including Topcoded Values",
-       x = "Marital Status",
-       y = "Total Income")
+# Filter data to exclude missing income values and focus on marital status
+nlsy_married <- nlsy_df %>%
+  filter(!is.na(total_income_2016)) %>%  
+  filter(!is.na(marital_status))
+
+# Create the bar plot for mean income by marital status and gender
+ggplot(nlsy_married, aes(x = marital_status, y = total_income_2016, fill = gender)) +
+  geom_bar(stat = "summary", fun = "mean", position = "dodge") +
+  geom_text(aes(label = round(..y..)), stat = "summary", fun = "mean", position = position_dodge(width = 0.9), vjust = 6, size= 5 ) +
+  labs(
+    title = "Mean Income by Marital Status and Gender",
+    subtitle = "Including Topcoded Values",
+    x = "Marital Status",
+    y = "Mean Income",
+    fill = "Gender"
+  ) +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 ```
 
-## Total Number of Incarcerations vs Income
+The above graph illustrates a plot for topcoded income vs marital status by gender. The red boxes are for male and the blue ones are for females. The graphs shows that the mean income for male is consistently higher than that for females across all marital statuses.
+
+##Incarcerations vs Income
 
 ```{r}
 total_num_incarcerations_nlsy_df <- nlsy_df %>%
-  filter(!is.na(total_num_incarcerations))%>%
-filter(!is.na(total_income_2016))
+  filter(!is.na(total_num_incarcerations))
+ #filter(!is.na(total_income_2016))
 
 total_num_incarcerations_income_summary <- total_num_incarcerations_nlsy_df %>%																									
 group_by(total_num_incarcerations) %>%																									
@@ -1238,10 +1255,118 @@ count = n(),
 mean_income = mean(total_income_2016, na.rm = TRUE),																									
 median_income = median(total_income_2016, na.rm = TRUE),																									
 sd_income = sd(total_income_2016, na.rm = TRUE)																									
-)																									
+)%>%
+  arrange(desc(count))																									
 print(total_num_incarcerations_income_summary)																									
+```	
+
+The table above shows the count of respondents with total number of incarcerations, mean_income, median_income, and standard deviation. Here we can see that the mean income for No incarcerations is the highest and lowest for 11 to 12 and 9 to 10 incarcerations. Similarly, the median income for No incarcerations is the highest and lowest for 11 to 12 incarcerations. Also, standard deviation for No incarcerations is the highest. We did remove the NA values but the NA values in the summary are likely occurring because some groups have only a single observation (e.g., the "11 to 12 incarcerations" and "9 to 10 incarcerations" categories). When calculating statistics like the standard deviation, the formula requires at least two values to compute a valid result. With only one value in a group, the standard deviation cannot be calculated, so it returns NA. The data we see for different incarcerations in table or the graph will be for the 8963 responses as out of 8984 we omitted 21 rows.
+
+
+```{r}
+# Filter data to exclude missing income values and focus on marital status
+nlsy_incarcerations <- nlsy_df %>%
+  filter(!is.na(total_income_2016)) %>%  
+  filter(!is.na(total_num_incarcerations))
+
+# Create the bar plot for mean income by marital status and gender
+ggplot(nlsy_incarcerations, aes(x = total_num_incarcerations, y = total_income_2016, fill = gender)) +
+  geom_bar(stat = "summary", fun = "mean", position = "dodge") +
+  geom_text(aes(label = round(..y..)), stat = "summary", fun = "mean", position = position_dodge(width = 0.9), vjust = 0.1, size= 3.5 ) +
+  labs(
+    title = "Mean Income by Incarcerations and Gender",
+    subtitle = "Including Topcoded Values",
+    x = "Incarcerations",
+    y = "Mean Income",
+    fill = "Gender"
+  ) +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 ```
-	
+
+The above graph illustrates a plot for topcoded income vs incarcerations by gender. The red boxes are for male and the blue ones are for females. The graphs shows that the mean income for male is consistently higher than that for females even with different incarcerations they have had. However we do not see any mean income for females in the 7 to 8 and 11 to 12 incarcerations since we only have one respondent and we can assume that it was a male.
+
+## College Type vs Income 
+
+```{r}
+college_type_nlsy_df <- nlsy_df %>%
+  filter(!is.na(college_type))
+  #filter(!is.na(total_income_2016))
+
+college_type_income_summary <- college_type_nlsy_df %>%																									
+group_by(college_type) %>%																									
+summarize(																									
+count = n(),																									
+mean_income = mean(total_income_2016, na.rm = TRUE),																									
+median_income = median(total_income_2016, na.rm = TRUE),																									
+sd_income = sd(total_income_2016, na.rm = TRUE)																									
+)																									
+print(college_type_income_summary)																									
+```	
+
+The table above shows the count of respondents for different category of colleges, mean_income, median_income, and standard deviation. Here we can see that the mean income, median income and sd income for Private not-for-profit institution is the highest and lowest for Private for-profit institution. The NA consists of valid skip which means the question was not applicable to those respondants and hence we have omitted it. Therefore, the data we see for marital status in table or the graph will be for the 1434 responses as out of 8984 we omitted 7550 rows.
+
+```{r}
+# Filter data to exclude missing income values and focus on marital status
+nlsy_college <- nlsy_df %>%
+  filter(!is.na(total_income_2016)) %>%  
+  filter(!is.na(college_type))
+
+# Create the bar plot for mean income by marital status and gender
+ggplot(nlsy_college, aes(x = college_type, y = total_income_2016, fill = gender)) +
+  geom_bar(stat = "summary", fun = "mean", position = "dodge") +
+  geom_text(aes(label = round(..y..)), stat = "summary", fun = "mean", position = position_dodge(width = 0.9), vjust = 6, size= 5 ) +
+  labs(
+    title = "Total Income by College type and Gender",
+    subtitle = "Including Topcoded Values",
+    x = "College Type",
+    y = "Mean Income",
+    fill = "Gender"
+  ) +
+  theme(axis.text.x = element_text(angle = 60, vjust = 1, hjust = 1))
+```
+The above graph illustrates a plot for topcoded income vs industry code by gender. The red boxes are for male and the blue ones are for females. The graphs shows that the income for male is consistently higher than that for females for all the three types of institutions.
+
+## Trustful/Distrustful vs Income 
+
+```{r}
+trustful_distrustful_nlsy_df <- nlsy_df %>%
+  filter(!is.na(trustful_or_not))
+  #filter(!is.na(total_income_2016))
+
+trustful_distrustful_income_summary <- trustful_distrustful_nlsy_df %>%																									
+group_by(trustful_or_not) %>%																									
+summarize(																									
+count = n(),																									
+mean_income = mean(total_income_2016, na.rm = TRUE),																									
+median_income = median(total_income_2016, na.rm = TRUE),																									
+sd_income = sd(total_income_2016, na.rm = TRUE)																									
+)																									
+print(trustful_distrustful_income_summary)																									
+```	
+
+The table above shows the count of respondents for Distrustful and Trustful, mean_income, median_income, and standard deviation. The mean income, median income and sd income for Trustful is the higher and lower for Distrustful. The NA consists of valid skip which means the question was not applicable to those respondants and hence we have omitted it. Therefore, the data we see for marital status in table or the graph will be for the 4875 responses as out of 8984 we omitted 4109 rows.
+
+```{r}
+# Filter data to exclude missing income values and focus on marital status
+trustful_distrustful_nlsy_df <- nlsy_df %>%
+  filter(!is.na(trustful_or_not))%>%
+  filter(!is.na(total_income_2016))
+
+# Bar plot for trustful_or_not
+# Create the bar plot for mean income by marital status and gender
+ggplot(trustful_distrustful_nlsy_df, aes(x = trustful_or_not, y = total_income_2016, fill = gender)) +
+  geom_bar(stat = "summary", position = "dodge") +
+  geom_text(aes(label = round(..y..)), stat = "summary", position = position_dodge(width = 0.9), vjust = 6, size= 5 ) +
+  labs(
+    title = "Total Income by trustful/distrustful and Gender",
+    subtitle = "Including Topcoded Values",
+    x = "Trustful or Distrustful",
+    y = "Mean Income",
+    fill = "Gender"
+  ) +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+```
+The above graph illustrates a plot for topcoded income vs respondents who are trustful/distrustful by gender. The red boxes are for male and the blue ones are for females. The graphs shows that the income for male is consistently higher than that for females for both who are trustful as well as distrustful.
 
 ```{r}
 
