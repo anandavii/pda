@@ -997,7 +997,7 @@ The bar plot shows the average income by race and gender, with distinct bars for
 ## CITIZENSHIP vs INCOME
 ```{r}																									
 # Summarize income by citizenship status by gender distribution
-# The table below shows the count of respondents for different category of citizenship, mean_income, median_income, and standard deviation. Here we can see that the mean income for citizen is less than the non-citizen and people who don't know their birthplace have the highest mean income. However, the median income for non-citizen is the highest.Also, standard deviation for citizens is lowest compared to non-citizen and unknown birthplace category respondents. The NA consists of valid skip which means the question was not applicable to those respondants and hence we have omitted it. Therefore, the data we see for citizenship status in table or the graph will be for the 7942 responses as out of 8984 we omitted 1042 rows.
+# The table below shows the count of respondents for different category of citizenship, mean_income, median_income, and standard deviation. Here we can see that the mean income for citizen is less than the non-citizen and people who don't know their birthplace have the highest mean income. However, the median income for non-citizen is the highest.Also, standard deviation for citizens is lowest compared to non-citizen and unknown birthplace category respondents. The NA consists of valid skip which means the question was not applicable to those respondants and hence we have omitted it. Therefore, the data we see for citizenship status in table or the graph will be for the 7942 responses as out of 8984 we omitted 1042 rows. Also, the male and female distribution is shown for income based on citizenship.
 
 # Omit rows where Citizenship is NA
 citizen_nlsy_df <- nlsy_df %>%
@@ -1007,6 +1007,8 @@ citizenship_income_summary <- citizen_nlsy_df %>%
   group_by(citizenship) %>%
   summarize(
     count = n(),
+    count_male = sum(gender == "Male", na.rm = TRUE),
+    count_female = sum(gender == "Female", na.rm = TRUE),
     mean_income = mean(total_income_2016, na.rm = TRUE),
     median_income = median(total_income_2016, na.rm = TRUE),
     sd_income = sd(total_income_2016, na.rm = TRUE)
@@ -1025,8 +1027,9 @@ ggplot(citizen_nlsy_df, aes(x = citizenship, y = total_income_2016, fill = gende
     x = "Citizenship",
     y = "Total Income"
   )
-```								
+```
 
+## AGE vs Income
 ```{r}
 # Filter the data before creating the plot to remove the topcoded values. As we know there are 121 people having topcoded which is 2% level. There income has been average to 235884 and we plan to analyse the data for both with topcoded and without.
 no_topcoded_nlsy_df <- nlsy_df %>%
