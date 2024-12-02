@@ -1383,7 +1383,7 @@ nlsy_current_enr_df <- nlsy_df %>%
   rename(`Enrollment Status` = current_enrollment_status)
 
 # Print the results
-print(tabular_data)
+print(nlsy_current_enr_df)
 ```
 From the above we can infer that the respondents who are currently enrolled in a 2-year college tend to earn highest average income(this includes the topcoded values). However there is a significant difference in the average income of Male and Female although they attended the same level of college and the Male population are earning more than Female.
 
