@@ -1189,7 +1189,7 @@ print(industry_code_income_summary)
 The table above shows the count of respondents for different category of industry code, mean_income, median_income, and standard deviation. Here we can see that the mean income for different industry codes. The mean income for Mining is the highest and lowest for Entertainment, Accommodations, and Food Services. However, the median income for Utilities is the highest. Also, standard deviation for Active Duty Military is lowest compared to Finance, Insurance, and Real Estate respondents. The NA consists of valid skip which means the question was not applicable to those respondants and hence we have omitted it. Therefore, the data we see for industry codes in table or the graph will be for the 6166 responses as out of 8984 we omitted 2818 rows.
 
 ```{r}
-# Create the bar plot for mean income by industry code and gender
+# Create the bar plot for total income by industry code and gender
 ggplot(industry_code_nlsy_df, aes(x = industry_code, y = total_income_2016, fill = gender)) +	
   geom_boxplot(na.rm=TRUE)+
   scale_fill_manual(values = c("Male" = "#1f77b4", "Female" = "#ff7f0e")) +
@@ -1363,7 +1363,6 @@ trustful_distrustful_nlsy_df <- nlsy_df %>%
   filter(!is.na(trustful_or_not))%>%
   filter(!is.na(total_income_2016))
 
-# Bar plot for trustful_or_not
 # Create the bar plot for mean income by trustful/distrustful and gender
 ggplot(trustful_distrustful_nlsy_df, aes(x = trustful_or_not, y = total_income_2016, fill = gender)) +
   geom_bar(stat = "summary", position = "dodge") +
