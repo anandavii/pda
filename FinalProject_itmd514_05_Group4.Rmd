@@ -1065,6 +1065,7 @@ ggplot(no_topcoded_nlsy_df, aes(x = age_1996, y = total_income_2016, color = gen
 # Fig2. depicts a plot for excluding topcoded income for 2% level. It shows income range in $0-$150K. Green point is for male and orange is for female. Here as the data has topcoded values truncated, the remains similar to the previous one. Male income starts from a little below $50K while females start around $37K which is lower as compared to fig1. The income goes slightly up for males above 14 and income goes down for females above the age of 15.
 ```
 
+## USED MARIJUANA vs INCOME
 ```{r}
 ggplot(nlsy_df, aes(x = used_marijuana, y = total_income_2016, fill = gender)) +
   geom_boxplot(alpha = 0.7) +
