@@ -1571,7 +1571,7 @@ if (gender_ci$p.value < 0.05) {
 notop_lm_model <- lm(total_income_2016 ~ gender, data = notop_filtered_data)
 
 # Summarize the regression model
- summary(lm_model)
+ summary(notop_lm_model)
 ```
 
 ## PLOTS FOR TOPCODED
