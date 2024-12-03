@@ -1581,14 +1581,88 @@ par(mfrow = c(2, 2))  # Arrange plots in 2x2 grid
 plot(notop_lm_model)
 ```
 
+## LINEAR REGRESSION MODEL FOR NO-TOPCODED (MARITAL STATUS)
 ```{r}
+# Fit the regression model
+notop_lm_model_ms <- lm(total_income_2016 ~ gender + marital_status, data = notop_filtered_data)
 
+# Summarize the regression model
+ summary(notop_lm_model)
 ```
 
+## PLOTS FOR NO-TOPCODED (MARITAL STATUS)
 ```{r}
-
+# Diagnostic plots for regression model
+par(mfrow = c(2, 2))  # Arrange plots in 2x2 grid
+plot(notop_lm_model_ms)
 ```
 
+1. Residuals vs. Fitted
+The residuals are scattered unevenly across the range of fitted values. There appears to be some clustering or systematic patterns, especially at lower fitted values. There may be issues with non-linearity or heteroscedasticity, suggesting that the model assumptions of linearity or equal variance might be violated.
+
+2. Normal Q-Q Plot
+Residuals deviate significantly from the theoretical quantile line in the tails. A visible "S" shape suggests non-normality of residuals. Statistical tests and confidence intervals derived from the model may be less reliable due to this non-normality.
+
+3. Scale-Location (Spread-Location)
+The spread of residuals increases slightly with larger fitted values, as indicated by the upward trend in the red line. The model may suffer from mild heteroscedasticity, meaning the variance of residuals is not constant across levels of the predictors.
+
+4. Residuals vs. Leverage
+Points like 1672 and 1674 are potential high-leverage points, but they do not exceed Cook’s distance threshold. While these points are not excessively influential, they should be examined for potential outlier effects.
+
+## LINEAR REGRESSION MODEL FOR NO-TOPCODED (AGE 1996 + CITIZENSHIP)
+```{r}
+# Fit the regression model
+notop_lm_model_ag_ctz <- lm(total_income_2016 ~ gender + age_1996 + citizenship, data = notop_filtered_data)
+
+# Summarize the regression model
+ summary(notop_lm_model)
+```
+
+## PLOTS FOR NO-TOPCODED (AGE 1996 + CITIZENSHIP)
+```{r}
+# Diagnostic plots for regression model
+par(mfrow = c(2, 2))  # Arrange plots in 2x2 grid
+plot(notop_lm_model_ag_ctz)
+```
+1. Residuals vs. Fitted
+Residuals are scattered around zero but appear to show non-random patterns. Some clustering may indicate mild issues with linearity or omitted variables. There may be slight violations of linearity or homoscedasticity.
+
+2. Normal Q-Q Plot
+The residuals follow the diagonal line reasonably well in the middle but deviate in the tails. The departure at both ends indicates potential non-normality of residuals. Inferences might be slightly affected, particularly for tests or confidence intervals.
+
+3. Scale-Location (Spread-Location)
+The red line is mostly flat, but the spread of residuals increases slightly as fitted values grow. Indicates mild heteroscedasticity. Variance may not be constant, which could affect model accuracy.
+
+4. Residuals vs. Leverage
+Points like 244, 1200, and 3220 show relatively high leverage. None of the observations exceed Cook's distance threshold, meaning their influence is limited. These points should still be reviewed for potential impact on model performance.
+
+
+## LINEAR REGRESSION MODEL FOR NO-TOPCODED (RACE + USED MARIJUANA + INDUSTRY CODE)
+```{r}
+# Fit the regression model
+notop_lm_model_rc_um_ic <- lm(total_income_2016 ~ gender + race + used_marijuana + industry_code, data = notop_filtered_data)
+
+# Summarize the regression model
+ summary(notop_lm_model)
+```
+
+## PLOTS FOR NO-TOPCODED (RACE + USED MARIJUANA + INDUSTRY CODE)
+```{r}
+# Diagnostic plots for regression model
+par(mfrow = c(2, 2))  # Arrange plots in 2x2 grid
+plot(notop_lm_model_rc_um_ic)
+```
+1. Residuals vs. Fitted
+The residuals are scattered around zero, but there is some noticeable spread variation. There may be mild signs of heteroscedasticity, as the variance increases slightly with the fitted values. This suggests that the model may not perfectly meet the assumption of homoscedasticity.
+
+2. Normal Q-Q Plot
+The residuals deviate from the diagonal line, especially at the tails, indicating that the residuals are not perfectly normal. This might affect inference (e.g., confidence intervals and p-values).
+
+3. Scale-Location (Spread-Location)
+The red line is relatively flat, but there is some variation in the spread of points. The heteroscedasticity detected in the first plot is confirmed here. Indicates that the model's variance might not be constant across the range of fitted values.
+
+4. Residuals vs. Leverage
+Points like 120, 4628, and 1712 are flagged as having high leverage. No point crosses the Cook's distance threshold (indicated by the dashed lines), so no observation appears to be highly influential. No extreme leverage points, but observations with high leverage should be examined.
 ```{r}
 
 ```
