@@ -235,6 +235,7 @@ nlsy_df <- nlsy_df %>%
     current_enrollment_status < 0 ~ NA_character_
   ))
 ```																									
+
 In the above we have lebelled the enrollment statuses and also changed the negative  values with NA the count of which is only 2 rows which is 2/8984 rows and ~0.02% of total data.																									
 																									
 ```{r}																									
@@ -243,6 +244,7 @@ nlsy_df %>%
   count(current_enrollment_status, sort = TRUE) %>%
   rename(count = n)
 ```																									
+
 From the table above we observe that 8742 of the respondants said that their current enrollment status is "Enrolled in grades 1-12, not a high school graduate" and this is followed by the ones who responsded "Not enrolled, no high school degree, no GED	" which is 226.
 
 ```{r}
@@ -253,6 +255,7 @@ ggplot(nlsy_df, aes(x = reorder(current_enrollment_status, -table(current_enroll
   labs(title = "Distribution of current enrollment status", x = "Current Enrollment Status", y = "Count") +
   theme(axis.text.x = element_text(angle = 80, vjust = 1, hjust = 1))
 ```
+
 From the bar plot above we observe that 8742 of the respondents confirmed their current enrollment status is "Enrolled in grades 1-12, not a high school graduate" and this is followed by the ones who responded "Not enrolled, no high school degree, no GED	" which is 226.
 
 ## TOTAL INCOME 2016
@@ -361,6 +364,7 @@ Similarly in Fig2.1 the boxplot, now excluding the topcoded values, shows a medi
 unique(nlsy_df$race)
 table(nlsy_df$race, useNA = "ifany")
 ```																									
+
 Here we can see that we have the valid values from 1-4 and this column does not contain any missing values as well. Now further we can encode the numeric values to the race/ethinicity.																									
 																									
 ```{r}																									
@@ -380,6 +384,7 @@ nlsy_df %>%
   count(race, sort = TRUE) %>%
   rename(count = n)
 ```																									
+
 From the count we can infer that the total population contains 2335 Black respondents, 1901 Hispanic, 4665 Non-Black and 83 Mixed Race in Others population.																									
 																									
 ```{r}																									
@@ -400,6 +405,7 @@ ggplot(nlsy_df, aes(x = reorder(race, -table(race)[race]), fill = race)) +
 unique(nlsy_df$highest_grade_completed)
 table(nlsy_df$highest_grade_completed, useNA = "ifany")
 ```
+
 From the above we can see there are four types of negative values present which are -5, -4, -2 and -1 denoting non-interview, skipped, don't know and refusal. Further we have to encode the values with appropiriate labels.
 
 ```{r}
@@ -444,6 +450,7 @@ nlsy_df %>%
   count(highest_grade_completed, sort = TRUE) %>%
   rename(count = n)
 ```
+
 From above we see that majority of the population did not answer about their grades which is 7436. From the remaining we can see that the majority of population completed 2nd year college(277) followed by 1st year college(213).
 
 ```{r}
@@ -454,17 +461,18 @@ ggplot(nlsy_df, aes(x = reorder(highest_grade_completed, table(highest_grade_com
   labs(title = "Distribution of Highest Grade Completed", x = "Highest Grade Completed", y = "Count") +
   theme(axis.text.x = element_text(angle = 60, vjust = 1, hjust = 1))
 ```
+
 From the above we see that theere are missing values for the majority of responses which is 7436. From the remaining we can see that the majority of population completed 2nd year college(277) followed by 1st year college(213).
 
 ## AGE AS OF 1996 DECEMBER 31ST
 
 ```{r}
 # Checking if Age as of 1996 december 31st needs cleaning | unique values: 13 12 16 15 14
-# The variable Age shows the minimum expected value in survey response is 12, 1st quartile is 13, median is 14, mean is 13.99, 3rd quartile is 15, and max is 16. This variable does not have any missing values and hence no cleaning is required.
 unique(nlsy_df$age_1996)
 summary(nlsy_df$age_1996)
 ```
 
+The variable Age shows the minimum expected value in survey response is 12, 1st quartile is 13, median is 14, mean is 13.99, 3rd quartile is 15, and max is 16. This variable does not have any missing values and hence no cleaning is required.
 
 ```{r}
 # The tabular form of data displayed below shows the age and number of people having that age.
@@ -495,18 +503,20 @@ ggplot(data = age_1996_sorted, aes(x = reorder(age_1996, -n), y = n, fill = fact
 
 ```{r}
 # Checking if Citizenship requires cleaning | unique values:  1 3 2 -4
-# Citizenship is a variable have 1,2,3 as response in the survey and -4, a negative value indicating Valid Skip. We will be cleaning this variable to replace -4 in the data with NA. Furthermore, summarizing this variable we get min value as -4 ( which will be treated later), 1st quartile is 1, median is 1, mean is 0.6279, 3rd quartile is 1, and max is 3.
 unique(nlsy_df$citizenship)
 summary(nlsy_df$citizenship)
 ```
 
+Citizenship is a variable have 1,2,3 as response in the survey and -4, a negative value indicating Valid Skip. We will be cleaning this variable to replace -4 in the data with NA. Furthermore, summarizing this variable we get min value as -4 ( which will be treated later), 1st quartile is 1, median is 1, mean is 0.6279, 3rd quartile is 1, and max is 3.
+
 ```{r}
 # The tabular form of data displayed below shows the age and number of people having that age.
-# Here we see that there is a significant number of responses with negative value in our data set for Citizenship variable. If we change -4 to NA, then 1042 data will be omitted when we plot it which might introduce biases in the data and the output might not be accurate.
 nlsy_df %>%
   count(citizenship, sort = TRUE) %>%
   rename(count = n)
 ```
+
+Here we see that there is a significant number of responses with negative value in our data set for Citizenship variable. If we change -4 to NA, then 1042 data will be omitted when we plot it which might introduce biases in the data and the output might not be accurate.
 
 ```{r}
 # Replace -4 with NA in the Citizenship column
