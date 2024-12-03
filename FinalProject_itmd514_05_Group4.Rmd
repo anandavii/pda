@@ -1593,7 +1593,7 @@ notop_lm_model <- lm(total_income_2016 ~ gender, data = notop_filtered_data)
  summary(notop_lm_model)
 ```
 
-The linear regression model examines the relationship between total income (2016) and gender. The intercept, representing the average total income for males (reference category), is estimated at $50,775.90. The coefficient for genderFemale is -11,889.70, indicating that, on average, females earn $11,889.70 less than males in 2016, holding all else constant. This difference is highly statistically significant, as evidenced by a p-value < 2e-16. The residual standard error is 28,160, reflecting variability in income not explained by the model. The model explains only 4.27% of the variance in total income (R² = 0.04267), suggesting that gender alone is not a strong predictor of income. The overall model is significant (F(1, 4968) = 221.4, p-value < 2.2e-16).
+The linear regression model examines the relationship between total income (2016) and gender. The intercept, represents the average total income for males, is estimated at $50,775.90. The coefficient for genderFemale is -11,889.70, which indicates that, on average, females earn $11,889.70 less than males in 2016. This difference is significant, as evidenced by a p-value < 2e-16. The residual standard error is 28,160, reflecting variability in income not explained by the model. The model explains only 4.27% of the variance in total income (R² = 0.04267), suggesting that gender alone is not a strong predictor of income. The overall model is significant (F(1, 4968) = 221.4, p-value < 2.2e-16).
 
 ### PLOTS FOR NO-TOPCODED
 ```{r}
@@ -1619,10 +1619,11 @@ notop_lm_model_ms <- lm(total_income_2016 ~ gender + marital_status, data = noto
  summary(notop_lm_model_ms)
 ```
 
-The linear regression model examines the relationship between total income (2016) and the predictors: gender and marital status. The intercept, representing the estimated average income for males who are unmarried (reference group), is $45,071.70 and is statistically significant (p-value < 2e-16).
+The linear regression model examines the relationship between total income (2016) and the predictors: gender and marital status. The intercept, represents the estimated average income for males who are unmarried, is $45,071.70 and is statistically significant (p-value < 2e-16).
 
 Gender: Females earn $11,905.50 less than males on average, a statistically significant difference (p-value < 2e-16).
 Marital Status: Married individuals earn $11,542.00 more on average than unmarried individuals, a statistically significant effect (p-value < 2e-16). Individuals categorized as "Other" marital status earn $1,308.80 more than unmarried individuals, but this is not statistically significant (p-value = 0.302).
+
 The residual standard error is 27,630, indicating the unexplained variability in income. The model explains 8.08% of the variance in income (R² = 0.08079), suggesting a modest explanatory power. The overall model is statistically significant (F(3, 4935) = 144.6, p-value < 2.2e-16). A total of 31 observations were excluded due to missing data.
 
 ### PLOTS FOR NO-TOPCODED (MARITAL STATUS)
@@ -1649,7 +1650,7 @@ notop_lm_model_ag_ctz <- lm(total_income_2016 ~ gender + age_1996 + citizenship,
  summary(notop_lm_model_ag_ctz)
 ```
 
-The linear regression model evaluates the relationship between total income (2016) and three predictors: gender, age (1996), and citizenship status. The intercept, representing the average total income for males of age 0 (reference age) with unknown citizenship, is estimated at $43,763.80. The coefficient for genderFemale is -11,883.00, indicating that females earn $11,883.00 less than males on average, holding other variables constant. This difference is statistically significant (p-value < 2e-16). The coefficient for age_1996 is 646.00, suggesting that income increases by $646.00 for each additional year of age, which is statistically significant (p-value = 0.032). However, the coefficients for citizenshipCitizen and citizenshipNon-Citizen are not statistically significant (p-values of 0.352 and 0.889, respectively), indicating no significant effect of citizenship status on income.
+The linear regression model evaluates the relationship between total income (2016) and three predictors: gender, age (1996), and citizenship status. The intercept, represents the average total income for males of age 0 (reference age) with unknown citizenship, is estimated at $43,763.80. The coefficient for genderFemale is -11,883.00, indicating that females earn $11,883.00 less than males on average, holding other variables constant. This difference is statistically significant (p-value < 2e-16). The coefficient for age_1996 is 646.00, suggesting that income increases by $646.00 for each additional year of age, which is statistically significant (p-value = 0.032). However, the coefficients for citizenshipCitizen and citizenshipNon-Citizen are not statistically significant (p-values of 0.352 and 0.889, respectively), indicating no significant effect of citizenship status on income.
 
 The residual standard error is 28,020, showing variability in income not explained by the model. The model explains 4.47% of the variance in total income (R² = 0.04467), indicating a weak predictive capability. The overall model is statistically significant (F(4, 4439) = 51.89, p-value < 2.2e-16). Note that 526 observations were excluded due to missing data.
 
