@@ -1734,7 +1734,7 @@ Yes, we found one relationship between income and marital status which did not s
 
 # PART 5 - CONCLUSION
 
-# In this section you should summarize your main conclusions. You should also discuss potential limitations of your analysis and findings. Are there potential confounding variables that you didn’t control for? Are the models you fit believable?
+## In this section you should summarize your main conclusions. You should also discuss potential limitations of your analysis and findings. Are there potential confounding variables that you didn’t control for? Are the models you fit believable?
 
 Our Main conclusions: 
 
@@ -1752,7 +1752,7 @@ Are our models believable:
 
 The regression models assumed linear relationships between income and the predictors. However, some relationships may be non-linear or have interactions that were not captured in the models, leading to model misspecification.
 
-# You should also address the following question: How much confidence do you have in your analysis? Do you believe your conclusions? Are you confident enough in your analysis and findings to present them to policy makers? 
+## You should also address the following question: How much confidence do you have in your analysis? Do you believe your conclusions? Are you confident enough in your analysis and findings to present them to policy makers? 
 
 Confidence in our analysis:
 
