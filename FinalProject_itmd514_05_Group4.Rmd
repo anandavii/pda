@@ -1719,6 +1719,8 @@ plot(notop_lm_model_rc_um_ic)
 
 ## HANDLING MISSING VALUES
 
+The data setset contains negative and missing values where the responses indicated Refusal(-1), Don't Know(-2), Invalid Skip(-3), VALID SKIP(-4) and NON-INTERVIEW(-5). Initially, we conducted a data audit to identify missing values in key variables (e.g., income, highest grade completed, etc.). For the numerical variables such as income, the negative or invalid values were straightforwardly recoded as NA to ensure statistical analyses were not biased. Also this was done to maintain consistency in the regression model, as incomplete data would lead to computational errors and distort the results.
+
 ## HANDLING TOPCODED VARIABLES
 
 # PART 5 - CONCLUSION
