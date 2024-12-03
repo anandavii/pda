@@ -1729,6 +1729,9 @@ To address this, we excluded the 121 topcoded values, lowering the mean income t
 
 By handling topcoded values in this way, we ensured a more accurate and realistic analysis of income distribution which allowed for better insights into the income range and inequality without the distortion caused by artificially high values.
 
+## DID YOU PRODUCE ANY TABLES OR PLOTS THAT YOU THOUGHT WOULD REVEAL INTERESTING TRENDS BUT DIDN’T?
+Yes, we found one relationship between income and marital status which did not show a significant trend as I thought. The distribution of incomes for both groups, male and female, overlapped but the differences were not as huge as expected. For males, married people make more money than unmarried people and other categories. At the same time, for females, there is not much difference seen in income between married females and other categories. 
+
 # PART 5 - CONCLUSION
 
 # In this section you should summarize your main conclusions. You should also discuss potential limitations of your analysis and findings. Are there potential confounding variables that you didn’t control for? Are the models you fit believable?
