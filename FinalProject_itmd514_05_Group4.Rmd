@@ -1486,6 +1486,9 @@ kurtosis(nlsy_df$total_income_2016, na.rm = TRUE)
 # Kurtosis = 11.26869: This is significantly greater than 3, suggesting a leptokurtic distribution. This means the data has heavier tails and a sharper peak compared to a normal distribution. Hence it can be determined that the data deviates from normality.
 ```
 
+## TOBIT REGRESSION TEST
+We ran Tobit regression test as our data has top coded values. We analyzed that females earn approximately $16180 less than males in terms of latent income (before censoring). Both the intercept, latent income and scale, and gender coefficient are highly statistically significant which means these effects are unlikely to be due to random chances but is something which is consistent across data. The 95% confidence interval [ 13747.84, 18099], t-value is 14.346, and p-value < 2.2e-16. The mean for males is 57202.82 and females is 41278.92.
+
 # TOPCODED
 ## CONFIDENCE INTERVAL FOR TOPCODED
 ```{r}
