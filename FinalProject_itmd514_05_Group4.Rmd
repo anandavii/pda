@@ -1277,7 +1277,7 @@ nlsy_married <- nlsy_df %>%
   filter(!is.na(marital_status))
 
 # Create the bar plot for mean income by marital status and gender
-ggplot(nlsy_married, aes(x = marital_status, y = total_income_2016, fill = gender)) +
+ggplot(nlsy_married, aes(x = reorder(marital_status, -total_income_2016, FUN = mean), y = total_income_2016, fill = gender)) +
   geom_bar(stat = "summary", fun = "mean", position = "dodge") +
   geom_text(aes(label = round(..y..)), stat = "summary", fun = "mean", position = position_dodge(width = 0.9), vjust = 6, size= 5 ) +
   labs(
@@ -1290,7 +1290,7 @@ ggplot(nlsy_married, aes(x = marital_status, y = total_income_2016, fill = gende
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 ```
 
-The above graph illustrates a plot for topcoded income vs marital status by gender. The red boxes are for male and the blue ones are for females. The graphs shows that the mean income for male is consistently higher than that for females across all marital statuses.
+The above graph illustrates a plot for topcoded income vs marital status by gender. The red boxes are for male and the blue ones are for females. The graphs shows that the mean income for male is consistently higher than that for females across all marital statuses. Therefore we see that married male earn more than any different marital status male like never married or other categories. On the other hand the income for female does not vary much although the married females are earning a bit more compared to the never married and other marital status females. 
 
 ## INCARCERATIONS vs INCOME
 
