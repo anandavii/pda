@@ -1465,6 +1465,7 @@ ggplot(trustful_distrustful_nlsy_df, aes(x = trustful_or_not, y = total_income_2
   ) +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 ```
+
 The above graph illustrates a plot for topcoded income vs respondents who are trustful/distrustful by gender. The red boxes are for male and the blue ones are for females. The graphs shows that the income for male is consistently higher than that for females for both who are trustful as well as distrustful.
 
 ## MEAN INCOME BY CURRENT ENROLLMENT STATUS AND GENDER
@@ -1483,6 +1484,7 @@ nlsy_current_enr_df <- nlsy_df %>%
 # Print the results
 print(nlsy_current_enr_df)
 ```
+
 From the above we can infer that the respondents who are currently enrolled in a 2-year college tend to earn highest average income(this includes the topcoded values). However there is a significant difference in the average income of Male and Female although they attended the same level of college and the Male population are earning more than Female.
 
 ```{r}
@@ -1504,6 +1506,7 @@ ggplot(nlsy_heatmap, aes(x = gender, y = current_enrollment_status, fill = mean_
   ) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
+
 From the Heatmap we can observe that Male and Female respondents who are attending same 2 year college degree but the male population is earning more average income compared to female respondents.
 
 # PART 3 - NORMALITY CHECK, CI, HYPOTHESE TESTING AND REGRESSION
@@ -1513,24 +1516,24 @@ From the Heatmap we can observe that Male and Female respondents who are attendi
 ```{r}
 # To check for normality of total_income_2016 we have performed the Skewness and Kurtosis tests to check for normality.
 
-# Skewness:
-# Close to 0: Symmetric distribution (normal-like).
-# Positive: Right-skewed (tail extends to the right).
-# Negative: Left-skewed (tail extends to the left).
-
 skewness(nlsy_df$total_income_2016, na.rm = TRUE)
 
-#Skewness = 2.435323: This indicates that the distribution of total_income_2016 is positively skewed, meaning it has a long right tail. The majority of the income values are concentrated toward the lower end, with fewer values extending toward the higher end. Hence it can be determined that the data deviates from normality.
-
-# Kurtosis:
-# Normal distribution has a kurtosis of 3.
-# >3: Heavy-tailed distribution (leptokurtic).
-# <3: Light-tailed distribution (platykurtic).
-
 kurtosis(nlsy_df$total_income_2016, na.rm = TRUE)
-
-# Kurtosis = 11.26869: This is significantly greater than 3, suggesting a leptokurtic distribution. This means the data has heavier tails and a sharper peak compared to a normal distribution. Hence it can be determined that the data deviates from normality.
 ```
+
+Skewness:
+ Close to 0: Symmetric distribution (normal-like).
+ Positive: Right-skewed (tail extends to the right).
+ Negative: Left-skewed (tail extends to the left).
+ 
+Skewness = 2.435323: This indicates that the distribution of total_income_2016 is positively skewed, meaning it has a long right tail. The majority of the income values are concentrated toward the lower end, with fewer values extending toward the higher end. Hence it can be determined that the data deviates from normality.
+
+Kurtosis:
+ Normal distribution has a kurtosis of 3.
+ if >3: Heavy-tailed distribution (leptokurtic).
+ if <3: Light-tailed distribution (platykurtic).
+
+Kurtosis = 11.26869: This is significantly greater than 3, suggesting a leptokurtic distribution. This means the data has heavier tails and a sharper peak compared to a normal distribution. Hence it can be determined that the data deviates from normality.
 
 ## TOBIT REGRESSION TEST
 
