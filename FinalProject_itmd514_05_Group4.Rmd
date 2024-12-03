@@ -123,7 +123,7 @@ summary(nlsy_df$birth_year)
 
 ```{r}
 # This will give us an idea pf count of responses for each type for Birth year.
-# The tibble is 5x2 which shows the range of birth year in the survey responses and count of respondants having those birth year, like there are 1874 people having 1981 as the birth year, 1841 people having 1982 as the birth year, 1807 responses for 1983 birth year, 1771 responses for 1984 birth year, and 1691 responses for 1980 birth year.
+# The tibble shows the range of birth year in the survey responses and count of respondents having those birth year, like there are 1874 people having 1981 as the birth year, 1841 people having 1982 as the birth year, 1807 responses for 1983 birth year, 1771 responses for 1984 birth year, and 1691 responses for 1980 birth year.
 nlsy_df %>%
   count(birth_year, sort = TRUE) %>%
   rename(count = n)
@@ -145,7 +145,7 @@ ggplot(birth_year_sorted, aes(x = reorder(birth_year, -n), y = n, fill = birth_y
   ) +
   scale_fill_gradient(low = "blue", high = "red", name = "Birth Year") 
 ```
-
+The barplot shows the range of birth year and count of respondents having those birth year. For example there were 1874 respondents having 1981 as the birth year, 1841 respondents having 1982 as the birth year, 1807 responses for 1983 birth year, 1771 responses for 1984 birth year, and 1691 responses for 1980 birth year. The highest number of respondents(1874) are having birth year 1981 and the lowest number of respondents(1691) are having birth year as 1980
 ## IS SAD DEPRESSED UNHAPPY F
 
 ```{r}
