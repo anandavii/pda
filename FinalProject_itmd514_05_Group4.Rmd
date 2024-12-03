@@ -1532,7 +1532,7 @@ lm_model <- lm(total_income_2016 ~ gender, data = filtered_data)
  summary(lm_model)
 ```
 
-The linear regression model was used to analyze the relationship between gender and total income for top-coded values. The intercept (57,202.8) represents the average income for males, while the coefficient for genderFemale (−15,923.9) indicates that females earn, on average, $15,923.9 less than males. The p-value for the gender coefficient (<2.2×10 ^ −16) is highly significant, confirming that gender is a strong predictor of income in this dataset. However, the model explains only 3.8% of the variability in income (Adjusted R^2 =0.0381), suggesting other factors also contribute to income differences.
+The linear regression model was used to analyze the relationship between gender and total income for top-coded values. The intercept (57,202.8) represents the average income for males, while the coefficient for genderFemale (−15,923.9) indicates that females earn, on average, $15,923.9 less than males. The p-value for the gender coefficient (<2.2×10 ^ −16) is highly significant, confirming that gender is a strong predictor of income in this dataset. However, the model explains only 3.8% of the variability in income (Adjusted R² =0.0381), suggesting other factors also contribute to income differences.
 
 ### PLOTS FOR TOPCODED
 
@@ -1581,6 +1581,8 @@ if (gender_ci$p.value < 0.05) {
   print("Fail to reject the null hypothesis: No significant income difference between males and females.")
 }
 ```
+
+The hypothesis test shows a statistically significant income difference between males and females after excluding topcoded values, as the p-value is less than 0.05 and so we reject the Ho in support of Ha.
 
 ### LINEAR REGRESSION MODEL FOR NO-TOPCODED
 ```{r}
