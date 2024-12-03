@@ -1003,6 +1003,11 @@ The trustful_or_not variable shows a high percentage of missing data (45.73%). A
 ---
 
 ```{r}
+# Data glipmse to get a view of cleaned data
+glimpse(nlsy_df)
+```
+
+```{r}
 summary(nlsy_df)
 ```
 
