@@ -1723,6 +1723,12 @@ The data setset contains negative and missing values where the responses indicat
 
 ## HANDLING TOPCODED VARIABLES
 
+In the dataset, for example the income variable was topcoded, where the incomes of the top 2% earners were replaced with an average value of $235,884. This led to distortion in measures like the mean and maximum income, as the topcoded values artificially inflated these metrics. Specifically, the mean income was $49,447, and the maximum income was $235,884, both skewed by the 121 topcoded respondents.
+
+To address this, we excluded the 121 topcoded values, lowering the mean income to $44,939 and the maximum income to $149,000, which was the cutoff for the topcoded group. This adjustment reduced distortion while preserving the dataset's overall structure. Visualizations also reflected these changes: the histogram became less extreme while still showing a right-skewed distribution, and the boxplot, after removing outliers, provided a clearer representation of typical incomes, with a median of $35,000 and an IQR of $25,000 to $50,000.
+
+By handling topcoded values in this way, we ensured a more accurate and realistic analysis of income distribution which allowed for better insights into the income range and inequality without the distortion caused by artificially high values.
+
 # PART 5 - CONCLUSION
 
 # In this section you should summarize your main conclusions. You should also discuss potential limitations of your analysis and findings. Are there potential confounding variables that you didn’t control for? Are the models you fit believable?
