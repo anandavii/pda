@@ -5,8 +5,10 @@ date: "2024-12-03"
 output:
   html_document:
     toc: true
-    toc_depth: 2
+    toc_depth: 3
 ---
+
+# INSTALL PACKAGE, LOAD LIBRARIES AND NLSY DATASET
 
 ```{r}
 # We will require the tidyverse library, ISLR2 library and the dplyr library
@@ -918,11 +920,7 @@ ggplot(data = nlsy_df, aes(x = trustful_or_not, fill = trustful_or_not)) +
                                                   
 The trustful_or_not variable shows a high percentage of missing data (45.73%). Among the valid data, the "Trustful" group (values >= 4) has a higher count than the "Distrustful" group (values 1–3). The missing data should be carefully addressed to ensure reliable insights.
 
----------------------------------------------------------------------------------------------------------------------
-
 # PART 2 - RELATIONSHIP AND TREND ANALYSIS
-
----------------------------------------------------------------------------------------------------------------------
 
 ## INCOME vs GENDER
 
@@ -1460,11 +1458,7 @@ ggplot(nlsy_heatmap, aes(x = gender, y = current_enrollment_status, fill = mean_
 ```
 From the Heatmap we can observe that Male and Female respondents who are attending same 2 year college degree but the male population is earning more average income compared to female respondents.
 
----------------------------------------------------------------------------------------------------------------------
-
 # PART 3 - NORMALITY CHECK, CI, HYPOTHESE TESTING AND REGRESSION
-
----------------------------------------------------------------------------------------------------------------------
 
 ## NORMALITY CHECK
 
@@ -1491,10 +1485,12 @@ kurtosis(nlsy_df$total_income_2016, na.rm = TRUE)
 ```
 
 ## TOBIT REGRESSION TEST
+
 We ran Tobit regression test as our data has top coded values. As p < 0.05, we can reject the Null Hypothesis (Ho) in support of Alternate Hypothesis (Ha) which states the difference in income for males and females is not equal to 0. We analyzed that females earn approximately $16180 less than males in terms of latent income (before censoring). Both the intercept, latent income and scale, and gender coefficient are highly statistically significant which means these effects are unlikely to be due to random chances but is something which is consistent across data. The 95% confidence interval [ 13747.84, 18099], t-value is 14.346, and p-value < 2.2e-16. The mean income for males is 57202.82 and females is 41278.92.
 
-# TOPCODED
-## CONFIDENCE INTERVAL FOR TOPCODED
+## WITH TOPCODED VALUES
+
+### CONFIDENCE INTERVAL FOR TOPCODED
 ```{r}
 # Filter dataset to exclude rows with missing income
 filtered_data <- nlsy_df %>%
@@ -1513,7 +1509,7 @@ print(gender_ci_top)
 
 The Welch Two-Sample t-test was conducted to examine the difference in mean income between males and females in the dataset with top-coded income values. We will consider the Null Hypothesis (Ho) as the mean income for males and females is equal. Alternate Hypothesis (Ha) as mean income for males and females are unequal. The test statistic t is 14.346, with a p-value < 2.2e-16 which indicates a highly significant result. This means we reject the null hypothesis and conclude that there is a statistically significant difference in mean income between males and females. A 95% confidence interval was calculated for the difference in mean income between males and females. The confidence interval is (13,747.84, 18,099.96). We can interpret that we are 95% confident that the true difference in mean income between males and females lies between $13,747.84 and $18,099.96, with males earning more on average. The average income for males is $57202.82 while for females it is $41278.92 and it highlights a substantial income disparity with top-coded values between the groups, with males earning approximately $15923 more than females on average.
 
-## HYPOTHESES TEST FOR TOPCODED
+### HYPOTHESES TEST FOR TOPCODED
 
 ```{r}
 # Decision Rule
@@ -1526,7 +1522,8 @@ if (gender_ci_top$p.value < 0.05) {
 
 The hypothesis test for top-coded income values examined whether there is a significant difference in mean income between males and females. The null hypothesis (Ho) assumes no difference, while the alternative hypothesis (Ha) suggests a significant difference. The Welch Two-Sample t-test yielded a p-value < 2.2e-16, far below the significance threshold (0.05). Consequently, the null hypothesis is rejected, indicating a statistically significant income disparity between genders, with males earning more on average.
 
-## LINEAR REGRESSION MODEL FOR TOPCODED
+### LINEAR REGRESSION MODEL FOR TOPCODED
+
 ```{r}
 # Fit the regression model
 lm_model <- lm(total_income_2016 ~ gender, data = filtered_data)
@@ -1537,7 +1534,8 @@ lm_model <- lm(total_income_2016 ~ gender, data = filtered_data)
 
 The linear regression model was used to analyze the relationship between gender and total income for top-coded values. The intercept (57,202.8) represents the average income for males, while the coefficient for genderFemale (−15,923.9) indicates that females earn, on average, $15,923.9 less than males. The p-value for the gender coefficient (<2.2×10 ^ −16) is highly significant, confirming that gender is a strong predictor of income in this dataset. However, the model explains only 3.8% of the variability in income (Adjusted R^2 =0.0381), suggesting other factors also contribute to income differences.
 
-## PLOTS FOR TOPCODED
+### PLOTS FOR TOPCODED
+
 ```{r}
 # Diagnostic plots for regression model
 par(mfrow = c(2, 2))  # Arrange plots in 2x2 grid
@@ -1550,8 +1548,9 @@ plot(lm_model)
 4. Residuals vs. Leverage Plot: This plot identifies influential points. Several observations near the top right corner with high leverage suggest some data points may disproportionately impact the model.
 These plots collectively highlight potential violations of regression assumptions, including non-normality, heteroscedasticity, and influential outliers. Adjustments or alternative modeling approaches may improve the model's validity and so we have also tested it for income truncating topcoded values.
 
-# NO-TOPCODED
-## CONFIDENCE INTERVAL FOR NO-TOPCODED
+## WITHOUT TOPCODED VALUES
+
+### CONFIDENCE INTERVAL FOR NO-TOPCODED
 ```{r}
 nlsy_no_topcoded <- nlsy_df %>%
   filter(total_income_2016 != max(total_income_2016, na.rm = TRUE))
@@ -1570,7 +1569,7 @@ gender_ci <- t.test(
 print(gender_ci)
 ```
 
-## HYPOTHESES TEST FOR NO-TOPCODED
+### HYPOTHESES TEST FOR NO-TOPCODED
 
 ```{r}
 # Decision Rule
@@ -1581,7 +1580,7 @@ if (gender_ci$p.value < 0.05) {
 }
 ```
 
-## LINEAR REGRESSION MODEL FOR NO-TOPCODED
+### LINEAR REGRESSION MODEL FOR NO-TOPCODED
 ```{r}
 # Fit the regression model
 notop_lm_model <- lm(total_income_2016 ~ gender, data = notop_filtered_data)
@@ -1592,7 +1591,7 @@ notop_lm_model <- lm(total_income_2016 ~ gender, data = notop_filtered_data)
 
 The linear regression model examines the relationship between total income (2016) and gender. The intercept, representing the average total income for males (reference category), is estimated at $50,775.90. The coefficient for genderFemale is -11,889.70, indicating that, on average, females earn $11,889.70 less than males in 2016, holding all else constant. This difference is highly statistically significant, as evidenced by a p-value < 2e-16. The residual standard error is 28,160, reflecting variability in income not explained by the model. The model explains only 4.27% of the variance in total income (R² = 0.04267), suggesting that gender alone is not a strong predictor of income. The overall model is significant (F(1, 4968) = 221.4, p-value < 2.2e-16).
 
-## PLOTS FOR NO-TOPCODED
+### PLOTS FOR NO-TOPCODED
 ```{r}
 # Diagnostic plots for regression model
 par(mfrow = c(2, 2))  # Arrange plots in 2x2 grid
@@ -1615,7 +1614,7 @@ The spread of residuals increases slightly as fitted values increase. Indicates 
 
 Points near Cook's distance lines indicate high influence, though most points are clustered in low-leverage areas. A few data points may have high leverage or strong influence, warranting further investigation.
 
-## LINEAR REGRESSION MODEL FOR NO-TOPCODED (MARITAL STATUS)
+### LINEAR REGRESSION MODEL FOR NO-TOPCODED (MARITAL STATUS)
 ```{r}
 # Fit the regression model
 notop_lm_model_ms <- lm(total_income_2016 ~ gender + marital_status, data = notop_filtered_data)
@@ -1630,7 +1629,7 @@ Gender: Females earn $11,905.50 less than males on average, a statistically sign
 Marital Status: Married individuals earn $11,542.00 more on average than unmarried individuals, a statistically significant effect (p-value < 2e-16). Individuals categorized as "Other" marital status earn $1,308.80 more than unmarried individuals, but this is not statistically significant (p-value = 0.302).
 The residual standard error is 27,630, indicating the unexplained variability in income. The model explains 8.08% of the variance in income (R² = 0.08079), suggesting a modest explanatory power. The overall model is statistically significant (F(3, 4935) = 144.6, p-value < 2.2e-16). A total of 31 observations were excluded due to missing data.
 
-## PLOTS FOR NO-TOPCODED (MARITAL STATUS)
+### PLOTS FOR NO-TOPCODED (MARITAL STATUS)
 ```{r}
 # Diagnostic plots for regression model
 par(mfrow = c(2, 2))  # Arrange plots in 2x2 grid
@@ -1653,7 +1652,7 @@ The spread of residuals increases slightly with larger fitted values, as indicat
 
 Points like 1672 and 1674 are potential high-leverage points, but they do not exceed Cook’s distance threshold. While these points are not excessively influential, they should be examined for potential outlier effects.
 
-## LINEAR REGRESSION MODEL FOR NO-TOPCODED (AGE 1996 + CITIZENSHIP)
+### LINEAR REGRESSION MODEL FOR NO-TOPCODED (AGE 1996 + CITIZENSHIP)
 ```{r}
 # Fit the regression model
 notop_lm_model_ag_ctz <- lm(total_income_2016 ~ gender + age_1996 + citizenship, data = notop_filtered_data)
@@ -1666,7 +1665,7 @@ The linear regression model evaluates the relationship between total income (201
 
 The residual standard error is 28,020, showing variability in income not explained by the model. The model explains 4.47% of the variance in total income (R² = 0.04467), indicating a weak predictive capability. The overall model is statistically significant (F(4, 4439) = 51.89, p-value < 2.2e-16). Note that 526 observations were excluded due to missing data.
 
-## PLOTS FOR NO-TOPCODED (AGE 1996 + CITIZENSHIP)
+### PLOTS FOR NO-TOPCODED (AGE 1996 + CITIZENSHIP)
 ```{r}
 # Diagnostic plots for regression model
 par(mfrow = c(2, 2))  # Arrange plots in 2x2 grid
@@ -1690,7 +1689,7 @@ The red line is mostly flat, but the spread of residuals increases slightly as f
 Points like 244, 1200, and 3220 show relatively high leverage. None of the observations exceed Cook's distance threshold, meaning their influence is limited. These points should still be reviewed for potential impact on model performance.
 
 
-## LINEAR REGRESSION MODEL FOR NO-TOPCODED (RACE + USED MARIJUANA + INDUSTRY CODE)
+### LINEAR REGRESSION MODEL FOR NO-TOPCODED (RACE + USED MARIJUANA + INDUSTRY CODE)
 ```{r}
 # Fit the regression model
 notop_lm_model_rc_um_ic <- lm(total_income_2016 ~ gender + race + used_marijuana + industry_code, data = notop_filtered_data)
@@ -1707,7 +1706,7 @@ Used_marijuana: None of the levels (Refusal, No, Yes) showed a significant effec
 Industry_code: Two industries showed significant effects on income. Workers in the "Mining" industry earn $23,903.50 more on average (p-value = 0.0287), and those in "Utilities" earn $26,103.00 more on average (p-value = 0.0191) compared to the reference industry.
 The residual standard error is 27,110, indicating the variation in income not explained by the model. The model explains 12.77% of the variance in income (R² = 0.1277), suggesting moderate explanatory power. The overall model is statistically significant (F(22, 4204) = 27.96, p-value < 2.2e-16). Note that 743 observations were excluded due to missing data.
 
-## PLOTS FOR NO-TOPCODED (RACE + USED MARIJUANA + INDUSTRY CODE)
+### PLOTS FOR NO-TOPCODED (RACE + USED MARIJUANA + INDUSTRY CODE)
 ```{r}
 # Diagnostic plots for regression model
 par(mfrow = c(2, 2))  # Arrange plots in 2x2 grid
