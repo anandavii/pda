@@ -1574,7 +1574,7 @@ notop_lm_model <- lm(total_income_2016 ~ gender, data = notop_filtered_data)
  summary(notop_lm_model)
 ```
 
-## PLOTS FOR TOPCODED
+## PLOTS FOR NO-TOPCODED
 ```{r}
 # Diagnostic plots for regression model
 par(mfrow = c(2, 2))  # Arrange plots in 2x2 grid
