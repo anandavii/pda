@@ -1544,6 +1544,12 @@ par(mfrow = c(2, 2))  # Arrange plots in 2x2 grid
 plot(lm_model)
 ```
 
+1. Residuals vs. Fitted Plot: This plot assesses the linearity assumption. The residuals appear scattered but exhibit some clustering at extreme values, indicating possible deviations from linearity.
+2. Q-Q Plot: The Q-Q plot evaluates the normality of residuals. The residuals deviate significantly from the diagonal line, particularly at the tails, suggesting the residuals are not normally distributed.
+3. Scale-Location Plot: This plot checks for homoscedasticity (constant variance of residuals). The residuals' spread appears uneven, with greater variation at extreme fitted values, indicating heteroscedasticity.
+4. Residuals vs. Leverage Plot: This plot identifies influential points. Several observations near the top right corner with high leverage suggest some data points may disproportionately impact the model.
+These plots collectively highlight potential violations of regression assumptions, including non-normality, heteroscedasticity, and influential outliers. Adjustments or alternative modeling approaches may improve the model's validity and so we have also tested it for income truncating topcoded values.
+
 # NO-TOPCODED
 ## CONFIDENCE INTERVAL FOR NO-TOPCODED
 ```{r}
