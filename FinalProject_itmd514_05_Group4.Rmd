@@ -1204,10 +1204,12 @@ If we analyze Fig2. graph we can say that the trend of income shows some variati
 ## IS SAD DEPRESSED UNHAPPY vs INCOME BASED ON GENDER 
 
 ```{r}
-# This table analyzes the relationship between income and reported feelings of sadness/depression, broken down by gender. The data shows 631 responses for 'Not true', 259 reponses for 'Sometimes true', and 24 responses for 'Often true'. This question shows sample is heavily skewed towards females, with only 4 male respondents. Mean income level is highest for people who don't feel depressed and lowest income is for respondents who often feel depressed or unhappy. Overall we get the idea that people who reported frequently feeling sadness or depression show lower income level among females. There is huge mean income gap of $13,383 between 'Not true' and 'Often true' category respondents.
+# Creating tabular summary of sadness level impact on income
 sad_income_summary <- nlsy_df %>%
-  filter(!is.na(total_income_2016)) %>% # Exclude rows with NA in income
-  filter(!is.na(is_sad_depressed_unhappy_f)) %>% # Exclude rows with NA in is_sad
+  # Exclude rows with NA in income
+  filter(!is.na(total_income_2016)) %>% 
+  # Exclude rows with NA in is_sad
+  filter(!is.na(is_sad_depressed_unhappy_f)) %>% 
   group_by(is_sad_depressed_unhappy_f) %>%
   summarize(
     count = n(),
@@ -1220,12 +1222,13 @@ sad_income_summary <- nlsy_df %>%
 print(sad_income_summary)
 ```
 
+This table analyzes the relationship between income and reported feelings of sadness/depression, broken down by gender. The data shows 631 responses for 'Not true', 259 reponses for 'Sometimes true', and 24 responses for 'Often true'. This question shows sample is heavily skewed towards females, with only 4 male respondents. Mean income level is highest for people who don't feel depressed and lowest income is for respondents who often feel depressed or unhappy. Overall we get the idea that people who reported frequently feeling sadness or depression show lower income level among females. There is huge mean income gap of $13,383 between 'Not true' and 'Often true' category respondents.
+
 ```{r}
 # Removing all NAs from is_sad variable and apply it to no-topcoded df
 sad_income_df <- no_topcoded_nlsy_df %>%
   filter(!is.na(is_sad_depressed_unhappy_f))
 
-# Here, we plan to exclude the topcoded values to avoid truncation of data. The graph displays the relationship between income distribution, sadness/depression levels, and gender using a scatter plot. The visualization shows income levels plotted against four categories of sadness/depression namely not true, sometimes true, and often true. We can say that income variability is the highest in 'Not true' and lowest in 'Often true'. 'Sometimes true' shows moderate spread of income ranging $0-$100000, 'Often true' shows smallest cluster with incomes ranging $0-$50000, and 'Not true' shows income ranging from $0-$150000. The data suggests that sadness/depression levels show some correlation with lower income levels, particularly for those reporting frequent sadness.
 ggplot(sad_income_df, aes(x = is_sad_depressed_unhappy_f, y = total_income_2016, color = gender)) +
   geom_jitter(alpha = 0.6, width = 0.4, height = 0, na.rm = TRUE) +
   geom_smooth(method = "loess", se = FALSE) +
@@ -1237,6 +1240,8 @@ ggplot(sad_income_df, aes(x = is_sad_depressed_unhappy_f, y = total_income_2016,
   ) +
   scale_color_brewer(palette = "Set1", name = "Gender")
 ```
+
+Here, we plan to exclude the topcoded values to avoid truncation of data. The graph displays the relationship between income distribution, sadness/depression levels, and gender using a scatter plot. The visualization shows income levels plotted against four categories of sadness/depression namely not true, sometimes true, and often true. We can say that income variability is the highest in 'Not true' and lowest in 'Often true'. 'Sometimes true' shows moderate spread of income ranging $0-$100000, 'Often true' shows smallest cluster with incomes ranging $0-$50000, and 'Not true' shows income ranging from $0-$150000. The data suggests that sadness/depression levels show some correlation with lower income levels, particularly for those reporting frequent sadness.
 
 ## INDUSTRY CODE vs INCOME
 
