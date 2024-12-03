@@ -1587,7 +1587,7 @@ plot(notop_lm_model)
 notop_lm_model_ms <- lm(total_income_2016 ~ gender + marital_status, data = notop_filtered_data)
 
 # Summarize the regression model
- summary(notop_lm_model)
+ summary(notop_lm_model_ms)
 ```
 
 ## PLOTS FOR NO-TOPCODED (MARITAL STATUS)
@@ -1615,7 +1615,7 @@ Points like 1672 and 1674 are potential high-leverage points, but they do not ex
 notop_lm_model_ag_ctz <- lm(total_income_2016 ~ gender + age_1996 + citizenship, data = notop_filtered_data)
 
 # Summarize the regression model
- summary(notop_lm_model)
+ summary(notop_lm_model_ag_ctz)
 ```
 
 ## PLOTS FOR NO-TOPCODED (AGE 1996 + CITIZENSHIP)
@@ -1643,7 +1643,7 @@ Points like 244, 1200, and 3220 show relatively high leverage. None of the obser
 notop_lm_model_rc_um_ic <- lm(total_income_2016 ~ gender + race + used_marijuana + industry_code, data = notop_filtered_data)
 
 # Summarize the regression model
- summary(notop_lm_model)
+ summary(notop_lm_model_rc_um_ic)
 ```
 
 ## PLOTS FOR NO-TOPCODED (RACE + USED MARIJUANA + INDUSTRY CODE)
