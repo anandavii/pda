@@ -542,11 +542,13 @@ nlsy_df <- nlsy_df %>%
 ```
 
 ```{r}
-# Upon mutating values for citizenship to make it categorical we have replaced -4 with NA for 1042 rows, 1 with Citizen, born in the U.S., 2 with Unknown, not born in U.S., 3 with Unknown, can't determine birthplace, and anything less than 1 with NA. This helps us in easily reading the analysis.
+# Counting citizenship and sorting
 nlsy_df %>%
   count(citizenship, sort = TRUE) %>%
   rename(count = n)
 ```
+
+Upon mutating values for citizenship to make it categorical we have replaced -4 with NA for 1042 rows, 1 with Citizen, born in the U.S., 2 with Unknown, not born in U.S., 3 with Unknown, can't determine birthplace, and anything less than 1 with NA. This helps us in easily reading the analysis.
 
 ```{r}
 # Plotting citizenship and its concentration
@@ -557,8 +559,9 @@ ggplot(data = nlsy_df, aes(x = reorder(citizenship,-table(citizenship)[citizensh
     title = "What is the Citizenship of the respondant",
     x = "Citizenship", y = "Count",
   )
-# The graph below shows how the response is ranged across. It illustrates that majority of the respondants have a citizenship of the U.S. and constitutes to 6869 out of 8984, some don't know their birthplace constitute to 794, some who were not born in the U.S. adds up to 279, and the remaining 1042 were all missing data. This, we can say that 76.45% of the people were born in the U.S., 3.1% were not born in the U.S, 8.83% cannot determine their birthplace, and 11.5% of significant population skipped the question.
 ```
+
+The graph below shows how the response is ranged across. It illustrates that majority of the respondants have a citizenship of the U.S. and constitutes to 6869 out of 8984, some don't know their birthplace constitute to 794, some who were not born in the U.S. adds up to 279, and the remaining 1042 were all missing data. This, we can say that 76.45% of the people were born in the U.S., 3.1% were not born in the U.S, 8.83% cannot determine their birthplace, and 11.5% of significant population skipped the question.
 
 ## EVER USE MARIJUANA
 
