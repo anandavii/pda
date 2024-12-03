@@ -8,12 +8,19 @@ output:
     toc_depth: 3
     theme: "bootstrap"
 ---
+
+---
+
 ## PROJECT DESCRIPTION
 **I. Sex-related differences: Is there a significant difference in income between men and women? Does the difference vary depending on other factors (e.g., education, marital status, criminal history, drug use, childhood household factors, profession, etc.)? **
 
 ---
 
+---
+
 # INSTALL PACKAGE, LOAD LIBRARIES AND NLSY DATASET
+
+---
 
 ```{r}
 # We will require the below mentioned libraries hence remove the comment(# symbol) and first install the packages if not already installed on your computer:
@@ -39,8 +46,12 @@ nlsy <- read_csv("nlsy97.csv")
 # Looking at the data
 glimpse(nlsy)
 ```																									
-																									
+
+---	
+
 # PART 1- VARIABLES(SELECTION) AND Exploratory Data Analysis (EDA)
+
+---
 
 ```{r}
 # Change column names to meaningful
@@ -84,6 +95,8 @@ nlsy_df <- nlsy[, c(
 
 ## GENDER	
 
+---
+
 ```{r}																									
 # Check the unique values and if any missing values are present
 unique(nlsy_df$gender)
@@ -116,8 +129,9 @@ labs(title = "Gender Distribution Plot", x = "Gender", y = "Count")
 ```																									
 																									
 From the plot above we can see the population distribution contains more number of Male(4599) and less Females(4385).														
-	
 ## BIRTH YEAR
+
+---
 
 ```{r}
 # Checking if birth_year column requires cleaning | unique values: 1983 1984 1980 1981 1982
@@ -155,6 +169,8 @@ ggplot(birth_year_sorted, aes(x = reorder(birth_year, -n), y = n, fill = birth_y
 The barplot shows the range of birth year and count of respondents having those birth year. For example there were 1874 respondents having 1981 as the birth year, 1841 respondents having 1982 as the birth year, 1807 responses for 1983 birth year, 1771 responses for 1984 birth year, and 1691 responses for 1980 birth year. The highest number of respondents(1874) are having birth year 1981 and the lowest number of respondents(1691) are having birth year as 1980
 
 ## IS SAD DEPRESSED UNHAPPY F
+
+---
 
 ```{r}
 # Replace -3, -4, and -5 with NA in the is_sad_depressed_unhappy_f column
@@ -211,7 +227,9 @@ ggplot(data = Is_Sad_plot_df, aes(x = reorder(is_sad_depressed_unhappy_f,-table(
   scale_fill_brewer(palette = "Set2", name = "Type of Responses")
 ```
 
-## ENROLLMENT STATUS	
+## ENROLLMENT STATUS
+
+---
 
 ```{r}																									
 # Check for unique values and if any missing values are present
@@ -262,6 +280,8 @@ ggplot(nlsy_df, aes(x = reorder(current_enrollment_status, -table(current_enroll
 From the bar plot above we observe that 8742 of the respondents confirmed their current enrollment status is "Enrolled in grades 1-12, not a high school graduate" and this is followed by the ones who responded "Not enrolled, no high school degree, no GED	" which is 226.
 
 ## TOTAL INCOME 2016
+
+---
 
 ```{r} 
 # Check the data
@@ -360,7 +380,9 @@ In Fig 2.when the topcoded values are removed, the histogram shows a more accura
 
 Similarly in Fig2.1 the boxplot, now excluding the topcoded values, shows a median income of $35,000 and a more concentrated IQR of $25,000 to $50,000. By removing the topcoded value, the outlier is eliminated, and the distribution is more representative of the actual income spread. This boxplot highlights the more typical income range for most individuals, without the distortion introduced by the topcoded values.
 	
-## RACE			
+## RACE	
+
+---
 
 ```{r}																									
 # Check for unique values and if any missing values are present
@@ -402,6 +424,8 @@ ggplot(nlsy_df, aes(x = reorder(race, -table(race)[race]), fill = race)) +
 ```																									
 
 ## HIGHEST GRADE COMPLETED
+
+---
 
 ```{r}
 # Check for unique values and if any missing values are present
@@ -469,6 +493,8 @@ From the above we see that theere are missing values for the majority of respons
 
 ## AGE AS OF 1996 DECEMBER 31ST
 
+---
+
 ```{r}
 # Checking if Age as of 1996 december 31st needs cleaning | unique values: 13 12 16 15 14
 unique(nlsy_df$age_1996)
@@ -503,6 +529,8 @@ ggplot(data = age_1996_sorted, aes(x = reorder(age_1996, -n), y = n, fill = fact
 ```
 	
 ## CITIZENSHIP
+
+---
 
 ```{r}
 # Checking if Citizenship requires cleaning | unique values:  1 3 2 -4
@@ -568,6 +596,8 @@ The graph below shows how the response is ranged across. It illustrates that maj
 
 ## EVER USE MARIJUANA
 
+---
+
 ```{r}
 # Getting unique values for the variable and sumaary
 unique(nlsy_df$used_marijuana)
@@ -617,8 +647,9 @@ ggplot(data = nlsy_df, aes(x = reorder(used_marijuana, -table(used_marijuana)[us
 
 The graph below illustrates that 79.56% (7148) of respondents do not use marijuana, 19.97% (1795) use marijuana, 0.05% (5) don't know if the used it, 0.37% (34) refused to answer the question, and the question was a invalid skip for 2 people. By this plot, we can say that 0.43% (39) people might be hiding some information on use of marijuana. There is a significant number of respondents who use marijuana
 
-
 ## INDUSTRY CODE  
+
+---
 
 ```{r}                                                  
 # Checking unique values in industry_code
@@ -696,9 +727,11 @@ ggplot(data = nlsy_df, aes(x = reorder(industry_code,table(industry_code)[indust
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
 ```
                                                   
-The industry_code variable shows that 2818 rows are missing, accounting for 31.38% of the dataset. The largest group belongs to Educational, Health, and Social Services (1378 respondents), followed by Professional and Related Services (813) and Entertainment, Accommodations, and Food Services (718). Smaller industries, like Utilities (38) and Active Duty Military (22), are least represented. The missing data introduces potential bias and should be accounted for in analysis.                                                  
-                                                  
+The industry_code variable shows that 2818 rows are missing, accounting for 31.38% of the dataset. The largest group belongs to Educational, Health, and Social Services (1378 respondents), followed by Professional and Related Services (813) and Entertainment, Accommodations, and Food Services (718). Smaller industries, like Utilities (38) and Active Duty Military (22), are least represented. The missing data introduces potential bias and should be accounted for in analysis.                      
+
 ## MARITAL STATUS
+
+---
 
 ```{r}                                                  
 # Checking unique values
@@ -757,9 +790,11 @@ ggplot(data = nlsy_df, aes(x = reorder(marital_status,-table(marital_status)[mar
 ```                                                 
   
 The marital_status distribution shows that the majority of respondents are Never-married (2766) or Married (3066). Smaller numbers are classified as "Other" (e.g., Separated, Divorced, Widowed). About 25.75% of the data is missing, which may introduce bias.                                                 
-In the bar plot above, we can see that a significant portion of the dataset is missing marital status information, with about 25.75% of respondents not providing data due to non-interviews (-5) and invalid skips (-3). This missing data introduces potential bias in any analysis of marital status and should be carefully addressed. The largest groups in the marital status distribution are "Never-married" (2766 respondents) and "Married" (3066 respondents), with smaller numbers for "Divorced" (663), "Separated" (154), and "Widowed" (23). The distribution is relatively skewed towards those who are "Never-married" or "Married," while the other categories are underrepresented. The presence of missing data in a large proportion of respondents calls for caution, as it may affect the generalizability of any findings related to marital status in this sample.                                                 
+In the bar plot above, we can see that a significant portion of the dataset is missing marital status information, with about 25.75% of respondents not providing data due to non-interviews (-5) and invalid skips (-3). This missing data introduces potential bias in any analysis of marital status and should be carefully addressed. The largest groups in the marital status distribution are "Never-married" (2766 respondents) and "Married" (3066 respondents), with smaller numbers for "Divorced" (663), "Separated" (154), and "Widowed" (23). The distribution is relatively skewed towards those who are "Never-married" or "Married," while the other categories are underrepresented. The presence of missing data in a large proportion of respondents calls for caution, as it may affect the generalizability of any findings related to marital status in this sample.                       
 
 ## TOTAL NUM INCARCERATION
+
+---
 
 ```{r}                                                  
 # Checking unique values in total_num_incarcerations
@@ -827,9 +862,11 @@ ggplot(data = nlsy_df, aes(x = reorder(total_num_incarcerations,-table(total_num
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 0.8))
 ```  
                                                   
-The distribution of total_num_incarcerations reveals that the majority of respondents (8054) reported "No incarcerations", indicating no contact with the criminal justice system. Smaller groups reported 1 to 2 incarcerations (716 respondents) and 3 to 4 incarcerations (146 respondents). Only 38 respondents reported 5 to 6 incarcerations, and even fewer experienced higher levels of incarceration: 7 respondents for 7 to 8 incarcerations, 1 respondent for 9 to 10 incarcerations, and 1 respondent for 11 to 12 incarcerations. With only 21 missing values (0.23%), the data is relatively complete for this variable.                                                  
+The distribution of total_num_incarcerations reveals that the majority of respondents (8054) reported "No incarcerations", indicating no contact with the criminal justice system. Smaller groups reported 1 to 2 incarcerations (716 respondents) and 3 to 4 incarcerations (146 respondents). Only 38 respondents reported 5 to 6 incarcerations, and even fewer experienced higher levels of incarceration: 7 respondents for 7 to 8 incarcerations, 1 respondent for 9 to 10 incarcerations, and 1 respondent for 11 to 12 incarcerations. With only 21 missing values (0.23%), the data is relatively complete for this variable.                      
 
 ## COLLEGE TYPE
+
+---
 
 ```{r}                                                  
 # Checking unique values in college_type
@@ -857,7 +894,8 @@ nlsy_df <- nlsy_df %>%
   ))
 ```                                                 
                                                   
-In the above we have lebelled the college types and also changed the negative values with NA.                                                 
+In the above we have lebelled the college types and also changed the negative values with NA.                                   
+
                                                   
 ```{r}                                                  
 # Counting the number of missing values
@@ -896,6 +934,9 @@ ggplot(data = nlsy_df, aes(x = college_type)) +
 The college_type variable indicates the type of institution respondents attended. The majority of respondents (960) attended a Public institution, followed by 261 respondents who attended a Private for-profit institution, and 213 respondents who attended a Private not-for-profit institution. A significant portion of the data (7550 rows, approximately 84.04%) is missing or marked as NA due to NON-INTERVIEW, VALID SKIP, or Invalid Skip. This high proportion of missing data introduces potential bias and limits the generalizability of findings. The distribution suggests that public institutions dominate the sample, with relatively few respondents attending private institutions of either type.            
 
 ## TRUSTFUL OR NOT
+
+---
+
 ```{r}                                                  
 # Checking the data for unique values
 unique(nlsy_df$trustful_or_not)
@@ -955,7 +996,12 @@ ggplot(data = nlsy_df, aes(x = reorder(trustful_or_not,-table(trustful_or_not)[t
                                                   
 The trustful_or_not variable shows a high percentage of missing data (45.73%). Among the valid data, the "Trustful" group (values >= 4) has a higher count than the "Distrustful" group (values 1–3). The missing data should be carefully addressed to ensure reliable insights.
 
+---
+
 ## SUMMARY OF EDA
+
+---
+
 ```{r}
 summary(nlsy_df)
 ```
@@ -966,9 +1012,15 @@ The variable total_income_2016 presented topcoded values, representing the top 2
 
 For better interpretability, categorical variables like gender, marital_status, and trustful_or_not were converted into factors with appropriate levels. This preparation ensures that the dataset is ready for thorough and precise analysis in the subsequent sections.
 
+---
+
 # PART 2 - RELATIONSHIP AND TREND ANALYSIS
 
+---
+
 ## INCOME vs GENDER
+
+---
 
 ```{r}
 # Summarize income by gender including topcoded variable, excluding NA
@@ -1034,6 +1086,8 @@ The box plot shows the distribution of income by gender, highlighting key differ
 
 ## INCOME vs RACE
 
+---
+
 ```{r}
 # Calculate mean income by race and gender, excluding rows with NA in income
 income_by_race_gender <- nlsy_df %>%
@@ -1068,6 +1122,8 @@ ggplot(nlsy_df, aes(x = race, y = total_income_2016, fill = gender)) +
 The bar plot shows the average income by race and gender, with distinct bars for males and females within each racial group. The "Other" group has the highest average income for both males ($64,519) and females ($46,240), followed by "Hispanic" and "Black" groups. Males consistently earn more than females across all groups, with the gender gap largest in the "Other" group ($18,279) and smallest in the "Black" group ($6,873). The plot highlights significant income disparities both between races and genders.
 
 ## CITIZENSHIP vs INCOME
+
+---
 
 ```{r}																									
 # Summarize income by citizenship status by gender distribution
@@ -1104,6 +1160,8 @@ ggplot(citizen_nlsy_df, aes(x = citizenship, y = total_income_2016, fill = gende
 ```
 
 ## AGE vs INCOME
+
+---
 
 ```{r}
 # This will give us a tabular representation of age, mean, median, and sd. The possible age values are 12 to 16 where there are reasonable number of respondents for each age category. We can see that mean income is the highest for respondents of age 15 and lowest for age 12. The lowest median income is again for 12 years respondants and is 40000 for respondents of age 13, 14, and 16. We have filtered the rows where income is NA to get accurate number of male and female having respective mean, median, and sd. The table shows that there are 523 males and 499 females with mean income of 47192.36, median 39500, and sd 39106.02. Similarly we have data for different age across our respondents for a total of 2621 males and 2470 females.
@@ -1155,8 +1213,9 @@ ggplot(no_topcoded_nlsy_df, aes(x = age_1996, y = total_income_2016, color = gen
 Fig1. illustrates a plot for topcoded income vs age distributed by gender. Red point is for male and blue is for female. It shows income in the range $0-$236K. The age of respondents here is as of 12/31/1996. The graphs shows that the income for male is consistently higher than that for females across different ages 12,13,14,15,16. The trend line indicates that income is approximately $50K for males of age 12 to 14 whereas for females it is around $40K from the age 12 to 15. However, we see that income increased to $60K (approx) for male above the age of 14 and decreased to $35K(approx) for females above the age of 15.
 Fig2. depicts a plot for excluding topcoded income for 2% level. It shows income range in $0-$150K. Green point is for male and orange is for female. Here as the data has topcoded values truncated, the remains similar to the previous one. Male income starts from a little below $50K while females start around $37K which is lower as compared to fig1. The income goes slightly up for males above 14 and income goes down for females above the age of 15.
 
-
 ## USED MARIJUANA vs INCOME
+
+---
 
 ```{r}
 # Creating tabular summary for use of marijuana impact on income with male and female count
@@ -1206,6 +1265,8 @@ If we analyze Fig2. graph we can say that the trend of income shows some variati
 
 ## IS SAD DEPRESSED UNHAPPY vs INCOME BASED ON GENDER 
 
+---
+
 ```{r}
 # Creating tabular summary of sadness level impact on income
 sad_income_summary <- nlsy_df %>%
@@ -1248,6 +1309,8 @@ Here, we plan to exclude the topcoded values to avoid truncation of data. The gr
 
 ## INDUSTRY CODE vs INCOME
 
+---
+
 ```{r}
 # Filtering NA from Industry Code
 industry_code_nlsy_df <- nlsy_df %>%
@@ -1286,6 +1349,8 @@ ggplot(industry_code_nlsy_df, aes(x = industry_code, y = total_income_2016, fill
 The above graph illustrates a plot for topcoded income vs industry code by gender. The blue boxes are for male and the orange ones are for females. The graphs shows that the income for male is consistently higher than that for females across different industry codes apart from ACS Special codes where it can be seen that females earn more than males.
 
 ## MARTIAL STATUS vs INCOME
+
+---
 
 ```{r}
 # Filtering NA from marital status
@@ -1333,6 +1398,8 @@ ggplot(nlsy_married, aes(x = reorder(marital_status, -total_income_2016, FUN = m
 The above graph illustrates a plot for topcoded income vs marital status by gender. The red boxes are for male and the blue ones are for females. The graphs shows that the mean income for male is consistently higher than that for females across all marital statuses. Therefore we see that married male earn more than any different marital status male like never married or other categories. On the other hand the income for female does not vary much although the married females are earning a bit more compared to the never married and other marital status females. 
 
 ## INCARCERATIONS vs INCOME
+
+---
 
 ```{r}
 # Filtering NA from total number of Incarcerations
@@ -1382,6 +1449,8 @@ The above graph illustrates a plot for topcoded income vs incarcerations by gend
 
 ## COLLEGE TYPE vs INCOME
 
+---
+
 ```{r}
 # Filtering NA from college types
 college_type_nlsy_df <- nlsy_df %>%
@@ -1426,6 +1495,8 @@ ggplot(nlsy_college, aes(x = college_type, y = total_income_2016, fill = gender)
 The above graph illustrates a plot for topcoded income vs industry code by gender. The red boxes are for male and the blue ones are for females. The graphs shows that the income for male is consistently higher than that for females for all the three types of institutions.
 
 ## TRUSTFUL/DISTRUSTFUL vs INCOME
+
+---
 
 ```{r}
 # Filtering NA from trustful/distrustful
@@ -1473,6 +1544,8 @@ The above graph illustrates a plot for topcoded income vs respondents who are tr
 
 ## MEAN INCOME BY CURRENT ENROLLMENT STATUS AND GENDER
 
+---
+
 ```{r}
 # Calculate mean income for each enrollment status and gender, excluding missing values
 nlsy_current_enr_df <- nlsy_df %>%
@@ -1512,9 +1585,15 @@ ggplot(nlsy_heatmap, aes(x = gender, y = current_enrollment_status, fill = mean_
 
 From the Heatmap we can observe that Male and Female respondents who are attending same 2 year college degree but the male population is earning more average income compared to female respondents.
 
+---
+
 # PART 3 - NORMALITY CHECK, CI, HYPOTHESE TESTING AND REGRESSION
 
+---
+
 ## NORMALITY CHECK
+
+---
 
 ```{r}
 # To check for normality of total_income_2016 we have performed the Skewness and Kurtosis tests to check for normality.
@@ -1540,11 +1619,18 @@ Kurtosis = 11.26869: This is significantly greater than 3, suggesting a leptokur
 
 ## TOBIT REGRESSION TEST
 
+---
+
 We ran Tobit regression test as our data has top coded values. As p < 0.05, we can reject the Null Hypothesis (Ho) in support of Alternate Hypothesis (Ha) which states the difference in income for males and females is not equal to 0. We analyzed that females earn approximately $16180 less than males in terms of latent income (before censoring). Both the intercept, latent income and scale, and gender coefficient are highly statistically significant which means these effects are unlikely to be due to random chances but is something which is consistent across data. The 95% confidence interval [ 13747.84, 18099], t-value is 14.346, and p-value < 2.2e-16. The mean income for males is 57202.82 and females is 41278.92.
 
 ## WITH TOPCODED VALUES
 
+---
+
 ### CONFIDENCE INTERVAL FOR TOPCODED
+
+---
+
 ```{r}
 # Filter dataset to exclude rows with missing income
 filtered_data <- nlsy_df %>%
@@ -1565,6 +1651,8 @@ The Welch Two-Sample t-test was conducted to examine the difference in mean inco
 
 ### HYPOTHESES TEST FOR TOPCODED
 
+---
+
 ```{r}
 # Decision Rule
 if (gender_ci_top$p.value < 0.05) {
@@ -1578,6 +1666,8 @@ The hypothesis test for top-coded income values examined whether there is a sign
 
 ### LINEAR REGRESSION MODEL FOR TOPCODED
 
+---
+
 ```{r}
 # Fit the regression model
 lm_model <- lm(total_income_2016 ~ gender, data = filtered_data)
@@ -1589,6 +1679,8 @@ lm_model <- lm(total_income_2016 ~ gender, data = filtered_data)
 The linear regression model was used to analyze the relationship between gender and total income for top-coded values. The intercept (57,202.8) represents the average income for males, while the coefficient for genderFemale (−15,923.9) indicates that females earn, on average, $15,923.9 less than males. The p-value for the gender coefficient (<2.2×10 ^ −16) is highly significant, confirming that gender is a strong predictor of income in this dataset. However, the model explains only 3.8% of the variability in income (Adjusted R² =0.0381), suggesting other factors also contribute to income differences.
 
 ### PLOTS FOR TOPCODED
+
+---
 
 ```{r}
 # Diagnostic plots for regression model
@@ -1604,7 +1696,12 @@ These plots collectively highlight potential violations of regression assumption
 
 ## WITHOUT TOPCODED VALUES
 
+---
+
 ### CONFIDENCE INTERVAL FOR NO-TOPCODED
+
+---
+
 ```{r}
 nlsy_no_topcoded <- nlsy_df %>%
   filter(total_income_2016 != max(total_income_2016, na.rm = TRUE))
@@ -1627,6 +1724,8 @@ The Welch Two Sample t-test was performed to calculate the confidence interval f
 
 ### HYPOTHESES TEST FOR NO-TOPCODED
 
+---
+
 ```{r}
 # Decision Rule
 if (gender_ci$p.value < 0.05) {
@@ -1639,6 +1738,9 @@ if (gender_ci$p.value < 0.05) {
 The hypothesis test shows a statistically significant income difference between males and females after excluding topcoded values, as the p-value is less than 0.05 and so we reject the Ho in support of Ha.
 
 ### LINEAR REGRESSION MODEL FOR NO-TOPCODED
+
+---
+
 ```{r}
 # Fit the regression model
 notop_lm_model <- lm(total_income_2016 ~ gender, data = notop_filtered_data)
@@ -1650,6 +1752,9 @@ notop_lm_model <- lm(total_income_2016 ~ gender, data = notop_filtered_data)
 The linear regression model examines the relationship between total income (2016) and gender. The intercept, represents the average total income for males, is estimated at $50,775.90. The coefficient for genderFemale is -11,889.70, which indicates that, on average, females earn $11,889.70 less than males in 2016. This difference is significant, as evidenced by a p-value < 2e-16. The residual standard error is 28,160, reflecting variability in income not explained by the model. The model explains only 4.27% of the variance in total income (R² = 0.04267), suggesting that gender alone is not a strong predictor of income. The overall model is significant (F(1, 4968) = 221.4, p-value < 2.2e-16).
 
 ### PLOTS FOR NO-TOPCODED
+
+---
+
 ```{r}
 # Diagnostic plots for regression model
 par(mfrow = c(2, 2))  # Arrange plots in 2x2 grid
@@ -1665,6 +1770,9 @@ plot(notop_lm_model)
 4. Residuals vs. Leverage Plot: Points near Cook's distance lines indicate high influence, though most points are clustered in low-leverage areas. A few data points may have high leverage or strong influence, warranting further investigation.
 
 ### LINEAR REGRESSION MODEL FOR NO-TOPCODED (MARITAL STATUS)
+
+---
+
 ```{r}
 # Fit the regression model
 notop_lm_model_ms <- lm(total_income_2016 ~ gender + marital_status, data = notop_filtered_data)
@@ -1681,6 +1789,9 @@ Marital Status: Married individuals earn $11,542.00 more on average than unmarri
 The residual standard error is 27,630, indicating the unexplained variability in income. The model explains 8.08% of the variance in income (R² = 0.08079), suggesting a modest explanatory power. The overall model is statistically significant (F(3, 4935) = 144.6, p-value < 2.2e-16). A total of 31 observations were excluded due to missing data.
 
 ### PLOTS FOR NO-TOPCODED (MARITAL STATUS)
+
+---
+
 ```{r}
 # Diagnostic plots for regression model
 par(mfrow = c(2, 2))  # Arrange plots in 2x2 grid
@@ -1696,6 +1807,9 @@ plot(notop_lm_model_ms)
 4. Residuals vs. Leverage: Points like 1672 and 1674 are potential high-leverage points, but they do not exceed Cook’s distance threshold. While these points are not excessively influential, they should be examined for potential outlier effects.
 
 ### LINEAR REGRESSION MODEL FOR NO-TOPCODED (AGE 1996 + CITIZENSHIP)
+
+---
+
 ```{r}
 # Fit the regression model
 notop_lm_model_ag_ctz <- lm(total_income_2016 ~ gender + age_1996 + citizenship, data = notop_filtered_data)
@@ -1709,6 +1823,9 @@ The linear regression model evaluates the relationship between total income (201
 The residual standard error is 28,020, showing variability in income not explained by the model. The model explains 4.47% of the variance in total income (R² = 0.04467), indicating a weak predictive capability. The overall model is statistically significant (F(4, 4439) = 51.89, p-value < 2.2e-16). Note that 526 observations were excluded due to missing data.
 
 ### PLOTS FOR NO-TOPCODED (AGE 1996 + CITIZENSHIP)
+
+---
+
 ```{r}
 # Diagnostic plots for regression model
 par(mfrow = c(2, 2))  # Arrange plots in 2x2 grid
@@ -1723,8 +1840,10 @@ plot(notop_lm_model_ag_ctz)
 
 4. Residuals vs. Leverage: Points like 244, 1200, and 3220 show relatively high leverage. None of the observations exceed Cook's distance threshold, meaning their influence is limited. These points should still be reviewed for potential impact on model performance.
 
-
 ### LINEAR REGRESSION MODEL FOR NO-TOPCODED (RACE + USED MARIJUANA + INDUSTRY CODE)
+
+---
+
 ```{r}
 # Fit the regression model
 notop_lm_model_rc_um_ic <- lm(total_income_2016 ~ gender + race + used_marijuana + industry_code, data = notop_filtered_data)
@@ -1742,6 +1861,9 @@ Industry_code: Two industries showed significant effects on income. Workers in t
 The residual standard error is 27,110, indicating the variation in income not explained by the model. The model explains 12.77% of the variance in income (R² = 0.1277), suggesting moderate explanatory power. The overall model is statistically significant (F(22, 4204) = 27.96, p-value < 2.2e-16). Note that 743 observations were excluded due to missing data.
 
 ### PLOTS FOR NO-TOPCODED (RACE + USED MARIJUANA + INDUSTRY CODE)
+
+---
+
 ```{r}
 # Diagnostic plots for regression model
 par(mfrow = c(2, 2))  # Arrange plots in 2x2 grid
@@ -1756,16 +1878,28 @@ plot(notop_lm_model_rc_um_ic)
 
 4. Residuals vs. Leverage: Points like 120, 4628, and 1712 are flagged as having high leverage. No point crosses the Cook's distance threshold (indicated by the dashed lines), so no observation appears to be highly influential. No extreme leverage points, but observations with high leverage should be examined.
 
+---
+
 # PART 4 - STORYTELLING
 
+---
+
 ## METHODOLOGY
+
+---
+
 Our theme question is to analyze sex-related income gap. We have taken many other factors into consideration to get the confidence in our analysis based on tables, graphical representations, and summaries. Now, to identify different variables that will help us get insights, we explored codebook and factored required variable. We renamed the columns to relevant names, mutated some to get better plots, and identified the count of male and female to bifercate how many of them fall in different category. We have used different plots like bar, histogram, boxplots, jitter plot, and heatmap that reveals trends.
 
 ## HANDLING MISSING VALUES
 
+---
+
+
 The data setset contains negative and missing values where the responses indicated Refusal(-1), Don't Know(-2), Invalid Skip(-3), VALID SKIP(-4) and NON-INTERVIEW(-5). Initially, we conducted a data audit to identify missing values in key variables (e.g., income, highest grade completed, etc.). For the numerical variables such as income, the negative or invalid values were straightforwardly recoded as NA to ensure statistical analyses were not biased. Also this was done to maintain consistency in the regression model, as incomplete data would lead to computational errors and distort the results.
 
 ## HANDLING TOPCODED VARIABLES
+
+---
 
 In the dataset, for example the income variable was topcoded, where the incomes of the top 2% earners were replaced with an average value of $235,884. This led to distortion in measures like the mean and maximum income, as the topcoded values artificially inflated these metrics. Specifically, the mean income was $49,447, and the maximum income was $235,884, both skewed by the 121 topcoded respondents.
 
@@ -1774,17 +1908,32 @@ To address this, we excluded the 121 topcoded values, lowering the mean income t
 By handling topcoded values in this way, we ensured a more accurate and realistic analysis of income distribution which allowed for better insights into the income range and inequality without the distortion caused by artificially high values.
 
 ## DID YOU PRODUCE ANY TABLES OR PLOTS THAT YOU THOUGHT WOULD REVEAL INTERESTING TRENDS BUT DIDN’T?
+
+---
+
 Yes, we found one relationship between income and marital status which did not show a significant trend as I thought. The distribution of incomes for both groups, male and female, overlapped but the differences were not as huge as expected. For males, married people make more money than unmarried people and other categories. At the same time, for females, there is not much difference seen in income between married females and other categories. 
 
 ## WHAT RELATIONSHIPS DID YOU INVESTIGATE THAT DON’T APPEAR IN YOUR FINDINGS SECTION?
+
+---
+
 In our findings section where plotted our regression test, we didn't see a trend of females earning more than male for refusal category of use of marijuana. However, when we analyzed use of marijuana with income and gender, it was shown that females earn more than males.
 
 ## WHAT’S THE ANALYSIS THAT YOU FINALLY SETTLED ON? WHAT INCOME AND GENDER RELATED FACTORS DO YOU INVESTIGATE IN THE FINAL ANALYSIS?
+
+---
+
 We have analyzed many different combination of variables with income and gender which helped us stick to the observation that males have more income as compared to females. The factors that were taken into consideration are race, marital status, enrollment status, use of marijuana, birth year, industry code, age, is sad/depressed, trustful or not, citizenship, college type, highest grade completed, and total number of incarcerations. We plotted almost all of the variables against income and gender to find out if our hypothesis of male and female having same income is true or not. For our final analysis we applied regression plots for income ~ gender for both topcoded and no topcoded values, income ~ gender with race, marijuana, and industry code, income ~ gender with age & citizenship, income ~ gender with marital status.It turns out that we see males have more income across the dataset and even alayzing different types of variable, the reading remain same. Furthermore, there is a huge difference in the income of both groups.
+
+---
 
 # PART 5 - CONCLUSION
 
+---
+
 ## In this section you should summarize your main conclusions. You should also discuss potential limitations of your analysis and findings. Are there potential confounding variables that you didn’t control for? Are the models you fit believable?
+
+---
 
 Females consistently earned less than males, throughout our analysis while incorporating different parameters such as race, citizenship, highest grade completed, industry code, marital status, use of marijuana etc. The income varied significantly in most of the analysis, such as in race, citizenship, use of marijuana, if they are sad or depressed, throughout different industries, marital status, incarcerations, college type, and if they were trustful or not, however we had certain circumstances where a female earned more which is the industry code- ASC special codes.
 A significant portion of the data was missing which posed as limitations for us. The missing data and the topcoded income values may have also introduced potential biases. While these values were excluded to prevent distortion of income distributions, it also meant that the analysis might not fully reflect the income dynamics of the top 2% earners.
@@ -1792,6 +1941,8 @@ Out of the 95 variables we selected 15 so there could have been many Key confoun
 The regression model that we have used calculates the linear relationships between income and the predictors. However, some relationships may be non-linear or have interactions that were not captured in the model.
 
 ## You should also address the following question: How much confidence do you have in your analysis? Do you believe your conclusions? Are you confident enough in your analysis and findings to present them to policy makers? 
+
+---
 
 After doing our analysis we could see that there is a trend that men have more income than women, and we are moderately confident in the findings, particularly regarding the gender pay gap and income disparities. 
 While the findings show significant differences in the income of males and females, the missing data and the top coded values makes the analysis incomplete and a whole picture can not be drawn. We are definitely confident in out findings for the data on which we could perform our analysis and if we could have got the complete data a full analysis could have been done and we would have been more confident about the complete analysis. 
