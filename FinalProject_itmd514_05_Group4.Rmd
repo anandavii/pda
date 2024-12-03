@@ -2,7 +2,10 @@
 title: "FinalProject_itmd514_05_Group4"
 author: "Abhishek Anand, Apurva Anand, Surajit Patra"
 date: "2024-12-03"
-output: html_document
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
 ---
 
 ```{r}
@@ -28,7 +31,8 @@ nlsy <- read_csv("nlsy97.csv")
 glimpse(nlsy)
 ```																									
 																									
-			
+# PART 1- VARIABLES(SELECTION AND CLEANING)	
+
 ```{r}
 # Change column names to meaningful
 colnames(nlsy)[colnames(nlsy) == "R0536300"] <- "gender"
@@ -916,7 +920,7 @@ The trustful_or_not variable shows a high percentage of missing data (45.73%). A
 
 ---------------------------------------------------------------------------------------------------------------------
 
-# PART 2 Analysis
+# PART 2 - RELATIONSHIP AND TREND ANALYSIS
 
 ---------------------------------------------------------------------------------------------------------------------
 
@@ -1458,7 +1462,7 @@ From the Heatmap we can observe that Male and Female respondents who are attendi
 
 ---------------------------------------------------------------------------------------------------------------------
 
-# PART 3 Analysis
+# PART 3 - NORMALITY CHECK, CI, HYPOTHESE TESTING AND REGRESSION
 
 ---------------------------------------------------------------------------------------------------------------------
 
