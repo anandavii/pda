@@ -468,14 +468,21 @@ nlsy_df %>%
 ```
 
 ```{r}
+# Create a summarized dataset to sort the age counts
+age_1996_sorted <- nlsy_df %>%
+  count(age_1996, sort = TRUE) %>%
+  arrange(desc(n))
+
 # Plotting age and its concentration
-ggplot(data = nlsy_df, aes(x = age_1996, fill = age_1996)) +
-  geom_bar() +
-  geom_text(stat = "count", aes(label = ..count..), vjust = -0.5) +
+ggplot(data = age_1996_sorted, aes(x = reorder(age_1996, -n), y = n, fill = factor(age_1996))) +
+  geom_bar(stat = "identity",show.legend = FALSE) +
+  geom_text(aes(label = n), vjust = -0.5) +
   labs(
-    title = "What is the Age of the respondants as of 21/31/1996",
-    x = "Age (as of 12/31/1996)", y = "Count",
-  )
+    title = "What is the Age of the respondents as of 12/31/1996",
+    x = "Age (as of 12/31/1996)", 
+    y = "Count"
+  ) +
+  scale_fill_brewer(palette = "Set3", name = "Age")
 ```
 	
 ## CITIZENSHIP
