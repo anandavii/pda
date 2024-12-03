@@ -1,6 +1,6 @@
 ---
 title: "FinalProject_itmd514_05_Group4"
-author: "Submitted By: Abhishek Anand, Apurva Anand, Surajit Patra"
+author: "Submitted By: Abhishek Anand, Apurva Anand, and Surajit Patra"
 date: "2024-12-03"
 output:
   html_document:
