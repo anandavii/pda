@@ -1718,6 +1718,7 @@ plot(notop_lm_model_rc_um_ic)
 # PART 4 - STORYTELLING
 
 ## METHODOLOGY
+Our theme question is to analyze sex-related income gap. We have taken many other factors into consideration to get the confidence in our analysis based on tables, graphical representations, and summaries. Now, to identify different variables that will help us get insights, we explored codebook and factored required variable. We renamed the columns to relevant names, mutated some to get better plots, and identified the count of male and female to bifercate how many of them fall in different category. We have used different plots like bar, histogram, boxplots, jitter plot, and heatmap that reveals trends.
 
 ## HANDLING MISSING VALUES
 
