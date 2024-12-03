@@ -534,7 +534,7 @@ nlsy_df %>%
 
 ```{r}
 # Plotting citizenship and its concentration
-ggplot(data = nlsy_df, aes(x = citizenship, fill = citizenship)) +
+ggplot(data = nlsy_df, aes(x = reorder(citizenship,-table(citizenship)[citizenship]), fill = citizenship)) +
   geom_bar() +
   geom_text(stat = "count", aes(label = ..count..), vjust = -0.5) +
   labs(
@@ -657,7 +657,7 @@ nlsy_df %>%
 
 ```{r}
 # Visualizing industry code distribution with a bar plot
-ggplot(data = nlsy_df, aes(x = industry_code)) +
+ggplot(data = nlsy_df, aes(x = reorder(industry_code,-table(industry_code)[industry_code]))) +
   geom_bar(fill = "pink", color = "black") +
   geom_text(stat = "count", aes(label = ..count..), vjust = -0.5) +
   labs(
