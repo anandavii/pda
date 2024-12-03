@@ -1574,6 +1574,8 @@ notop_lm_model <- lm(total_income_2016 ~ gender, data = notop_filtered_data)
  summary(notop_lm_model)
 ```
 
+The linear regression model examines the relationship between total income (2016) and gender. The intercept, representing the average total income for males (reference category), is estimated at $50,775.90. The coefficient for genderFemale is -11,889.70, indicating that, on average, females earn $11,889.70 less than males in 2016, holding all else constant. This difference is highly statistically significant, as evidenced by a p-value < 2e-16. The residual standard error is 28,160, reflecting variability in income not explained by the model. The model explains only 4.27% of the variance in total income (R² = 0.04267), suggesting that gender alone is not a strong predictor of income. The overall model is significant (F(1, 4968) = 221.4, p-value < 2.2e-16).
+
 ## PLOTS FOR NO-TOPCODED
 ```{r}
 # Diagnostic plots for regression model
@@ -1581,30 +1583,17 @@ par(mfrow = c(2, 2))  # Arrange plots in 2x2 grid
 plot(notop_lm_model)
 ```
 
-1. Residuals vs. Fitted Plot (Top Left)
-Purpose: To check for non-linearity, unequal error variance, or outliers.
-Observation:
-The residuals are clustered tightly for smaller fitted values but become more spread at the upper end.
-Indicates heteroscedasticity (non-constant variance of residuals).
-There may also be outliers present, as some points deviate significantly from the zero line.
-2. Normal Q-Q Plot (Top Right)
-Purpose: To assess if residuals follow a normal distribution.
-Observation:
-The residuals deviate from the straight diagonal line at both ends, particularly in the tails.
-Suggests the residuals are not normally distributed.
-3. Scale-Location Plot (Bottom Left)
-Purpose: To check for homoscedasticity (constant variance of residuals).
-Observation:
-The spread of residuals increases slightly as fitted values increase.
-Indicates heteroscedasticity, confirming the findings from the Residuals vs. Fitted plot.
-4. Residuals vs. Leverage Plot (Bottom Right)
-Purpose: To detect influential points that have high leverage and may impact the regression results.
-Observation:
-Points near Cook's distance lines indicate high influence, though most points are clustered in low-leverage areas.
-A few data points may have high leverage or strong influence, warranting further investigation.
-Summary of Charts:
-There are concerns about heteroscedasticity, non-normality of residuals, and potential influential observations. These diagnostic issues suggest that the linear regression model might not fully satisfy the assumptions of ordinary least squares (OLS).
-Next steps could include transforming the dependent variable, using robust standard errors, or exploring a different model type (e.g., generalized linear models). 
+1. Residuals vs. Fitted Plot
+The residuals are clustered tightly for smaller fitted values but become more spread at the upper end. Indicates heteroscedasticity (non-constant variance of residuals). There may also be outliers present, as some points deviate significantly from the zero line.
+
+2. Normal Q-Q Plot
+The residuals deviate from the straight diagonal line at both ends, particularly in the tails. Suggests the residuals are not normally distributed.
+
+3. Scale-Location Plot
+The spread of residuals increases slightly as fitted values increase. Indicates heteroscedasticity, confirming the findings from the Residuals vs. Fitted plot.
+
+4. Residuals vs. Leverage Plot
+Points near Cook's distance lines indicate high influence, though most points are clustered in low-leverage areas. A few data points may have high leverage or strong influence, warranting further investigation.
 
 ## LINEAR REGRESSION MODEL FOR NO-TOPCODED (MARITAL STATUS)
 ```{r}
@@ -1614,6 +1603,12 @@ notop_lm_model_ms <- lm(total_income_2016 ~ gender + marital_status, data = noto
 # Summarize the regression model
  summary(notop_lm_model_ms)
 ```
+
+The linear regression model examines the relationship between total income (2016) and the predictors: gender and marital status. The intercept, representing the estimated average income for males who are unmarried (reference group), is $45,071.70 and is statistically significant (p-value < 2e-16).
+
+Gender: Females earn $11,905.50 less than males on average, a statistically significant difference (p-value < 2e-16).
+Marital Status: Married individuals earn $11,542.00 more on average than unmarried individuals, a statistically significant effect (p-value < 2e-16). Individuals categorized as "Other" marital status earn $1,308.80 more than unmarried individuals, but this is not statistically significant (p-value = 0.302).
+The residual standard error is 27,630, indicating the unexplained variability in income. The model explains 8.08% of the variance in income (R² = 0.08079), suggesting a modest explanatory power. The overall model is statistically significant (F(3, 4935) = 144.6, p-value < 2.2e-16). A total of 31 observations were excluded due to missing data.
 
 ## PLOTS FOR NO-TOPCODED (MARITAL STATUS)
 ```{r}
@@ -1643,12 +1638,17 @@ notop_lm_model_ag_ctz <- lm(total_income_2016 ~ gender + age_1996 + citizenship,
  summary(notop_lm_model_ag_ctz)
 ```
 
+The linear regression model evaluates the relationship between total income (2016) and three predictors: gender, age (1996), and citizenship status. The intercept, representing the average total income for males of age 0 (reference age) with unknown citizenship, is estimated at $43,763.80. The coefficient for genderFemale is -11,883.00, indicating that females earn $11,883.00 less than males on average, holding other variables constant. This difference is statistically significant (p-value < 2e-16). The coefficient for age_1996 is 646.00, suggesting that income increases by $646.00 for each additional year of age, which is statistically significant (p-value = 0.032). However, the coefficients for citizenshipCitizen and citizenshipNon-Citizen are not statistically significant (p-values of 0.352 and 0.889, respectively), indicating no significant effect of citizenship status on income.
+
+The residual standard error is 28,020, showing variability in income not explained by the model. The model explains 4.47% of the variance in total income (R² = 0.04467), indicating a weak predictive capability. The overall model is statistically significant (F(4, 4439) = 51.89, p-value < 2.2e-16). Note that 526 observations were excluded due to missing data.
+
 ## PLOTS FOR NO-TOPCODED (AGE 1996 + CITIZENSHIP)
 ```{r}
 # Diagnostic plots for regression model
 par(mfrow = c(2, 2))  # Arrange plots in 2x2 grid
 plot(notop_lm_model_ag_ctz)
 ```
+
 1. Residuals vs. Fitted
 Residuals are scattered around zero but appear to show non-random patterns. Some clustering may indicate mild issues with linearity or omitted variables. There may be slight violations of linearity or homoscedasticity.
 
@@ -1670,6 +1670,14 @@ notop_lm_model_rc_um_ic <- lm(total_income_2016 ~ gender + race + used_marijuana
 # Summarize the regression model
  summary(notop_lm_model_rc_um_ic)
 ```
+
+The linear regression model explores the relationship between total income (2016) and the predictors: gender, race, used_marijuana, and industry_code. The intercept, representing the estimated average income for males of the "White" race, who have not responded about marijuana usage, and with the reference industry, is $21,000.00 but is not statistically significant (p-value = 0.3276).
+
+Gender: Females earn $10,252.50 less than males on average, a statistically significant difference (p-value < 2e-16).
+Race: Compared to the reference race ("White"), Hispanic individuals earn $6,606.70 more on average (p-value = 1.17e-07), while individuals of "Other" races earn $12,904.60 more on average (p-value < 2e-16).
+Used_marijuana: None of the levels (Refusal, No, Yes) showed a significant effect on income.
+Industry_code: Two industries showed significant effects on income. Workers in the "Mining" industry earn $23,903.50 more on average (p-value = 0.0287), and those in "Utilities" earn $26,103.00 more on average (p-value = 0.0191) compared to the reference industry.
+The residual standard error is 27,110, indicating the variation in income not explained by the model. The model explains 12.77% of the variance in income (R² = 0.1277), suggesting moderate explanatory power. The overall model is statistically significant (F(22, 4204) = 27.96, p-value < 2.2e-16). Note that 743 observations were excluded due to missing data.
 
 ## PLOTS FOR NO-TOPCODED (RACE + USED MARIJUANA + INDUSTRY CODE)
 ```{r}
