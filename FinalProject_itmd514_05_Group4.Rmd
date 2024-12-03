@@ -131,15 +131,14 @@ nlsy_df %>%
 
 ```{r}
 # Plotting birth year and its concentration
-ggplot(data = nlsy_df, aes(x = reorder(birth_year,-table(birth_year)[birth_year], fill = birth_year)) +
+ggplot(data = nlsy_df, aes(x = birth_year, fill = birth_year)) +
   geom_bar() +
   geom_text(stat = "count", aes(label = ..count..), vjust = -0.5) +
   labs(
     title = "What is the Birth Year of the respondants",
     x = "Birth Year", y = "Count",
   ) +
-  scale_fill_brewer(palette = "Set2", name = "birthyear") +
-  theme_minimal()
+  scale_fill_brewer(palette = "Set2", name = "birthyear")
 ```
 
 ## IS SAD DEPRESSED UNHAPPY F
@@ -188,15 +187,14 @@ nlsy_df %>%
 Is_Sad_plot_df <- nlsy_df %>%
   filter(!is.na(is_sad_depressed_unhappy_f))
 # Plotting is_sad_depressed_unhappy_f and count
-ggplot(data = Is_Sad_plot_df, aes(x = is_sad_depressed_unhappy_f, fill = is_sad_depressed_unhappy_f)) +
+ggplot(data = Is_Sad_plot_df, aes(x = reorder(is_sad_depressed_unhappy_f,-table(is_sad_depressed_unhappy_f)[is_sad_depressed_unhappy_f]), fill = is_sad_depressed_unhappy_f)) +
   geom_bar() +
   geom_text(stat = "count", aes(label = ..count..), vjust = -0.5) +
   labs(
     title = "Is the female respondant sad, unhappy, or depressed?",
     x = "Is Sad, Depressed, or Unhappy (Females)", y = "Count",
   ) +
-  scale_fill_brewer(palette = "Set2", name = "Type of Responses") +
-  theme_minimal()
+  scale_fill_brewer(palette = "Set2", name = "Type of Responses")
 ```
 
 ## ENROLLMENT STATUS	
@@ -472,8 +470,7 @@ ggplot(data = nlsy_df, aes(x = age_1996, fill = age_1996)) +
   labs(
     title = "What is the Age of the respondants as of 21/31/1996",
     x = "Age (as of 12/31/1996)", y = "Count",
-  ) +
-  theme_minimal()
+  )
 ```
 	
 ## CITIZENSHIP
@@ -531,8 +528,7 @@ ggplot(data = nlsy_df, aes(x = citizenship, fill = citizenship)) +
   labs(
     title = "What is the Citizenship of the respondant",
     x = "Citizenship", y = "Count",
-  ) +
-  theme_minimal()
+  )
 # The graph below shows how the response is ranged across. It illustrates that majority of the respondants have a citizenship of the U.S. and constitutes to 6869 out of 8984, some don't know their birthplace constitute to 794, some who were not born in the U.S. adds up to 279, and the remaining 1042 were all missing data. This, we can say that 76.45% of the people were born in the U.S., 3.1% were not born in the U.S, 8.83% cannot determine their birthplace, and 11.5% of significant population skipped the question.
 ```
 
@@ -578,8 +574,7 @@ ggplot(data = nlsy_df, aes(x = reorder(used_marijuana, -table(used_marijuana)[us
     title = "Have you ever used marijuana?",
     x = "Used Marijuana", y = "Count",
   ) +
-  scale_fill_brewer(palette = "Set3", name = "Type of Responses") +
-  theme_minimal()
+  scale_fill_brewer(palette = "Set3", name = "Type of Responses")
 # The graph below illustrates that 79.56% (7148) of respondents do not use marijuana, 19.97% (1795) use marijuana, 0.05% (5) don't know if the used it, 0.37% (34) refused to answer the question, and the question was a invalid skip for 2 people. By this plot, we can say that 0.43% (39) people might be hiding some information on use of marijuana. There is a significant number of respondents who use marijuana.
 ```
 
@@ -718,8 +713,7 @@ ggplot(data = nlsy_df, aes(x = marital_status, fill = marital_status)) +
     x = "Marital Status",
     y = "Count",
     subtitle = "Note: 'Other' includes Separated, Divorced and Widowed"
-  ) +
-  theme_minimal()
+  )
 ```                                                 
   
 The marital_status distribution shows that the majority of respondents are Never-married (2766) or Married (3066). Smaller numbers are classified as "Other" (e.g., Separated, Divorced, Widowed). About 25.75% of the data is missing, which may introduce bias.                                                 
@@ -916,8 +910,7 @@ ggplot(data = nlsy_df, aes(x = trustful_or_not, fill = trustful_or_not)) +
     title = "IS Trustful or Distrustful",
     x = "Trustfulness",
     y = "Count"
-  ) +
-  theme_minimal()
+  )
 ```                                                 
                                                   
 The trustful_or_not variable shows a high percentage of missing data (45.73%). Among the valid data, the "Trustful" group (values >= 4) has a higher count than the "Distrustful" group (values 1–3). The missing data should be carefully addressed to ensure reliable insights.
@@ -1103,7 +1096,6 @@ ggplot(nlsy_df, aes(x = age_1996, y = total_income_2016, color = gender)) +
     x = "Age in 1996",
     y = "Income"
   ) +
-  theme_minimal() +
   scale_color_brewer(palette = "Set1", name = "Gender")
 
 # Graph with no-topcoded income values will exclude the people with higher income and this will help us have even more accurate data as the topcoded income for 2% level is average and it might interfere in our analysis.
@@ -1116,7 +1108,6 @@ ggplot(no_topcoded_nlsy_df, aes(x = age_1996, y = total_income_2016, color = gen
     x = "Age in 1996",
     y = "Income"
   ) +
-  theme_minimal() +
   scale_color_brewer(palette = "Set2", name = "Gender")
 
 # Fig1. illustrates a plot for topcoded income vs age distributed by gender. Red point is for male and blue is for female. It shows income in the range $0-$236K. The age of respondents here is as of 12/31/1996. The graphs shows that the income for male is consistently higher than that for females across different ages 12,13,14,15,16. The trend line indicates that income is approximately $50K for males of age 12 to 14 whereas for females it is around $40K from the age 12 to 15. However, we see that income increased to $60K (approx) for male above the age of 14 and decreased to $35K(approx) for females above the age of 15.
@@ -1152,8 +1143,7 @@ ggplot(nlsy_df, aes(x = used_marijuana, y = total_income_2016, fill = gender)) +
     x = "Used Marijuana",
     y = "Income"
   ) +
-  scale_fill_brewer(palette = "Set2", name = "Gender") +
-  theme_minimal()
+  scale_fill_brewer(palette = "Set2", name = "Gender") 
 
 # Similarly, let's see if truncating topcoded values show a difference.
 ggplot(no_topcoded_nlsy_df, aes(x = used_marijuana, y = total_income_2016, fill = gender)) +
@@ -1164,8 +1154,7 @@ ggplot(no_topcoded_nlsy_df, aes(x = used_marijuana, y = total_income_2016, fill 
     x = "Used Marijuana",
     y = "Income"
   ) +
-  scale_fill_brewer(palette = "Set3", name = "Gender") +
-  theme_minimal()
+  scale_fill_brewer(palette = "Set3", name = "Gender")
 
 # If we analyze the graph we can say that the trend of income shows some variation when compared to graph with topcoded values. After removing extreme values, the income differences become more moderate. Gender disparities persist but are less dramatic when compared to graph with topcoded values. Here, the male in refusal category shows lower income as compared to female, for No category males earn slightly more than female and the highest income can be near approx 150K for males and 140K for females, for Yes category we see that both have similar income range. 
 ```	
@@ -1204,7 +1193,6 @@ ggplot(sad_income_df, aes(x = is_sad_depressed_unhappy_f, y = total_income_2016,
     x = "Sadness/Depression Level",
     y = "Income"
   ) +
-  theme_minimal() +
   scale_color_brewer(palette = "Set1", name = "Gender")
 ```
 
