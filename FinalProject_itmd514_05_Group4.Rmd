@@ -8,7 +8,7 @@ output: html_document
 ```{r}
 # We will require the tidyverse library, ISLR2 library and the dplyr library
 # The following loads the library for our use
-install.packages("moments")
+#install.packages("moments")
 
 library(tidyverse)
 library(knitr)
