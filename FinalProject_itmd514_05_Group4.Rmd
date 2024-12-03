@@ -1952,3 +1952,6 @@ The regression model that we have used calculates the linear relationships betwe
 After doing our analysis we could see that there is a trend that men have more income than women, and we are moderately confident in the findings, particularly regarding the gender pay gap and income disparities. 
 While the findings show significant differences in the income of males and females, the missing data and the top coded values makes the analysis incomplete and a whole picture can not be drawn. We are definitely confident in out findings for the data on which we could perform our analysis and if we could have got the complete data a full analysis could have been done and we would have been more confident about the complete analysis. 
 The findings, especially those related to the gender income gap, racial income disparities, and industry-specific income gaps, are important and could be valuable for policy makers. However, the missing data and topcoding limitations must be acknowledged, as they might impact the generalizability of the results.
+
+---
+---
