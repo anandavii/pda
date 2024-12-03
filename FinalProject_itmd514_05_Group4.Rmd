@@ -1581,6 +1581,31 @@ par(mfrow = c(2, 2))  # Arrange plots in 2x2 grid
 plot(notop_lm_model)
 ```
 
+1. Residuals vs. Fitted Plot (Top Left)
+Purpose: To check for non-linearity, unequal error variance, or outliers.
+Observation:
+The residuals are clustered tightly for smaller fitted values but become more spread at the upper end.
+Indicates heteroscedasticity (non-constant variance of residuals).
+There may also be outliers present, as some points deviate significantly from the zero line.
+2. Normal Q-Q Plot (Top Right)
+Purpose: To assess if residuals follow a normal distribution.
+Observation:
+The residuals deviate from the straight diagonal line at both ends, particularly in the tails.
+Suggests the residuals are not normally distributed.
+3. Scale-Location Plot (Bottom Left)
+Purpose: To check for homoscedasticity (constant variance of residuals).
+Observation:
+The spread of residuals increases slightly as fitted values increase.
+Indicates heteroscedasticity, confirming the findings from the Residuals vs. Fitted plot.
+4. Residuals vs. Leverage Plot (Bottom Right)
+Purpose: To detect influential points that have high leverage and may impact the regression results.
+Observation:
+Points near Cook's distance lines indicate high influence, though most points are clustered in low-leverage areas.
+A few data points may have high leverage or strong influence, warranting further investigation.
+Summary of Charts:
+There are concerns about heteroscedasticity, non-normality of residuals, and potential influential observations. These diagnostic issues suggest that the linear regression model might not fully satisfy the assumptions of ordinary least squares (OLS).
+Next steps could include transforming the dependent variable, using robust standard errors, or exploring a different model type (e.g., generalized linear models). 
+
 ## LINEAR REGRESSION MODEL FOR NO-TOPCODED (MARITAL STATUS)
 ```{r}
 # Fit the regression model
