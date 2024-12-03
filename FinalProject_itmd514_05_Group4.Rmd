@@ -1954,4 +1954,3 @@ While the findings show significant differences in the income of males and femal
 The findings, especially those related to the gender income gap, racial income disparities, and industry-specific income gaps, are important and could be valuable for policy makers. However, the missing data and topcoding limitations must be acknowledged, as they might impact the generalizability of the results.
 
 ---
----
