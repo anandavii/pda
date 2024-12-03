@@ -11,8 +11,11 @@ output:
 # INSTALL PACKAGE, LOAD LIBRARIES AND NLSY DATASET
 
 ```{r}
-# We will require the tidyverse library, ISLR2 library and the dplyr library
-# The following loads the library for our use
+# We will require the below mentioned libraries hence remove the comment(# symbol) and first install the packagaes if not already installed on your computer:
+
+#install.packages("tidyverse")
+#install.packages("knitr")
+#install.packages("gridExtra")
 #install.packages("moments")
 
 library(tidyverse)
@@ -20,7 +23,6 @@ library(knitr)
 library(ggplot2)
 library(gridExtra)
 library(moments)
-
 ```
 
 ```{r}																									
