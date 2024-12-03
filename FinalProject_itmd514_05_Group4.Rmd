@@ -11,7 +11,7 @@ output:
 # INSTALL PACKAGE, LOAD LIBRARIES AND NLSY DATASET
 
 ```{r}
-# We will require the below mentioned libraries hence remove the comment(# symbol) and first install the packagaes if not already installed on your computer:
+# We will require the below mentioned libraries hence remove the comment(# symbol) and first install the packages if not already installed on your computer:
 
 #install.packages("tidyverse")
 #install.packages("knitr")
