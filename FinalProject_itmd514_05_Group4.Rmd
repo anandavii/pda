@@ -915,7 +915,7 @@ nlsy_df %>%
                                                   
 ```{r}                                                  
 # Bar plot for trustful_or_not
-ggplot(data = nlsy_df, aes(x = trustful_or_not, fill = trustful_or_not)) +
+ggplot(data = nlsy_df, aes(x = reorder(trustful_or_not,-table(trustful_or_not)[trustful_or_not]), fill = trustful_or_not)) +
   geom_bar() +
   geom_text(stat = "count", aes(label = ..count..), vjust = -0.5) +
   labs(
