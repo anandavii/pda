@@ -566,10 +566,12 @@ The graph below shows how the response is ranged across. It illustrates that maj
 ## EVER USE MARIJUANA
 
 ```{r}
-# This variable Citizenship has different values like Non-Citizen, Birthplace Unknown, Citizen , and NA. Possible responses are 0,1,-1,-2,-3 where 0 indicates No, 1 indicates Yes, -1 indicates Refusal, -2 indicates Don't know, and -3 indicates Invalid Skip. To clean this we will be taking -1 and -2 into consideration as it can tell us if respondents might be hiding the truth. However, we can replace -3 with NA to get the accurate analysis done for this variable.
+# Getting unique values for the variable and sumaary
 unique(nlsy_df$used_marijuana)
 summary(nlsy_df$used_marijuana)
 ```
+
+This variable ever use marijuana has different values like 0,1,-1,-2,-3 where 0 indicates 'No', 1 indicates 'Yes', -1 indicates 'Refusal', and -2 indicates 'Don't know'. For better reading for these values in plot, we will mutate it to categorical values.
 
 ```{r}
 # To clean the variable Used Marijuana, we are performing following steps like converting to categorical values for ease of analysis.
@@ -590,11 +592,13 @@ nlsy_df <- nlsy_df %>%
 ```
 
 ```{r}
-# Upon factoring values for used_marihjuana to make it categorical we have replaced -3 with NA for 2 rows, 1 with Yes, 0 with No, -1 with Refusal, and -2 with don't know. This helps us in easily reading the analysis.
+# Count of people falling in different categories of used_marijuana response
 nlsy_df %>%
   count(used_marijuana, sort = TRUE) %>%
   rename(count = n)
 ```
+
+Upon factoring values for used_marihjuana to make it categorical we have replaced -3 with NA for 2 rows, 1 with Yes, 0 with No, -1 with Refusal, and -2 with don't know. This helps us in easily reading the analysis.
 
 ```{r}
 # Plotting used_marijuana
@@ -606,8 +610,10 @@ ggplot(data = nlsy_df, aes(x = reorder(used_marijuana, -table(used_marijuana)[us
     x = "Used Marijuana", y = "Count",
   ) +
   scale_fill_brewer(palette = "Set3", name = "Type of Responses")
-# The graph below illustrates that 79.56% (7148) of respondents do not use marijuana, 19.97% (1795) use marijuana, 0.05% (5) don't know if the used it, 0.37% (34) refused to answer the question, and the question was a invalid skip for 2 people. By this plot, we can say that 0.43% (39) people might be hiding some information on use of marijuana. There is a significant number of respondents who use marijuana.
 ```
+
+# The graph below illustrates that 79.56% (7148) of respondents do not use marijuana, 19.97% (1795) use marijuana, 0.05% (5) don't know if the used it, 0.37% (34) refused to answer the question, and the question was a invalid skip for 2 people. By this plot, we can say that 0.43% (39) people might be hiding some information on use of marijuana. There is a significant number of respondents who use marijuana
+
 
 ## INDUSTRY CODE  
 
