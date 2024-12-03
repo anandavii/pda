@@ -1487,7 +1487,7 @@ kurtosis(nlsy_df$total_income_2016, na.rm = TRUE)
 ```
 
 ## TOBIT REGRESSION TEST
-We ran Tobit regression test as our data has top coded values. As p < 0.05, we can reject the Null Hypothesis (Ho) in support of Alternate Hypothesis (Ha) which states the difference in income for males and females is not equal to 0. We analyzed that females earn approximately $16180 less than males in terms of latent income (before censoring). Both the intercept, latent income and scale, and gender coefficient are highly statistically significant which means these effects are unlikely to be due to random chances but is something which is consistent across data. The 95% confidence interval [ 13747.84, 18099], t-value is 14.346, and p-value < 2.2e-16. The mean for males is 57202.82 and females is 41278.92.
+We ran Tobit regression test as our data has top coded values. As p < 0.05, we can reject the Null Hypothesis (Ho) in support of Alternate Hypothesis (Ha) which states the difference in income for males and females is not equal to 0. We analyzed that females earn approximately $16180 less than males in terms of latent income (before censoring). Both the intercept, latent income and scale, and gender coefficient are highly statistically significant which means these effects are unlikely to be due to random chances but is something which is consistent across data. The 95% confidence interval [ 13747.84, 18099], t-value is 14.346, and p-value < 2.2e-16. The mean income for males is 57202.82 and females is 41278.92.
 
 # TOPCODED
 ## CONFIDENCE INTERVAL FOR TOPCODED
