@@ -131,7 +131,7 @@ nlsy_df %>%
 
 ```{r}
 # Plotting birth year and its concentration
-ggplot(data = nlsy_df, aes(x = birth_year, fill = birth_year)) +
+ggplot(data = nlsy_df, aes(x = reorder(birth_year,-table(birth_year)[birth_year], fill = birth_year)) +
   geom_bar() +
   geom_text(stat = "count", aes(label = ..count..), vjust = -0.5) +
   labs(
