@@ -11,6 +11,8 @@ output:
 ## PROJECT DESCRIPTION
 **I. Sex-related differences: Is there a significant difference in income between men and women? Does the difference vary depending on other factors (e.g., education, marital status, criminal history, drug use, childhood household factors, profession, etc.)? **
 
+---
+
 # INSTALL PACKAGE, LOAD LIBRARIES AND NLSY DATASET
 
 ```{r}
