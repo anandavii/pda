@@ -1734,6 +1734,12 @@ By handling topcoded values in this way, we ensured a more accurate and realisti
 ## DID YOU PRODUCE ANY TABLES OR PLOTS THAT YOU THOUGHT WOULD REVEAL INTERESTING TRENDS BUT DIDN’T?
 Yes, we found one relationship between income and marital status which did not show a significant trend as I thought. The distribution of incomes for both groups, male and female, overlapped but the differences were not as huge as expected. For males, married people make more money than unmarried people and other categories. At the same time, for females, there is not much difference seen in income between married females and other categories. 
 
+## WHAT RELATIONSHIPS DID YOU INVESTIGATE THAT DON’T APPEAR IN YOUR FINDINGS SECTION?
+In our findings section where plotted our regression test, we didn't see a trend of females earning more than male for refusal category of use of marijuana. However, when we analyzed use of marijuana with income and gender, it was shown that females earn more than males.
+
+## WHAT’S THE ANALYSIS THAT YOU FINALLY SETTLED ON? WHAT INCOME AND GENDER RELATED FACTORS DO YOU INVESTIGATE IN THE FINAL ANALYSIS?
+We have analyzed many different combination of variables with income and gender which helped us stick to the observation that males have more income as compared to females. The factors that were taken into consideration are race, marital status, enrollment status, use of marijuana, birth year, industry code, age, is sad/depressed, trustful or not, citizenship, college type, highest grade completed, and total number of incarcerations. We plotted almost all of the variables against income and gender to find out if our hypothesis of male and female having same income is true or not. For our final analysis we applied regression plots for income ~ gender for both topcoded and no topcoded values, income ~ gender with race, marijuana, and industry code, income ~ gender with age & citizenship, income ~ gender with marital status.It turns out that we see males have more income across the dataset and even alayzing different types of variable, the reading remain same. Furthermore, there is a huge difference in the income of both groups.
+
 # PART 5 - CONCLUSION
 
 ## In this section you should summarize your main conclusions. You should also discuss potential limitations of your analysis and findings. Are there potential confounding variables that you didn’t control for? Are the models you fit believable?
