@@ -1,6 +1,6 @@
 ---
 title: "FinalProject_itmd514_05_Group4"
-author: "Abhishek Anand, Apurva Anand, Surajit Patra"
+author: "Submitted By: Abhishek Anand, Apurva Anand, Surajit Patra"
 date: "2024-12-03"
 output:
   html_document:
@@ -33,7 +33,7 @@ nlsy <- read_csv("nlsy97.csv")
 glimpse(nlsy)
 ```																									
 																									
-# PART 1- VARIABLES(SELECTION AND CLEANING)	
+# PART 1- VARIABLES(SELECTION) AND Exploratory Data Analysis (EDA)
 
 ```{r}
 # Change column names to meaningful
@@ -1698,6 +1698,14 @@ plot(notop_lm_model_rc_um_ic)
 3. Scale-Location (Spread-Location): The red line is relatively flat, but there is some variation in the spread of points. The heteroscedasticity detected in the first plot is confirmed here. Indicates that the model's variance might not be constant across the range of fitted values.
 
 4. Residuals vs. Leverage: Points like 120, 4628, and 1712 are flagged as having high leverage. No point crosses the Cook's distance threshold (indicated by the dashed lines), so no observation appears to be highly influential. No extreme leverage points, but observations with high leverage should be examined.
-```{r}
 
-```
+# PART 4 - STORYTELLING
+
+## METHODOLOGY
+
+## HANDLING MISSING VALUES
+
+## HANDLING TOPCODED VARIABLES
+
+# PART 5 - CONCLUSION
+
