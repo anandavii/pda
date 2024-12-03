@@ -612,7 +612,7 @@ ggplot(data = nlsy_df, aes(x = reorder(used_marijuana, -table(used_marijuana)[us
   scale_fill_brewer(palette = "Set3", name = "Type of Responses")
 ```
 
-# The graph below illustrates that 79.56% (7148) of respondents do not use marijuana, 19.97% (1795) use marijuana, 0.05% (5) don't know if the used it, 0.37% (34) refused to answer the question, and the question was a invalid skip for 2 people. By this plot, we can say that 0.43% (39) people might be hiding some information on use of marijuana. There is a significant number of respondents who use marijuana
+The graph below illustrates that 79.56% (7148) of respondents do not use marijuana, 19.97% (1795) use marijuana, 0.05% (5) don't know if the used it, 0.37% (34) refused to answer the question, and the question was a invalid skip for 2 people. By this plot, we can say that 0.43% (39) people might be hiding some information on use of marijuana. There is a significant number of respondents who use marijuana
 
 
 ## INDUSTRY CODE  
