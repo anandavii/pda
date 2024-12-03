@@ -1569,6 +1569,8 @@ gender_ci <- t.test(
 print(gender_ci)
 ```
 
+The Welch Two Sample t-test was performed to calculate the confidence interval for the difference in mean income between males and females, excluding topcoded values. After running the calculation, the t-statistic is 14.91, with degrees of freedom approximately 4938.7. The p-value is less than 2.2e-16, indicating strong evidence to reject the null hypothesis of no difference in mean income between males and females. The 95% confidence interval for the difference in means is [10,326.42, 13,453.00]. This interval does not include 0, further supporting the conclusion that a significant difference exists. The mean income for males is $50775 (approx) and $38886 (approx) for females. There is a statistically significant difference in mean income between males and females, with males earning, on average, significantly more than females in the dataset after excluding topcoded values which is similar to the trend as shown by topcoded test.
+
 ### HYPOTHESES TEST FOR NO-TOPCODED
 
 ```{r}
