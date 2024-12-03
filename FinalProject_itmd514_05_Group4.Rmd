@@ -1738,33 +1738,13 @@ Yes, we found one relationship between income and marital status which did not s
 
 ## In this section you should summarize your main conclusions. You should also discuss potential limitations of your analysis and findings. Are there potential confounding variables that you didn’t control for? Are the models you fit believable?
 
-Our Main conclusions: 
-
-Females consistently earned less than males, across different industries and demographic groups. The income disparity was statistically significant in most regression models, particularly in industries like Mining and Utilities, where the gender gap was more pronounced. Age was positively correlated with income, with older individuals earning more.The income gap between males and females appeared to widen as age increased, suggesting that age-related career progression may contribute to higher male earnings over time. Hispanic and Black individuals earned less than individuals in the Other race category, with males in the Other category earning the highest average income. Married individuals tended to earn more than unmarried individuals, although the relationship between marital status and income was less pronounced than the gender or age gaps.
-
-Potential limitations of our analysis:
-
-A significant portion of the data was missing. This reduced the representativeness of the results and may have introduced bias. The topcoded income values may have also introduced potential biases. While these values were excluded to prevent distortion of income distributions, it also meant that the analysis might not fully reflect the income dynamics of the top 2% earners.
-
-Key cofounding variables that wasn't controled for:
-
-Key confounders, such as education level, occupation, and location, were not controlled for in the models. These factors likely influence income and could have lead to residual confounding in the analysis.
-
-Are our models believable:
-
-The regression models assumed linear relationships between income and the predictors. However, some relationships may be non-linear or have interactions that were not captured in the models, leading to model misspecification.
+Females consistently earned less than males, throughout our analysis while incorporating different parameters such as race, citizenship, highest grade completed, industry code, marital status, use of marijuana etc. The income varied significantly in most of the analysis, such as in race, citizenship, use of marijuana, if they are sad or depressed, throughout different industries, marital status, incarcerations, college type, and if they were trustful or not, however we had certain circumstances where a femal earned more which is the industry code- ASC special codes.
+A significant portion of the data was missing which posed as limitations for us. The missing data and the topcoded income values may have also introduced potential biases. While these values were excluded to prevent distortion of income distributions, it also meant that the analysis might not fully reflect the income dynamics of the top 2% earners.
+Out of the 95 variables we had only selected 15 so there could have been many Key confounders, few of them could be education level, occupation, and location, were not controlled for in the models. These factors likely influence income and could have lead to residual confounding in the analysis.
+The regression model that we have used calculates the linear relationships between income and the predictors. However, some relationships may be non-linear or have interactions that were not captured in the model.
 
 ## You should also address the following question: How much confidence do you have in your analysis? Do you believe your conclusions? Are you confident enough in your analysis and findings to present them to policy makers? 
 
-Confidence in our analysis:
-
-We are moderately confident in the findings, particularly regarding the gender pay gap and income disparities by industry. The analysis suggests that gender and industry are strong predictors of income, but the results should be interpreted with caution due to missing data, topcoding, and unmeasured confounders.
-
-Believing our conclusions:
-
-While the findings are statistically significant, the interpretation of causality should be cautious. The regression models indicate correlation, but not causation. Further studies, incorporating additional variables such as education, occupation, and location, would be necessary to strengthen the conclusions.
-
-Presenting our analysis to policy makers:
-
-The findings, especially those related to the gender income gap, racial income disparities, and industry-specific income gaps, are important and could be valuable for policy makers. However, the missing data and topcoding limitations must be acknowledged, as they may impact the generalizability of the results.
-
+After doing our analysis we could see that there is a trend that men have more income than women, and we are moderately confident in the findings, particularly regarding the gender pay gap and income disparities. 
+While the findings show significant differences in the income of males and females, the missing data and the top coded values makes the analysis incomplete and a whole picture can not be drawn. We are definitely confident in out findings for the data on which we could perform our analysis and if we could have got the complete data a full analysis could have been done and we would have been more confident about the complete analysis. 
+The findings, especially those related to the gender income gap, racial income disparities, and industry-specific income gaps, are important and could be valuable for policy makers. However, the missing data and topcoding limitations must be acknowledged, as they might impact the generalizability of the results.
