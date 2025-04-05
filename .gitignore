@@ -4,3 +4,6 @@ __pycache__/book.cpython-312.pyc
 *.env
 
 /.idea
+
+.DS_Store
+.Rhistory
