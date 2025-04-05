@@ -1,12 +1,6 @@
 
 # 📊Exploratory Data Analysis on NLSY97 Dataset
 
-**Authors**:  
-- Abhishek Anand  
-- Apurva Anand  
-- Surajit Patra
----
-
 ## 📝 Project Description
 
 This project involved a comprehensive exploratory data analysis (EDA) and regression modeling on the **NLSY97** dataset. The primary objective was to uncover socio-demographic patterns and investigate factors influencing income levels, with a specific focus on **gender-based income disparities** and how other variables interact with this relationship.
