@@ -1,0 +1,417 @@
+---
+title: "FinalProject_itmd514_05_Anand_Abhishek"
+author: "Abhishek Anand"
+date: "2024-12-03"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+# We will require the tidyverse library, ISLR2 library and the dplyr library
+# The following loads the library for our use
+library(tidyverse)
+library(knitr)
+library(ggplot2)
+library(gridExtra)
+```
+
+```{r}
+# Import data file for nlsy97
+nlsy <- read_csv("nlsy97.csv")
+```
+
+```{r} 
+#Looking at the data 
+glimpse(nlsy)
+```
+
+
+```{r}
+#Renaming data column(R0536300) to 'gender'
+nlsy <- nlsy %>%
+  rename(
+    gender = `R0536300`)
+```
+
+
+```{r}
+#Check the unique values and if any missing values are present
+unique(nlsy$gender)
+table(nlsy$gender, useNA = "ifany")
+```  
+As we can see here we have a total of 4599 male and 4385 females which are denoted by 1 and 2 factor levels.
+
+```{r}
+# Convert gender to a factor with Male and Female labels
+nlsy <- nlsy %>%
+  mutate(gender = factor(gender, 
+                         levels = c(1, 2), 
+                         labels = c("Male", "Female")))
+```  
+Renaming the factor level 1 and 2 in the gender column to Male and Female
+
+```{r}
+# Verify the count of Male and Female in the data
+nlsy %>%
+  count(gender, sort=TRUE) %>%
+  rename(count = n)
+```
+```{r}
+# Gender Sumary
+ggplot(nlsy, aes(x = gender, fill = gender)) +
+  geom_bar() +
+  geom_text( aes(label = ..count..), stat = "count", vjust = 6, size = 6 ) +
+  labs(title = "Gender Distribution Plot", x = "Gender", y = "Count")
+```  
+
+From the plot above we can see the population distribution contains more number of Male(4599) and less Females(4385).
+
+```{r}
+#Renaming data column(R1201400) to 'current_enrollment_status'
+nlsy <- nlsy %>%
+  rename(current_enrollment_status = `R1201400`)
+```
+
+
+```{r} 
+#Check for unique values and if any missing values are present
+unique(nlsy$current_enrollment_status)
+table(nlsy$current_enrollment_status, useNA = "ifany")
+```
+There exist 2 values indicating Don't Know, denoted by -2
+
+```{r}
+# Changing factor levels for current_enrollment_status into labels
+nlsy <- nlsy %>%
+  mutate(current_enrollment_status = case_when(
+    current_enrollment_status == 1 ~ "Not enrolled, no high school degree, no GED",
+    current_enrollment_status == 2 ~ "Not enrolled, GED",
+    current_enrollment_status == 3 ~ "Not enrolled, high school degree",
+    current_enrollment_status == 4 ~ "Not enrolled, some college",
+    current_enrollment_status == 5 ~ "Not enrolled, 2-year college graduate",
+    current_enrollment_status == 6 ~ "Not enrolled, 4-year college graduate",
+    current_enrollment_status == 7 ~ "Not enrolled, graduate degree",
+    current_enrollment_status == 8 ~ "Enrolled in grades 1-12, not a high school graduate",
+    current_enrollment_status == 9 ~ "Enrolled in a 2-year college",
+    current_enrollment_status == 10 ~ "Enrolled in a 4-year college",
+    current_enrollment_status == 11 ~ "Enrolled in a graduate program",
+    current_enrollment_status < 0 ~ NA_character_ 
+  ))
+```
+In the above we have lebelled the enrollment statuses and also changed the negative  values with NA the count of which is only 2 rows which is 2/8984 rows and ~0.02% of total data.
+
+```{r}
+# Verify the count of different enrollment statuses
+nlsy %>%
+  count(current_enrollment_status, sort = TRUE) %>%
+  rename(count = n)
+```
+From the table above we observe that 8742 of the respondants said that their current enrollment status is "Enrolled in grades 1-12, not a high school graduate" and this is followed by the ones who responsded "Not enrolled, no high school degree, no GED	" which is 226.
+
+```{r}
+# Rename the column(U2857200) to total_income_2016
+nlsy <- nlsy %>%
+  rename(total_income_2016 = `U2857200`)
+```
+
+
+```{r} 
+#Check the data
+unique(nlsy$total_income_2016)
+```
+
+```{r}
+# Handle negative values and replace with NA
+nlsy <- nlsy %>%
+  mutate(total_income_2016 = ifelse(total_income_2016 < 0, NA, total_income_2016))
+```
+
+```{r}
+# Summarize the total_income_2016 column including topcoded values
+summary(nlsy$total_income_2016)
+
+# Count the number of missing values including topcoded values
+sum(is.na(nlsy$total_income_2016))
+
+# Calculate the percentage of missing values
+sum(is.na(nlsy$total_income_2016)) / nrow(nlsy) * 100
+```
+From the above we can see that the missing values(NA) are 3893 which is 43.33% of the total data which might lead to bias. The mean is 49447 which is likely lower than the expected value due to the topcoding for the top 2%. The maximum income is 235884 which is also not the actual highest income but represents the average of the topcoded values. The median income is $40,000, and the interquartile range (IQR) spans from $25,000 to $62,000.
+
+```{r}
+#Number of Topcoded values(repondents with higher income)
+topcoded <- with(nlsy, sum(total_income_2016 == max(total_income_2016, na.rm = TRUE), na.rm = TRUE))
+topcoded
+```   
+
+There are 121 topcoded values present with the income of $235,884. These 121 respondants are among the top 2% of the earners and are given an average value of $235,884
+
+```{r}
+# Summarize the total_income_2016 column excluding topcoded values and removing NA rows
+nlsy_no_topcoded <- nlsy %>% 
+  filter(total_income_2016 != max(total_income_2016, na.rm = TRUE))
+summary(nlsy_no_topcoded$total_income_2016)
+```
+
+We have removed the respondents response who were hiding info or their responses could not be captured for their income in 2016.
+After removing the topcoded values it lowers the mean income from $49,477 to $44,939. The maximum income also drops from $235,884 to $149,000, which is the actual cutoff for the topcoded group. The median and IQR remain largely unchanged, showing that the central distribution of income is not significantly affected by the exclusion of topcoded values.
+
+
+```{r}
+# Visualizing income distribution histogram including the topcoded values
+plot1 <- ggplot(nlsy, aes(x = total_income_2016)) +
+  geom_histogram(bins = 30, fill = "purple", color = "black", na.rm = TRUE) +
+  labs(title = "Fig1. Total Income 2016",
+       subtitle = "Including Topcoded values",
+       x = "Total Income for 2016", 
+       y = "Frequency on income") 
+
+# Visualizing income distribution boxplot  including the topcoded values
+plot2 <- ggplot(nlsy, aes(y = total_income_2016)) +
+  geom_boxplot(fill = "cyan", color = "black", na.rm = TRUE) +
+  labs(title = "Fig1.1 Total Income 2016",
+       subtitle = "Including Topcoded values",
+       y = "Total Income")
+
+# Visualizing income distribution histogram excluding the topcoded values
+nlsy_no_topcoded <- nlsy %>% 
+  filter(total_income_2016 != max(total_income_2016, na.rm = TRUE))
+
+plot3 <-ggplot(nlsy_no_topcoded, aes(x = total_income_2016)) +
+  geom_histogram(bins = 30, fill = "purple", color = "black", na.rm = TRUE) +
+  labs(title = "Fig2. Total Income 2016",
+       subtitle = "Excluding Topcoded values",
+       x = "Total Income for 2016", 
+       y = "Frequency on income") 
+
+# Visualizing income distribution boxplot excluding the topcoded values
+plot4 <-ggplot(nlsy_no_topcoded, aes(y = total_income_2016)) +
+  geom_boxplot(fill = "cyan", color = "black", na.rm = TRUE) +
+  labs(title = "Fig2.1 Total Income 2016",
+       subtitle = "Excluding Topcoded values",
+       y = "Total Income")
+
+grid.arrange(plot1, plot2, plot3, plot4, ncol = 2)
+```   
+
+In the above we see that the income is topcoded and the value for the top 2% earners is replaced with average income of this group. In Fig1. the histogram is right skewed which means that there are very few high income earners but most earners make less and this skewness shows that the majority of the population earns much less than this topcoded value.
+
+In Fig1.1 the boxplot for the same data shows that the median income is around $40,000, and the Interquartile Range (IQR) spans from $25,000 to $62,000. This means that 50% of the individuals' incomes fall within this range. The plot also identifies the topcoded value as an outlier at $235,884, which is far outside the typical income range. 
+
+In Fig 2.when the topcoded values are removed, the histogram shows a more accurate representation of the income distribution, with the right skew still present but less extreme. This plot offers a more realistic view of the income structure, showing that the vast majority of individuals earn significantly less than $235,884.
+
+Similarly in Fig2.1 the boxplot, now excluding the topcoded values, shows a median income of $35,000 and a more concentrated IQR of $25,000 to $50,000. By removing the topcoded value, the outlier is eliminated, and the distribution is more representative of the actual income spread. This boxplot highlights the more typical income range for most individuals, without the distortion introduced by the topcoded values.
+
+
+```{r}
+# Rename the column(R1482600) to race
+nlsy <- nlsy %>%
+  rename(race = `R1482600`)
+```
+
+```{r}
+#Check for unique values and if any missing values are present
+unique(nlsy$race)
+table(nlsy$race, useNA = "ifany")
+```
+Here we can see that we have the valid values from 1-4 and this column does not contain any missing values as well. Now further we can encode the numeric values to the race/ethinicity.
+
+```{r}
+# Recode race values into descriptive labels
+nlsy <- nlsy %>%
+  mutate(race = case_when(
+    race == 1 ~ "Black",
+    race == 2 ~ "Hispanic",
+    race %in% c(3, 4) ~ "Other"  # Combine "Mixed Race" and "Non-Black" into "Other"
+  )) %>%
+  mutate(race = factor(race, levels = c("Black", "Hispanic", "Other")))
+```
+
+```{r}
+# Count the number of respondents in each race group
+nlsy %>%
+  count(race, sort=TRUE) %>%
+  rename(count = n)
+```
+From the count we can infer that the total population contains 4665 Non-Black, 2335 Black respondents, 1901 Hispanic and 83 Mixed Race population.
+
+```{r}
+# Race Summary
+ggplot(nlsy, aes(x = reorder(race, -table(race)[race]), fill = race)) +
+  geom_bar() +
+  geom_text( aes(label = ..count..), stat = "count", vjust = 6, size = 6 ) +
+  labs(title = "Race Distribution Plot", x = "Race", y = "Count",
+      subtitle = "Note: 'Other' includes Mixed Race and Non-Black" )
+```  
+
+```{r}
+# Rename the column(T6767000) to highest_grade_completed
+nlsy <- nlsy %>%
+  rename(highest_grade_completed = `T6767000`)
+```
+
+```{r}
+#Check for unique values and if any missing values are present
+unique(nlsy$highest_grade_completed)
+table(nlsy$highest_grade_completed, useNA = "ifany")
+```
+From the above we can see there are four types of negative values present which are -5, -4, -2 and -1 denoting non-interview, skipped, don't know and refusal. Further we have to encode the values with appropiriate labels.
+
+```{r}
+# Replace negative values with NA
+nlsy <- nlsy %>%
+  mutate(highest_grade_completed = ifelse(highest_grade_completed < 0, NA, highest_grade_completed))
+```
+
+```{r}
+# Recode highest grade completed into descriptive labels
+nlsy <- nlsy %>%
+  mutate(highest_grade_completed = case_when(
+    highest_grade_completed == 0 ~ "None",
+    highest_grade_completed == 1 ~ "1st Grade",
+    highest_grade_completed == 2 ~ "2nd Grade",
+    highest_grade_completed == 3 ~ "3rd Grade",
+    highest_grade_completed == 4 ~ "4th Grade",
+    highest_grade_completed == 5 ~ "5th Grade",
+    highest_grade_completed == 6 ~ "6th Grade",
+    highest_grade_completed == 7 ~ "7th Grade",
+    highest_grade_completed == 8 ~ "8th Grade",
+    highest_grade_completed == 9 ~ "9th Grade",
+    highest_grade_completed == 10 ~ "10th Grade",
+    highest_grade_completed == 11 ~ "11th Grade",
+    highest_grade_completed == 12 ~ "12th Grade",
+    highest_grade_completed == 13 ~ "1st Year College",
+    highest_grade_completed == 14 ~ "2nd Year College",
+    highest_grade_completed == 15 ~ "3rd Year College",
+    highest_grade_completed == 16 ~ "4th Year College",
+    highest_grade_completed == 17 ~ "5th Year College",
+    highest_grade_completed == 18 ~ "6th Year College",
+    highest_grade_completed == 19 ~ "7th Year College",
+    highest_grade_completed == 20 ~ "8th Year College or More",
+    highest_grade_completed == 95 ~ "Ungraded",
+    highest_grade_completed < 0 ~ NA_character_ 
+  ))
+```
+
+```{r}
+# Verify the count of different grades
+nlsy %>%
+  count(highest_grade_completed, sort=TRUE) %>%
+  rename(count = n)
+```
+From above we see that majority of the population did not answer about their grades which is 7436. From the remaining we can see that the majority of population completed 2nd year college(277) followed by 1st year college(213).
+
+```{r}
+# Create the plot with proper count calculation
+ggplot(nlsy, aes(x = reorder(highest_grade_completed, table(highest_grade_completed)[highest_grade_completed]),  fill = highest_grade_completed)) +
+  geom_bar( stat = "count",show.legend = FALSE) +
+  geom_text(stat = "count", aes(label = ..count..), vjust = -0.5, size = 3) +
+  labs( title = "Distribution of Highest Grade Completed", x = "Highest Grade Completed", y = "Count") +
+  theme(axis.text.x = element_text(angle = 60, vjust = 1, hjust = 1))  
+```
+From the above we see that theere are missing values for the majority of responses which is 7436. From the remaining we can see that the majority of population completed 2nd year college(277) followed by 1st year college(213).
+
+#PART 2 Analysis
+
+```{r}
+# Summarize income by gender including topcoded variable, excluding NA
+gender_income_summary <- nlsy %>%
+  filter(!is.na(total_income_2016)) %>%  # Exclude rows with NA in income
+  group_by(gender) %>%
+  summarize(
+    count = n(),  
+    mean_income = round(mean(total_income_2016, na.rm = TRUE)),
+    median_income = round(median(total_income_2016, na.rm = TRUE)),
+    sd_income = round(sd(total_income_2016, na.rm = TRUE))
+  )
+print(gender_income_summary)
+
+# Summarize income by gender excluding topcoded variable, excluding NA
+
+#Excuding the top coded values
+nlsy_no_topcoded <- nlsy %>%
+  filter(!is.na(total_income_2016)) %>% 
+  filter(total_income_2016 != max(total_income_2016, na.rm = TRUE))  
+
+gender_income_summary <- nlsy_no_topcoded %>%
+  group_by(gender) %>%
+  summarize(
+    count = n(),  # Count rows after filtering
+    mean_income = round(mean(total_income_2016, na.rm = TRUE)),
+    median_income = round(median(total_income_2016, na.rm = TRUE)),
+    sd_income = round(sd(total_income_2016, na.rm = TRUE))
+  )
+print(gender_income_summary)
+```
+
+
+
+The above tabular summary for income by gender shows that males have a higher average income ($57,203) compared to females ($41,279), with a median income of $47,000 for males and $35,000 for females. The standard deviation is also higher for males ($44,712) than for females ($34,047), indicating greater income variability among males. Overall, males consistently earn more on average and have more variation in income compared to females.
+
+```{r}
+plot1 <- ggplot(nlsy, aes(x = gender, y = total_income_2016, fill = gender)) +
+  geom_boxplot(show.legend = FALSE, na.rm = TRUE) +
+  labs(title = "Fig1.Income Distribution by Gender", 
+       subtitle = "Including Topcoded values",
+       x = "Gender", 
+       y = "Total Income")
+
+# Plot of Income with Gender excluding topcoded values
+nlsy_no_topcoded <- nlsy %>% 
+  filter(total_income_2016 != max(total_income_2016, na.rm = TRUE))
+
+plot2 <- ggplot(nlsy_no_topcoded, aes(x = gender, y = total_income_2016, fill = gender)) +
+  geom_boxplot(show.legend = FALSE) +
+  labs(title = "Fig2.Income Distribution by Gender",
+       subtitle = "Excluding Topcoded values",
+       x = "Gender", 
+       y = "Total Income")
+
+grid.arrange(plot1, plot2, ncol = 2)
+```
+The box plot shows the distribution of income by gender, highlighting key differences between males and females. Males have a higher median income (indicated by the middle line of the box) compared to females. The overall spread of income is wider for males, as shown by the larger interquartile range and longer whiskers, reflecting greater income variability. From this boxplot we can say that males tend to earn more and have more income variability compared to females.
+
+```{r}
+# Calculate mean income by race and gender
+income_by_race_gender <- nlsy %>%
+  group_by(race, gender) %>%
+  summarize(
+    average_income = round(mean(total_income_2016, na.rm = TRUE)),
+    count = n() 
+  )
+# Display the tabular summary
+income_by_race_gender
+```
+```{r}
+# Calculate mean income by race and gender, excluding rows with NA in income
+income_by_race_gender <- nlsy %>%
+  filter(!is.na(total_income_2016)) %>%  # Exclude rows where income is NA
+  group_by(race, gender) %>%
+  summarize(
+    average_income = round(mean(total_income_2016, na.rm = TRUE)),  # Calculate mean income
+    count = n()  # Count rows after filtering
+  )
+# Display the tabular summary
+income_by_race_gender
+```
+
+From the above we can see that the average income and the number of individuals for each race-gender combination, highlighting clear disparities. Males consistently earn more than females across all racial groups, with the income gap being the largest in the "Other" group ($18,279 difference) and smallest in the "Black" group ($6,873 difference). Among racial groups, individuals in the "Other" category have the highest average income for both males ($64,519) and females ($46,240), followed by "Hispanic" and "Black" groups, where males earn $53,326 and $42,110, respectively. Within each race, males and females are nearly equally represented, though males slightly outnumber females in most cases. This data reveals significant income disparities by both race and gender.
+
+```{r}
+# Create the bar plot for income by race and gender including topcoded values
+ggplot(nlsy, aes(x = race, y = total_income_2016, fill = gender)) +
+  geom_bar(stat = "summary", fun = "mean", position = "dodge", show.legend = TRUE, na.rm=TRUE) +
+  geom_text(
+    aes(label = round(..y..)), stat = "summary", fun = "mean", position = position_dodge(width = 0.9),vjust = 6, size = 4 ) +
+  labs(
+    title = "Income by Race and Gender",
+    subtitle = "Including Topcoded values",
+    x = "Race",
+    y = "Average Income",
+    fill = "Gender"
+  ) 
+```
+The bar plot shows the average income by race and gender, with distinct bars for males and females within each racial group. The "Other" group has the highest average income for both males ($64,519) and females ($46,240), followed by "Hispanic" and "Black" groups. Males consistently earn more than females across all groups, with the gender gap largest in the "Other" group ($18,279) and smallest in the "Black" group ($6,873). The plot highlights significant income disparities both between races and genders.
+
+```{r}
+
+```
